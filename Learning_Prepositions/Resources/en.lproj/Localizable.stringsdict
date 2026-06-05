@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>result.correct_answers</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@answers@</string>
+		<key>answers</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>correct answer</string>
+			<key>other</key>
+			<string>correct answers</string>
+		</dict>
+	</dict>
+	<key>quizReview.mistakes_count_formatted</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@mistakes@</string>
+		<key>mistakes</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d mistake</string>
+			<key>other</key>
+			<string>%d mistakes</string>
+		</dict>
+	</dict>
+	<key>quizReview.correct_count_formatted</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@correct@</string>
+		<key>correct</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d correct</string>
+			<key>other</key>
+			<string>%d correct</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

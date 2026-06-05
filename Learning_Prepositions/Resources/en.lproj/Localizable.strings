@@ -1,0 +1,228 @@
+//================================================ Splash screen =================================================
+"splash.description" = "Master prepositions the fun way";
+
+//================================================ About screen =================================================
+"about.title" = "About App";
+"about.intro" = "Struggling with German prepositions? PrapoDe is your pocket coach that turns boring grammar lists into an engaging game.";
+"about.why.title" = "Why PrapoDE?";
+"about.feature1.title" = "1. All Levels";
+"about.feature1.text" = "From A1 to C1 – study exactly what you need for your current proficiency.";
+
+"about.feature_training.title" = "2. Training Mode";
+"about.feature_training.text" = "Browse the full list of words and translations before diving into tests.";
+
+"about.feature_quiz.title" = "3. Classic Quiz";
+"about.feature_quiz.text" = "Take your time and choose the correct answer from the suggested options.";
+
+"about.feature2.title" = "4. Sprint Mode";
+"about.feature2.text" = "Test your speed: get as many correct answers as possible in just 60 seconds.";
+
+"about.feature_writing.title" = "5. Writing Mode";
+"about.feature_writing.text" = "Type prepositions manually for maximum memorization and spelling practice.";
+
+"about.feature_analysis.title" = "6. Error Review";
+"about.feature_analysis.text" = "Break down your mistakes immediately after finishing a test.";
+
+"about.feature3.title" = "7. 5-Point System";
+"about.feature3.text" = "A word is considered 'Mastered' only after 5 correct answers in a row.";
+
+"about.feature6.title" = "8. Smart Widget";
+"about.feature6.text" = "Study words directly on your home screen without even opening the app.";
+
+"about.feature5.title" = "9. Global Ranking";
+"about.feature5.text" = "Compete with students worldwide and see your name on the leaderboards.";
+
+"about.feature4.title" = "10. Visual Progress";
+"about.feature4.text" = "Monitor your learning growth through detailed statistics and charts.";
+"about.outro" = "Stop guessing. Start mastering German grammar today!";
+"about.version" = "Version ";
+
+//================================================ UniversalMenu - Category screen =================================================
+"universalMenu.category.title" = "Choose Category";
+"universalMenu.category.hint.title" = "Learn Efficiently";
+"universalMenu.category.hint.description" = "Choose the right level to progress faster";
+
+//================================================ UniversalMenu - Activity screen =================================================
+"universalMenu.activity.title" = "Choose Mode";
+"universalMenu.activity.training.title" = "Training";
+"universalMenu.activity.quiz.title" = "Quiz";
+"universalMenu.activity.sprint.title" = "Sprint";
+"universalMenu.activity.progress.title" = "My Progress";
+"universalMenu.activity.writing.title" = "Writing";
+
+//================================================ Mode screen ===================================================================
+"mode.title" = "Options";
+"mode.case.random.title" = "Random Order";
+
+//================================================ Quiz screen ===================================================================
+"quiz.title" = "Question";
+"quiz.button.next" = "Next";
+"quiz.button.finish" = "Finish Test";
+
+//================================================ SpeedQuiz screen ===================================================================
+"speedQuiz.title" = "Question";
+"speedQuiz.countdown.go" = "GO!";
+
+//================================================ Result screen ===================================================================
+"result.result" = "Result";
+"result.button.repeat_test.title" = "Repeat Test";
+"result.button.best_results.title" = "Best Results";
+"result.button.main_menu.title" = "Main Menu";
+"result.button.review_аnswers.title" = "Review Answers";
+
+//================================================Leaderboard screen ===================================================================
+"leaderboard.title" = "Your Best Results";
+"leaderboard.picker.quiz.title" = "Quiz";
+"leaderboard.picker.sprint.title" = "Sprint";
+"leaderboard.picker.writing.title" = "Writing";
+"leaderboard.no_results.description" = "No results for this level 🙃";
+
+//================================================ Settings screen ===================================================================
+"settings.title" = "Settings";
+"settings.section.quiz.title" = "Quiz";
+"settings.section.general.title" = "General";
+"settings.section.quiz.description" = "Number of questions:";
+"settings.section.translation_language.description" = "Translate to";
+"settings.section.language.title" = "Language";
+"settings.section.language_level.title" = "Language level";
+"settings.section.language_level.description" = "Select a level";
+"settings.section.results.title" = "Results";
+"settings.section.results.description" = "View your results";
+"settings.section.about.title" = "About App";
+"settings.section.feedback.title" = "Feedback";
+"settings.section.feedback.description" = "Write to developer / leave feedback";
+"settings.section.feedback.email.text" = "Hello! I would like to leave a review about the app.\n\n";
+"settings.section.about_us.description" = "About us";
+"settings.section.reset_progress.description" = "Reset results";
+"settings.section.widget.title" = "Widget";
+"settings.section.widget.wordSelection" = "Word Selection";
+
+//================================================ СhooseQuizLevel screen ==============================================================
+"сhooseQuizLevel.title" = "Select Difficulty Level";
+"сhooseQuizLevel.level.light" = "Easy";
+"сhooseQuizLevel.level.medium" = "Medium";
+"сhooseQuizLevel.level.heavy" = "Hard";
+"сhooseQuizLevel.numberOfQuestions" = "questions";
+
+//================================================ QuizReview screen ===================================================================
+"quizReview.title" = "Review Answers";
+"quizReview.totalQuestions" = "Total questions:";
+"quizReview.yourAnswer" = "Your Answer:";
+
+//============================================ World Raking screen ======================================================
+"worldRanking.sprint.Title" = "World Sprint Ranking";
+"worldRanking.EmptyState" = "Be the first in this Sprint ranking!";
+"worldRanking.loadError" = "Could not load the ranking";
+"worldRanking.filter.byCountry" = "Show ranking for my country";
+"worldRanking.filter.worldwide" = "Show worldwide ranking";
+
+// Feedback Titles
+"quizReview.feedback.title.perfect" = "Perfect! 🏆";
+"quizReview.feedback.title.excellent" = "Excellent Result! 🚀";
+"quizReview.feedback.title.good" = "Good, but some mistakes 🧐";
+"quizReview.feedback.title.needsImprovement" = "Review Needed 📚";
+"quizReview.feedback.title.tryAgain" = "Try Again 🐣";
+
+// Feedback Subtitles
+"quizReview.feedback.subtitle.perfect" = "No mistakes. Keep it up!";
+"quizReview.feedback.subtitle.default" = "Check your mistakes below to learn the correct prepositions.";
+
+//================================================ Trainings screen ===================================================================
+"training.screen.title" = "Training";
+"training.finish.title" = "Great job!";
+"training.finish.description" = "You have reviewed all words in this deck";
+"training.finish.button.home" = "Main Menu";
+"training.action.repeat" = "Repeat";
+"training.action.know" = "I know";
+"training.action.tapToFlip" = "Tap to flip";
+"training.action.listen" = "Listen";
+
+//================================================ My Progress screen =================================================================
+"myProgress.screen.title" = "My Progress";
+"myProgress.search.title" = "Find a word...";
+"myProgress.header.level" = "Selected Level: ";
+"myProgress.stats.learned" = "Learned: %lld";
+"myProgress.stats.total" = "Total: %lld";
+"myProgress.capsule.all.title" = "All";
+
+"myProgress.update.alert.confirm.title" = "Update Content?";
+"myProgress.update.alert.confirm.description" = "Do you want to check for new words or fixes? Your progress will be saved.";
+"myProgress.update.alert.confirm.action" = "Update";
+
+"myProgress.update.alert.success.title" = "Updated!";
+"myProgress.update.alert.success.description" = "New data downloaded successfully. Typos fixed and new items added.";
+
+"myProgress.update.alert.noChanges.title" = "No Updates";
+"myProgress.update.alert.noChanges.description" = "You already have the latest version of the dictionary.";
+
+"myProgress.update.alert.error.title" = "Update Failed";
+
+//================================================ Rules Screen =================================================================
+
+// general
+"rules.title" = "How Learning Works";
+"writing.rules.title" = "Writing rules";
+
+"rules.target.title" = "Goal";
+"rules.target.description" = "Reach **5 mastery points** for each **word with a preposition** to consider it learned.";
+"rules.where.title" = "Where to Play?";
+"rules.where.description" = "Points are awarded only in **Quiz**, **Sprint** (Timed Quiz) and **Writing** modes.";
+"rules.correct.title" = "Correct Answer";
+"rules.correct.description" = "Adds **+1 point** to the word's progress.";
+"rules.wrong.title" = "Mistake";
+"rules.wrong.description" = "A wrong answer deducts **1 point**.\n\nIf you make a mistake in an already **learned** word, **2 points** will be deducted, and the word returns to unlearned status.";
+"rules.button.close" = "Got it";
+
+// writing
+"rules.writing.case.title" = "Case";
+"rules.writing.case.desc" = "Uppercase and lowercase letters don't matter.";
+"rules.writing.umlauts.title" = "Umlauts";
+"rules.writing.umlauts.desc" = "Skipping **ä/ö/ü** is allowed, but we'll remind you about it.";
+"rules.writing.sich.title" = "Particle **(sich)**";
+"rules.writing.sich.desc" = "You can skip typing it, the system will handle it.";
+
+//================================================ Writing Screen =============================================================
+"writing.title" = "Task";
+"writing.placeholder" = "Enter translation...";
+"writing.button.check" = "Check";
+"writing.button.next" = "Next";
+"writing.hint.almost" = "Correct! But don't forget the umlauts ✍️";
+"writing.hint.error" = "Mistake";
+"writing.hint.perfect" = "Great!";
+"writing.hint.extra_umlaut" = "Correct! But there's an extra umlaut ✍️";
+"writing.hint.also" = "You can also say:";
+"writing.hint.correct_variants" = "Correct answers:";
+
+//============================================OnboardingProfile============================================
+"onboardingProfile.title" = "Your profile";
+"onboardingProfile.subtitle" = "Enter your details for the ranking";
+"onboardingProfile.nickname.label" = "Nickname";
+"onboardingProfile.nickname.placeholder" = "Enter name...";
+"onboardingProfile.country.label" = "Where are you from?";
+"onboardingProfile.country.placeholder" = "Select from the list...";
+"onboardingProfile.saveButton" = "Save";
+"onboardingProfile.picker.title" = "Where are you from?";
+"onboardingProfile.picker.search" = "Search country...";
+
+//================================================ Word selection (for widget) Screen  ==================================================
+"widgetWord.title" = "Verb Selection";
+"widgetWord.searchText" = "Search verbs...";
+"widgetWord.header.description" = "Select verbs for the widget";
+
+//================================================ ALERTS ===================================================================
+"alert.finish_test.title" = "Do you want to stop the test?";
+"alert.finish_training.title" = "Do you want to stop the training?";
+"alert.finish_writing.title" = "Do you want to stop the writing exercise?";
+"alert.finish_test.description" = "Your progress will not be saved.";
+"alert.reset_results.title" = "Are you sure you want to delete all your results?";
+"alert.yes" = "Yes";
+"alert.no" = "No";
+"alert.ok" = "Ok";
+"alert.repeat" = "Repeat";
+"alert.unknown_error" = "Unknown error";
+
+//================================================ APP ERRORS ===================================================================
+"appErrors.noInternet" = "No internet connection. Please check your network and try again.";
+"appErrors.serverError" = "Server error:";
+"appErrors.decodingError" = "Failed to process the received data.";
+"appErrors.unknown" = "An unknown error occurred";

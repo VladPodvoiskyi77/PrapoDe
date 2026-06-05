@@ -1,0 +1,16 @@
+# swiftgen.yml для v6.6.3
+strings:
+  inputs:
+    - Learning_Prepositions/Resources/en.lproj/Localizable.strings
+    - Learning_Prepositions/Resources/en.lproj/Localizable.stringsdict
+  outputs:
+    templateName: structured-swift5
+    output: Learning_Prepositions/Generated/Strings.swift
+
+xcassets:
+  inputs:
+    - Learning_Prepositions/Resources/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: Learning_Prepositions/Generated/Assets.swift
+

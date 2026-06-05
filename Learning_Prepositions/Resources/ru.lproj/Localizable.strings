@@ -1,0 +1,227 @@
+//================================================ Splash screen =================================================v
+"splash.description" = "Освой предлоги играючи";
+
+//================================================ About screen =================================================
+"about.title" = "О приложении";
+"about.intro" = "Немецкая грамматика кажется сложной, а управление глаголов (Rektion) — кошмаром? PrapoDe — это ваш карманный тренер, который превращает зубрежку таблиц в увлекательную игру.";
+"about.why.title" = "Почему PrapoDE?";
+"about.feature1.title" = "1. Все уровни";
+"about.feature1.text" = "От A1 до C1 — учите только то, что нужно вам сейчас.";
+
+"about.feature_training.title" = "2. Режим Тренировки";
+"about.feature_training.text" = "Просматривайте полный список слов с переводами перед началом тестов.";
+
+"about.feature_quiz.title" = "3. Классический Квиз";
+"about.feature_quiz.text" = "Спокойно выбирайте правильный ответ из предложенных вариантов.";
+
+"about.feature2.title" = "4. Режим Спринт";
+"about.feature2.text" = "Проверьте реакцию: максимум правильных ответов за 60 секунд.";
+
+"about.feature_writing.title" = "5. Правописание";
+"about.feature_writing.text" = "Вводите предлоги вручную для максимального запоминания.";
+
+"about.feature_analysis.title" = "6. Работа над ошибками";
+"about.feature_analysis.text" = "Разбирайте свои промахи сразу после окончания теста.";
+
+"about.feature3.title" = "7. Система 5 баллов";
+"about.feature3.text" = "Слово считается выученным только после 5 верных ответов подряд.";
+
+"about.feature6.title" = "8. Умный Виджет";
+"about.feature6.text" = "Учите слова прямо на главном экране, не открывая приложение.";
+
+"about.feature5.title" = "9. Глобальный рейтинг";
+"about.feature5.text" = "Сравнивайте свои успехи с учениками со всего мира.";
+
+"about.feature4.title" = "10. Наглядный прогресс";
+"about.feature4.text" = "Следите за ростом своих знаний через детальные графики.";
+"about.outro" = "Перестаньте угадывать предлоги. Начните говорить уверенно!";
+"about.version" = "Версия ";
+
+//================================================ UniversalMenu - Category screen =================================================
+"universalMenu.category.title" = "Выбери категорию";
+"universalMenu.category.hint.title" = "Учись эффективно";
+"universalMenu.category.hint.description" = "Выбери подходящий уровень, чтобы прогрессировать быстрее";
+
+//================================================ UniversalMenu - Activity screen =================================================
+"universalMenu.activity.title" = "Выберите режим";
+"universalMenu.activity.training.title" = "Тренировка";
+"universalMenu.activity.quiz.title" = "Квиз";
+"universalMenu.activity.sprint.title" = "Спринт";
+"universalMenu.activity.progress.title" = "Мой прогресс";
+"universalMenu.activity.writing.title" = "Правописание";
+
+//================================================ Mode screen ===================================================================
+"mode.title" = "Параметры";
+"mode.case.random.title" = "Случайный порядок";
+
+//================================================ Quiz screen ===================================================================
+"quiz.title" = "Вопрос";
+"quiz.button.next" = "Дальше";
+"quiz.button.finish" = "Завершить тест";
+
+//================================================ SpeedQuiz screen ===================================================================
+"speedQuiz.title" = "Вопрос";
+"speedQuiz.countdown.go" = "Поехали!";
+
+//================================================ Result screen ===================================================================
+"result.result" = "Результат";
+"result.button.repeat_test.title" = "Повторить тест";
+"result.button.best_results.title" = "Лучшие результаты";
+"result.button.main_menu.title" = "Главное меню";
+"result.button.review_аnswers.title" = "Посмотреть ответы";
+
+//================================================ Leaderboard screen ===================================================================
+"leaderboard.title" = "Ваши лучшие результаты";
+"leaderboard.picker.quiz.title" = "Квиз";
+"leaderboard.picker.sprint.title" = "Спринт";
+"leaderboard.picker.writing.title" = "Правописание";
+"leaderboard.no_results.description" = "Нет результатов для этого уровня 🙃";
+
+//================================================ Settings screen ===================================================================
+"settings.title" = "Настройки";
+"settings.section.quiz.title" = "Квиз";
+"settings.section.general.title" = "Общие";
+"settings.section.quiz.description" = "Количество вопросов:";
+"settings.section.translation_language.description" = "Переводить на";
+"settings.section.language.title" = "Язык";
+"settings.section.language_level.title" = "Уровень языка";
+"settings.section.language_level.description" = "Выберите уровень";
+"settings.section.results.title" = "Pезультаты";
+"settings.section.about.title" = "О приложении";
+"settings.section.results.description" = "Показать твои результаты";
+"settings.section.feedback.title" = "Обратная связь";
+"settings.section.feedback.description" = "Написать разработчику / оставить отзыв";
+"settings.section.feedback.email.text" = "Здравствуйте! Хотел(а) бы оставить отзыв о приложении.\n\n";
+"settings.section.about_us.description" = "О нас";
+"settings.section.reset_progress.description" = "Сбросить результаты";
+"settings.section.widget.title" = "Виджет";
+"settings.section.widget.wordSelection" = "Выбор слов";
+
+//================================================ СhooseQuizLevel screen ===============================================================
+"сhooseQuizLevel.title" = "Выберите уровень сложности";
+"сhooseQuizLevel.level.light" = "Легкий";
+"сhooseQuizLevel.level.medium" = "Средний";
+"сhooseQuizLevel.level.heavy" = "Сложный";
+"сhooseQuizLevel.numberOfQuestions" = "вопросов";
+
+//================================================ QuizReview screen ===================================================================
+"quizReview.title" = "Разбор ответов";
+"quizReview.totalQuestions" = "Всего вопросов:";
+"quizReview.yourAnswer" = "Твой ответ:";
+
+//============================================ World Raking screen ======================================================
+"worldRanking.sprint.Title" = "Мировой рейтинг Спринта";
+"worldRanking.EmptyState" = "Будь первым в этом Спринт-рейтинге!";
+"worldRanking.loadError" = "Не удалось загрузить рейтинг";
+"worldRanking.filter.byCountry" = "Показать рейтинг моей страны";
+"worldRanking.filter.worldwide" = "Показать мировой рейтинг";
+
+// Feedback Titles
+"quizReview.feedback.title.perfect" = "Великолепно! 🏆";
+"quizReview.feedback.title.excellent" = "Отличный результат! 🚀";
+"quizReview.feedback.title.good" = "Неплохо, но есть ошибки 🧐";
+"quizReview.feedback.title.needsImprovement" = "Стоит повторить тему 📚";
+"quizReview.feedback.title.tryAgain" = "Попробуй еще раз 🐣";
+
+// Feedback Subtitles
+"quizReview.feedback.subtitle.perfect" = "Ни одной ошибки. Так держать!";
+"quizReview.feedback.subtitle.default" = "Разбери ошибки ниже, чтобы запомнить правильные предлоги.";
+
+//================================================ Trainings screen ===================================================================
+"training.screen.title" = "Тренировка";
+"training.finish.title" = "Отличная работа!";
+"training.finish.description" = "Вы повторили все слова из этой колоды";
+"training.finish.button.home" = "Главное меню";
+"training.action.repeat" = "Повторить";
+"training.action.know" = "Знаю";
+"training.action.tapToFlip" ="Нажмите, чтобы перевернуть";
+"training.action.listen" = "Слушать";
+
+//================================================ My Progress screen ===================================================================
+"myProgress.screen.title" = "Мой прогресс";
+"myProgress.search.title" = "Найти слово...";
+"myProgress.header.level" = "Выбранный уровень: ";
+"myProgress.stats.learned" = "Выучено: %lld";
+"myProgress.stats.total" = "Всего: %lld";
+"myProgress.capsule.all.title" = "Все";
+
+"myProgress.update.alert.confirm.title" = "Обновить контент?";
+"myProgress.update.alert.confirm.description" = "Проверить наличие исправлений или новых слов? Ваш прогресс будет сохранен.";
+"myProgress.update.alert.confirm.action" = "Обновить";
+
+"myProgress.update.alert.success.title" = "Обновлено!";
+"myProgress.update.alert.success.description" = "Данные успешно обновлены. Опечатки исправлены, добавлены новые слова.";
+
+"myProgress.update.alert.noChanges.title" = "Обновлений нет";
+"myProgress.update.alert.noChanges.description" = "У вас уже самая актуальная версия словаря.";
+
+"myProgress.update.alert.error.title" = "Ошибка обновления";
+
+//================================================ Rules Screen =================================================================
+"rules.title" = "Как работает обучение?";
+"writing.rules.title" = "Правила написания";
+
+// general
+"rules.target.title" = "Цель";
+"rules.target.description" = "Наберите **5 баллов** мастерства для каждого **слова с предлогом**, чтобы оно считалось выученным.";
+"rules.where.title" = "Где учить?";
+"rules.where.description" = "Баллы начисляются только в режимах **Квиз**, **Спринт** (Квиз на время) и **Правописание**.";
+"rules.correct.title" = "Правильный ответ";
+"rules.correct.description" = "Добавляет **+1 балл** к прогрессу слова.";
+"rules.wrong.title" = "Ошибка";
+"rules.wrong.description" = "Неправильный ответ отнимает **1 балл**.\n\nЕсли вы ошибетесь в уже **выученном** слове, отнимется **2 балла**, и слово вернется в статус невыученного.";
+"rules.button.close" = "Всё понятно";
+
+// writing
+"rules.writing.case.title" = "Регистр";
+"rules.writing.case.desc" = "Большие и маленькие буквы не важны.";
+"rules.writing.umlauts.title" = "Умляуты";
+"rules.writing.umlauts.desc" = "Пропуск **ä/ö/ü** допустим, но мы об этом напомним.";
+"rules.writing.sich.title" = "Частица **(sich)**";
+"rules.writing.sich.desc" = "Её можно не печатать, система её пропустит.";
+
+//================================================ Writing Screen =============================================================
+"writing.title" = "Задание";
+"writing.placeholder" = "Введи перевод...";
+"writing.button.check" = "Проверить";
+"writing.button.next" = "Дальше";
+"writing.hint.almost" = "Верно! Но не забывай про умляуты ✍️";
+"writing.hint.error" = "Ошибка";
+"writing.hint.perfect" = "Великолепно!";
+"writing.hint.extra_umlaut" = "Правильно! Но здесь лишний умляут ✍️";
+"writing.hint.also" = "Также можно сказать:";
+"writing.hint.correct_variants" = "Правильные ответы:";
+
+//============================================OnboardingProfile============================================
+"onboardingProfile.title" = "Твой профиль";
+"onboardingProfile.subtitle" = "Заполни данные для рейтинга";
+"onboardingProfile.nickname.label" = "Никнейм";
+"onboardingProfile.nickname.placeholder" = "Введите имя...";
+"onboardingProfile.country.label" = "Откуда ты?";
+"onboardingProfile.country.placeholder" = "Выбрать из списка...";
+"onboardingProfile.saveButton" = "Сохранить";
+"onboardingProfile.picker.title" = "Откуда ты?";
+"onboardingProfile.picker.search" = "Поиск страны...";
+
+//================================================ Word selection (for widget) Screen  ==================================================
+"widgetWord.title" = "Выбор глаголов";
+"widgetWord.searchText" = "Поиск глаголов...";
+"widgetWord.header.description" = "Выберите глаголы для виджета";
+
+//================================================ ALERTS ===================================================================
+"alert.finish_test.title" = "Ты хочешь прервать тест?";
+"alert.finish_training.title" = "Ты хочешь прервать тренировку?";
+"alert.finish_writing.title" = "Хотите прервать упражнение?";
+"alert.finish_test.description" = "Ваш прогресс не будет сохранён.";
+"alert.reset_results.title" = "Вы действительно хотите удалить все Ваши результаты?";
+"alert.yes" = "Да";
+"alert.no" = "Нет";
+"alert.ok" = "Ok";
+"alert.repeat" = "Повторить";
+"alert.unknown_error" = "Неизвестная ошибка";
+
+//================================================ APP ERRORS ===================================================================
+"appErrors.noInternet" = "Отсутствует подключение к интернету. Проверьте сеть и попробуйте снова.";
+"appErrors.serverError" = "Ошибка сервера:";
+"appErrors.decodingError" = "Не удалось обработать полученные данные.";
+"appErrors.unknown" = "Произошла неизвестная ошибка";

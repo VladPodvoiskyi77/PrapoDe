@@ -1,0 +1,202 @@
+[
+  {
+    "base": "warten",
+    "preposition": "auf",
+    "translationRu": "ждать кого-то/что-то",
+    "translationUa": "чекати на когось/щось",
+    "translationEn": "to wait for",
+    "exampleSentence": "Ich warte auf den Bus.",
+    "caseType": "Akkusativ",
+    "level": "A1"
+  },
+  {
+    "base": "denken",
+    "preposition": "an",
+    "translationRu": "думать о ком-то/чем-то",
+    "translationUa": "думати про когось/щось",
+    "translationEn": "to think of",
+    "exampleSentence": "Ich denke oft an dich.",
+    "caseType": "Akkusativ",
+    "level": "A1"
+  },
+  {
+    "base": "sprechen",
+    "preposition": "mit",
+    "translationRu": "разговаривать с кем-то",
+    "translationUa": "розмовляти з кимось",
+    "translationEn": "to speak with",
+    "exampleSentence": "Ich spreche mit meinem Freund.",
+    "caseType": "Dativ",
+    "level": "A1"
+  },
+  {
+    "base": "schreiben",
+    "preposition": "an",
+    "translationRu": "писать кому-то",
+    "translationUa": "писати комусь",
+    "translationEn": "to write to",
+    "exampleSentence": "Ich schreibe einen Brief an meine Mutter.",
+    "caseType": "Akkusativ",
+    "level": "A1"
+  },
+  {
+    "base": "interessieren",
+    "preposition": "für",
+    "translationRu": "интересоваться чем-то",
+    "translationUa": "цікавитися чимось",
+    "translationEn": "to be interested in",
+    "exampleSentence": "Er interessiert sich für Musik.",
+    "caseType": "Akkusativ",
+    "level": "A2"
+  },
+  {
+    "base": "freuen",
+    "preposition": "auf",
+    "translationRu": "радоваться (предстоящему)",
+    "translationUa": "радіти (майбутньому)",
+    "translationEn": "to look forward to",
+    "exampleSentence": "Wir freuen uns auf den Urlaub.",
+    "caseType": "Akkusativ",
+    "level": "A2"
+  },
+  {
+    "base": "träumen",
+    "preposition": "von",
+    "translationRu": "мечтать о чем-то",
+    "translationUa": "мріяти про щось",
+    "translationEn": "to dream of",
+    "exampleSentence": "Ich träume von einem großen Haus.",
+    "caseType": "Dativ",
+    "level": "A2"
+  },
+  {
+    "base": "helfen",
+    "preposition": "bei",
+    "translationRu": "помогать в чем-то",
+    "translationUa": "допомагати у чомусь",
+    "translationEn": "to help with",
+    "exampleSentence": "Kannst du mir bei den Hausaufgaben helfen?",
+    "caseType": "Dativ",
+    "level": "A2"
+  },
+  {
+    "base": "gehören",
+    "preposition": "zu",
+    "translationRu": "принадлежать к",
+    "translationUa": "належати до",
+    "translationEn": "to belong to",
+    "exampleSentence": "Das gehört zu meinen Aufgaben.",
+    "caseType": "Dativ",
+    "level": "B1"
+  },
+  {
+    "base": "sich gewöhnen",
+    "preposition": "an",
+    "translationRu": "привыкать к чему-то",
+    "translationUa": "звикати до чогось",
+    "translationEn": "to get used to",
+    "exampleSentence": "Ich muss mich an das Wetter gewöhnen.",
+    "caseType": "Akkusativ",
+    "level": "B1"
+  },
+  {
+    "base": "verzichten",
+    "preposition": "auf",
+    "translationRu": "отказываться от чего-то",
+    "translationUa": "відмовлятися від чогось",
+    "translationEn": "to do without / give up",
+    "exampleSentence": "Er verzichtet auf den Nachtisch.",
+    "caseType": "Akkusativ",
+    "level": "B1"
+  },
+  {
+    "base": "achten",
+    "preposition": "auf",
+    "translationRu": "обращать внимание на",
+    "translationUa": "звертати увагу на",
+    "translationEn": "to pay attention to",
+    "exampleSentence": "Bitte achten Sie auf die Vorfahrt.",
+    "caseType": "Akkusativ",
+    "level": "B1"
+  },
+  {
+    "base": "bestehen",
+    "preposition": "aus",
+    "translationRu": "состоять из чего-то",
+    "translationUa": "складатися з чогось",
+    "translationEn": "to consist of",
+    "exampleSentence": "Wasser besteht aus Wasserstoff und Sauerstoff.",
+    "caseType": "Dativ",
+    "level": "B2"
+  },
+  {
+    "base": "zweifeln",
+    "preposition": "an",
+    "translationRu": "сомневаться в чем-то",
+    "translationUa": "сумніватися в чомусь",
+    "translationEn": "to doubt something",
+    "exampleSentence": "Sie zweifelt an seiner Ehrlichkeit.",
+    "caseType": "Dativ",
+    "level": "B2"
+  },
+  {
+    "base": "rechnen",
+    "preposition": "mit",
+    "translationRu": "рассчитывать на что-то",
+    "translationUa": "розраховувати на щось",
+    "translationEn": "to count on / expect",
+    "exampleSentence": "Wir rechnen mit deiner Hilfe.",
+    "caseType": "Dativ",
+    "level": "B2"
+  },
+  {
+    "base": "leiden",
+    "preposition": "an",
+    "translationRu": "страдать от (болезни)",
+    "translationUa": "хворіти на / страждати від",
+    "translationEn": "to suffer from (disease)",
+    "exampleSentence": "Er leidet an einer schweren Grippe.",
+    "caseType": "Dativ",
+    "level": "B2"
+  },
+  {
+    "base": "ankommen",
+    "preposition": "auf",
+    "translationRu": "зависеть от чего-то",
+    "translationUa": "залежати від чогось",
+    "translationEn": "to depend on",
+    "exampleSentence": "Es kommt auf das Ergebnis an.",
+    "caseType": "Akkusativ",
+    "level": "C1"
+  },
+  {
+    "base": "verweisen",
+    "preposition": "auf",
+    "translationRu": "ссылаться на что-то",
+    "translationUa": "посилатися на щось",
+    "translationEn": "to refer to",
+    "exampleSentence": "Ich verweise auf den Vertrag von 2020.",
+    "caseType": "Akkusativ",
+    "level": "C1"
+  },
+  {
+    "base": "beruhen",
+    "preposition": "auf",
+    "translationRu": "основываться на чем-то",
+    "translationUa": "ґрунтуватися на чомусь",
+    "translationEn": "to be based on",
+    "exampleSentence": "Diese Theorie beruht auf Fakten.",
+    "caseType": "Dativ",
+    "level": "C1"
+  },
+  {
+    "base": "übereinstimmen",
+    "preposition": "mit",
+    "translationRu": "согласовываться с чем-то",
+    "translationUa": "збігатися з чимось",
+    "translationEn": "to agree with / coincide with",
+    "exampleSentence": "Das stimmt mit meinen Erfahrungen überein.",
+    "caseType": "Dativ",
+    "level": "C1"
+  }
+]

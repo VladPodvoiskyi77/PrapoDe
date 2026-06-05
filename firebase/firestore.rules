@@ -1,0 +1,107 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidLevel(level) {
+      return level in ['A1', 'A2', 'B1', 'B2', 'C1'];
+    }
+
+    function isValidGameType(gameType) {
+      return gameType in ['quiz', 'sprint', 'writing'];
+    }
+
+    function isValidCategory(category) {
+      return category in [
+        'Adjektive mit Präpositionen',
+        'Nomen mit Präpositionen',
+        'Verben mit Präpositionen'
+      ];
+    }
+
+    function isValidLeaderboardData(userId) {
+      let data = request.resource.data;
+
+      return data.keys().hasAll([
+          'userId', 'userName', 'countryCode', 'gameType', 'level',
+          'category', 'score', 'total', 'timeElapsed', 'timestamp'
+        ])
+        && data.keys().hasOnly([
+          'userId', 'userName', 'countryCode', 'gameType', 'level',
+          'category', 'score', 'total', 'timeElapsed', 'timestamp'
+        ])
+        && data.userId == userId
+        && data.userName is string
+        && data.userName.size() >= 1
+        && data.userName.size() <= 40
+        && data.countryCode is string
+        && data.countryCode.size() >= 2
+        && data.countryCode.size() <= 3
+        && isValidGameType(data.gameType)
+        && isValidLevel(data.level)
+        && isValidCategory(data.category)
+        && data.score is int
+        && data.total is int
+        && data.total >= 5
+        && data.total <= 30
+        && data.score >= 0
+        && data.score <= data.total
+        && data.timeElapsed is number
+        && data.timeElapsed >= 0
+        && data.timeElapsed <= 7200
+        && request.resource.id
+          == userId + '_' + data.gameType + '_' + string(data.total) + '_' + data.level;
+    }
+
+    match /global_leaderboard/{documentId} {
+      allow read: if isSignedIn();
+
+      allow create: if isSignedIn()
+        && isValidLeaderboardData(request.auth.uid);
+
+      allow update: if isSignedIn()
+        && resource.data.userId == request.auth.uid
+        && isValidLeaderboardData(request.auth.uid);
+
+      allow delete: if false;
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+
+      allow create: if isOwner(userId)
+        && request.resource.data.id == userId
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1
+        && request.resource.data.name.size() <= 40
+        && request.resource.data.country is string
+        && request.resource.data.country.size() >= 1
+        && request.resource.data.country.size() <= 60
+        && request.resource.data.totalGamesPlayed is int
+        && request.resource.data.totalGamesPlayed == 0
+        && request.resource.data.bestSprintScore is int
+        && request.resource.data.bestSprintScore == 0;
+
+      allow update: if isOwner(userId)
+        && request.resource.data.id == userId
+        && resource.data.id == userId
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1
+        && request.resource.data.name.size() <= 40;
+
+      allow delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,231 @@
+//================================================ Splash screen =================================================v
+"splash.description" = "Опануй прийменники граючи";
+
+//================================================ About screen =================================================
+"about.title" = "Про додаток";
+"about.intro" = "Німецька граматика здається складною, а керування дієслів (Rektion) — нічним жахіттям? PrapoDe — це ваш кишеньковий тренер, який перетворює зубріння таблиць на захопливу гру.";
+"about.why.title" = "Чому PrapoDE?";
+"about.feature1.title" = "1. Усі рівні";
+"about.feature1.text" = "Від A1 до C1 — вивчайте саме те, що відповідає вашому поточному рівню.";
+
+"about.feature_training.title" = "2. Режим Тренування";
+"about.feature_training.text" = "Переглядайте повний список слів із перекладами перед початком тестів.";
+
+"about.feature_quiz.title" = "3. Класичний Квіз";
+"about.feature_quiz.text" = "Спокійно обирайте правильну відповідь із запропонованих варіантів.";
+
+"about.feature2.title" = "4. Режим Спринт";
+"about.feature2.text" = "Перевірте свою реакцію: максимум правильних відповідей за 60 секунд.";
+
+"about.feature_writing.title" = "5. Правопис";
+"about.feature_writing.text" = "Вводьте прийменники вручну для максимального закріплення в пам'яті.";
+
+"about.feature_analysis.title" = "6. Робота над помилками";
+"about.feature_analysis.text" = "Розбирайте свої промахи одразу після завершення тесту.";
+
+"about.feature3.title" = "7. Система 5 балів";
+"about.feature3.text" = "Слово вважається вивченим лише після 5 правильних відповідей поспіль.";
+
+"about.feature6.title" = "8. Розумний Віджет";
+"about.feature6.text" = "Вивчайте слова прямо на головному екрані, навіть не відкриваючи додаток.";
+
+"about.feature5.title" = "9. Глобальний рейтинг";
+"about.feature5.text" = "Порівнюйте свої успіхи з учнями з усього світу.";
+
+"about.feature4.title" = "10. Наочний прогрес";
+"about.feature4.text" = "Слідкуйте за зростанням ваших знань за допомогою детальних графіків.";
+"about.outro" = "Досить вгадувати прийменники. Почніть говорити впевнено!";
+"about.version" = "Версія ";
+
+//================================================ UniversalMenu - Category screen =================================================
+"universalMenu.category.title" = "Обери категорію";
+"universalMenu.category.hint.title" = "Навчайся ефективно";
+"universalMenu.category.hint.description" = "Обери відповідний рівень, щоб прогресувати швидше";
+
+//================================================ UniversalMenu - Activity screen =================================================
+"universalMenu.activity.title" = "Обери режим";
+"universalMenu.activity.training.title" = "Тренування";
+"universalMenu.activity.quiz.title" = "Квіз";
+"universalMenu.activity.sprint.title" = "Спринт";
+"universalMenu.activity.progress.title" = "Мій прогрес";
+"universalMenu.activity.writing.title" = "Правопис";
+
+//================================================ Mode screen ===================================================================
+"mode.title" = "Параметри";
+"mode.case.random.title" = "Випадковий порядок";
+
+//================================================ Quiz screen ===================================================================
+"quiz.title" = "Питання";
+"quiz.button.next" = "Далі";
+"quiz.button.finish" = "Завершити тест";
+
+//================================================ SpeedQuiz screen ===================================================================
+"speedQuiz.title" = "Питання";
+"speedQuiz.countdown.go" = "Вперед!";
+
+//================================================ Result screen ===================================================================
+"result.result" = "Результат";
+"result.button.repeat_test.title" = "Повторити тест";
+"result.button.best_results.title" = "Найкращі результати";
+"result.button.main_menu.title" = "Головне меню";
+"result.button.review_аnswers.title" = "Переглянути відповіді";
+
+//================================================ Leaderboard screen ===================================================================
+"leaderboard.title" = "Твої найкращі результати";
+"leaderboard.picker.quiz.title" = "Квіз";
+"leaderboard.picker.sprint.title" = "Спринт";
+"leaderboard.picker.writing.title" = "Правопис";
+"leaderboard.no_results.description" = "Немає результатів для цього рівня 🙃";
+
+//================================================ Settings screen ===================================================================
+"settings.title" = "Налаштування";
+"settings.section.quiz.title" = "Квіз";
+"settings.section.general.title" = "Загальні";
+"settings.section.quiz.description" = "Кількість запитань:";
+"settings.section.translation_language.description" = "Перекладати на";
+"settings.section.language.title" = "Мова";
+"settings.section.language_level.title" = "Рівень мови";
+"settings.section.language_level.description" = "Вибери рівень";
+"settings.section.results.title" = "Результати";
+"settings.section.results.description" = "Показати твої результати";
+"settings.section.about.title" = "Про додаток";
+"settings.section.feedback.title" = "Зворотний зв’язок";
+"settings.section.feedback.description" = "Написати розробнику / залишити відгук";
+"settings.section.feedback.email.text" = "Доброго дня! Хотів(ла) би залишити відгук про додаток.\n\n";
+"settings.section.about_us.description" = "Про нас";
+"settings.section.reset_progress.description" = "Скинути результати";
+"settings.section.widget.title" = "Віджет";
+"settings.section.widget.wordSelection" = "Вибір слів";
+
+//================================================ СhooseQuizLevel screen ===============================================================
+"сhooseQuizLevel.title" = "Вибери рівень складності";
+"сhooseQuizLevel.level.light" = "Легкий";
+"сhooseQuizLevel.level.medium" = "Середній";
+"сhooseQuizLevel.level.heavy" = "Складний";
+"сhooseQuizLevel.numberOfQuestions" = "питань";
+
+//================================================ QuizReview screen ===================================================================
+"quizReview.title" = "Аналіз відповідей";
+"quizReview.totalQuestions" = "Усього питань:";
+"quizReview.yourAnswer" = "Твоя відповідь:";
+
+//============================================ World Raking screen ======================================================
+"worldRanking.sprint.Title" = "Світовий рейтинг Спринту";
+"worldRanking.EmptyState" = "Стань першим у цьому Спринт-рейтингу!";
+"worldRanking.loadError" = "Не вдалося завантажити рейтинг";
+"worldRanking.filter.byCountry" = "Показати рейтинг моєї країни";
+"worldRanking.filter.worldwide" = "Показати світовий рейтинг";
+
+// Feedback Titles
+"quizReview.feedback.title.perfect" = "Чудово! 🏆";
+"quizReview.feedback.title.excellent" = "Відмінний результат! 🚀";
+"quizReview.feedback.title.good" = "Добре, але є помилки 🧐";
+"quizReview.feedback.title.needsImprovement" = "Варто повторити тему 📚";
+"quizReview.feedback.title.tryAgain" = "Спробуй ще раз 🐣";
+
+// Feedback Subtitles
+"quizReview.feedback.subtitle.perfect" = "Жодної помилки. Так тримати!";
+"quizReview.feedback.subtitle.default" = "Переглянь помилки нижче, щоб запам'ятати правильні прийменники.";
+
+//================================================ Trainings screen ===================================================================
+"training.screen.title" = "Тренування";
+"training.finish.title" = "Чудова робота!";
+"training.finish.description" = "Ти повторив усі слова з цієї колоди";
+"training.finish.button.home" = "Головне меню";
+"training.action.repeat" = "Повторити";
+"training.action.know" = "Знаю";
+"training.action.tapToFlip" = "Торкніться, щоб перевернути";
+"training.action.listen" = "Слухати";
+
+//================================================ My Progress screen =================================================================
+"myProgress.screen.title" = "Мій прогрес";
+"myProgress.search.title" = "Знайти слово...";
+"myProgress.header.level" = "Обраний рівень: ";
+"myProgress.stats.learned" = "Вивчено: %lld";
+"myProgress.stats.total" = "Всього: %lld";
+"myProgress.capsule.all.title" = "Всі";
+
+"myProgress.update.alert.confirm.title" = "Оновити контент?";
+"myProgress.update.alert.confirm.description" = "Перевірити наявність виправлень чи нових слів? Ваш прогрес буде збережено.";
+"myProgress.update.alert.confirm.action" = "Оновити";
+
+"myProgress.update.alert.success.title" = "Оновлено!";
+"myProgress.update.alert.success.description" = "Дані успішно оновлено. Виправлено описки та додано нові слова.";
+
+"myProgress.update.alert.noChanges.title" = "Оновлень немає";
+"myProgress.update.alert.noChanges.description" = "У вас вже найактуальніша версія словника.";
+
+"myProgress.update.alert.error.title" = "Помилка оновлення";
+
+//================================================ Rules Screen =================================================================
+"rules.title" = "Як працює навчання?";
+"writing.rules.title" = "Правила написання";
+
+// general
+"rules.target.title" = "Мета";
+"rules.target.description" = "Наберіть **5 балів** майстерності для кожного **слова з прийменником**, щоб воно вважалося вивченим.";
+"rules.where.title" = "Де вчити?";
+"rules.where.description" = "Бали нараховуються лише в режимах **Квіз**, **Спринт** (Квіз на час) та **Правопис**.";
+"rules.correct.title" = "Правильна відповідь";
+"rules.correct.description" = "Додає **+1 бал** до прогресу слова.";
+"rules.wrong.title" = "Помилка";
+"rules.wrong.description" = "Неправильна відповідь забирає **1 бал**.\n\nЯкщо ви помилитеся у вже **вивченому** слові, відніметься **2 бали**, і слово повернеться у статус невивченого.";
+"rules.button.close" = "Зрозуміло";
+
+// writing
+"rules.writing.case.title" = "Регістр";
+"rules.writing.case.desc" = "Великі та малі літери не мають значення.";
+"rules.writing.umlauts.title" = "Умляути";
+"rules.writing.umlauts.desc" = "Пропуск **ä/ö/ü** припустимий, але ми про це нагадаємо.";
+"rules.writing.sich.title" = "Частка **(sich)**";
+"rules.writing.sich.desc" = "Її можна не друкувати, система її пропустить.";
+
+//================================================ Writing Screen =============================================================
+"writing.title" = "Завдання";
+"writing.placeholder" = "Введи переклад...";
+"writing.button.check" = "Перевірити";
+"writing.button.next" = "Далі";
+"writing.hint.almost" = "Вірно! Але не забувай про умляути ✍️";
+"writing.hint.error" = "Помилка";
+"writing.hint.perfect" = "Чудово!";
+"writing.hint.extra_umlaut" = "Правильно! Але тут зайвий умляут ✍️";
+"writing.hint.also" = "Також можна сказати:";
+"writing.hint.correct_variants" = "Правильні відповіді:";
+
+//============================================OnboardingProfile============================================
+"onboardingProfile.title" = "Твій профіль";
+"onboardingProfile.subtitle" = "Заповни дані для рейтингу";
+"onboardingProfile.nickname.label" = "Нікнейм";
+"onboardingProfile.nickname.placeholder" = "Введіть ім'я...";
+"onboardingProfile.country.label" = "Звідки ти?";
+"onboardingProfile.country.placeholder" = "Вибрати зі списку...";
+"onboardingProfile.saveButton" = "Зберегти";
+"onboardingProfile.picker.title" = "Звідки ти?";
+"onboardingProfile.picker.search" = "Пошук країни...";
+
+//================================================ Word selection (for widget) Screen  ==================================================
+"widgetWord.title" = "Вибір дієслів";
+"widgetWord.searchText" = "Пошук дієслів...";
+"widgetWord.header.description" = "Виберіть дієслова для віджета";
+
+//================================================ ALERTS ===================================================================
+"alert.finish_test.title" = "Ти хочеш перервати тест?";
+"alert.finish_training.title" = "Ти хочеш перервати тренування?";
+"alert.finish_writing.title" = "Бажаєте перервати вправу?";
+"alert.finish_test.description" = "Твій прогрес не буде збережено.";
+"alert.reset_results.title" = "Ти дійсно хочеш видалити всі свої результати?";
+"alert.yes" = "Так";
+"alert.no" = "Ні";
+"alert.ok" = "Ok";
+"alert.repeat" = "Повторити";
+"alert.unknown_error" = "Невідома помилка";
+
+//================================================ APP ERRORS ===================================================================
+"appErrors.noInternet" = "Відсутнє підключення до інтернету. Перевірте мережу та спробуйте ще раз.";
+"appErrors.serverError" = "Помилка сервера:";
+"appErrors.decodingError" = "Не вдалося обробити отримані дані.";
+"appErrors.unknown" = "Сталася невідома помилка";
+
+
+
+

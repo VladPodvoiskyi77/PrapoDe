@@ -1,0 +1,227 @@
+//================================================ Splash screen =================================================
+"splash.description" = "Präpositionen spielerisch meistern";
+
+//================================================ About screen =================================================
+"about.title" = "Über die App";
+"about.intro" = "Erscheint dir die deutsche Grammatik schwierig und die Rektion der Verben wie ein Albtraum? PrapoDe ist dein Taschentrainer, der das sture Auswendiglernen von Tabellen in ein spannendes Spiel verwandelt.";
+"about.why.title" = "Warum PrapoDE?";
+"about.feature1.title" = "1. Alle Niveaus";
+"about.feature1.text" = "Von A1 bis C1 – lernen Sie genau das, was Sie für Ihre aktuelle Stufe brauchen.";
+
+"about.feature_training.title" = "2. Trainingsmodus";
+"about.feature_training.text" = "Schauen Sie sich die komplette Wortliste mit Übersetzungen an, bevor Sie die Tests starten.";
+
+"about.feature_quiz.title" = "3. Klassisches Quiz";
+"about.feature_quiz.text" = "Wählen Sie in aller Ruhe die richtige Präposition aus den vorgegebenen Optionen.";
+
+"about.feature2.title" = "4. Sprint-Modus";
+"about.feature2.text" = "Testen Sie Ihre Reaktion: Erreichen Sie so viele richtige Antworten wie möglich in 60 Sekunden.";
+
+"about.feature_writing.title" = "5. Schreibmodus";
+"about.feature_writing.text" = "Geben Sie Präpositionen manuell ein – der effektivste Weg, um sie im Gedächtnis zu verankern.";
+
+"about.feature_analysis.title" = "6. Fehleranalyse";
+"about.feature_analysis.text" = "Analysieren Sie Ihre Fehler direkt nach dem Test, um aus ihnen zu lernen.";
+
+"about.feature3.title" = "7. 5-Punkte-System";
+"about.feature3.text" = "Ein Wort gilt erst nach 5 korrekten Antworten in Folge als dauerhaft gelernt.";
+
+"about.feature6.title" = "8. Intelligentes Widget";
+"about.feature6.text" = "Lernen Sie passiv direkt auf Ihrem Homescreen, ohne die App öffnen zu müssen.";
+
+"about.feature5.title" = "9. Globales Ranking";
+"about.feature5.text" = "Vergleichen Sie Ihren Fortschritt mit Deutschlernern aus der ganzen Welt.";
+
+"about.feature4.title" = "10. Sichtbarer Fortschritt";
+"about.feature4.text" = "Verfolgen Sie Ihr Wachstum durch detaillierte Statistiken und Grafiken.";
+"about.outro" = "Hör auf, Präpositionen zu raten. Fang an, sicher zu sprechen!";
+"about.version" = "Version ";
+
+//================================================ UniversalMenu - Category screen =================================================
+"universalMenu.category.title" = "Kategorie wählen";
+"universalMenu.category.hint.title" = "Effektiv lernen";
+"universalMenu.category.hint.description" = "Wähle das passende Niveau, um schneller Fortschritte zu machen";
+
+//================================================ UniversalMenu - Activity screen =================================================
+"universalMenu.activity.title" = "Modus wählen";
+"universalMenu.activity.training.title" = "Training";
+"universalMenu.activity.quiz.title" = "Quiz";
+"universalMenu.activity.sprint.title" = "Sprint";
+"universalMenu.activity.progress.title" = "Mein Fortschritt";
+"universalMenu.activity.writing.title" = "Schreiben";
+
+//================================================ Mode screen ===================================================================
+"mode.title" = "Optionen";
+"mode.case.random.title" = "Zufällige Reihenfolge";
+
+//================================================ Quiz screen ===================================================================
+"quiz.title" = "Frage";
+"quiz.button.next" = "Weiter";
+"quiz.button.finish" = "Test beenden";
+
+//================================================ SpeedQuiz screen ===================================================================
+"speedQuiz.title" = "Frage";
+"speedQuiz.countdown.go" = "Los!";
+
+//================================================ Result screen ===================================================================
+"result.result" = "Ergebnis";
+"result.button.repeat_test.title" = "Test wiederholen";
+"result.button.best_results.title" = "Beste Ergebnisse";
+"result.button.main_menu.title" = "Hauptmenü";
+"result.button.review_аnswers.title" = "Antworten überprüfen";
+
+//================================================ Leaderboard screen ===================================================================
+"leaderboard.title" = "Deine besten Ergebnisse";
+"leaderboard.picker.quiz.title" = "Quiz";
+"leaderboard.picker.sprint.title" = "Sprint";
+"leaderboard.picker.writing.title" = "Schreiben";
+"leaderboard.no_results.description" = "Keine Ergebnisse für dieses Niveau 🙃";
+
+//================================================ Settings screen ===================================================================
+"settings.title" = "Einstellungen";
+"settings.section.quiz.title" = "Quiz";
+"settings.section.general.title" = "Allgemein";
+"settings.section.quiz.description" = "Anzahl der Fragen:";
+"settings.section.translation_language.description" = "Übersetzen auf";
+"settings.section.language.title" = "Sprache";
+"settings.section.language_level.title" = "Sprachniveau";
+"settings.section.language_level.description" = "Niveau auswählen";
+"settings.section.results.title" = "Ergebnisse";
+"settings.section.results.description" = "Deine Ergebnisse anzeigen";
+"settings.section.about.title" = "Über die App";
+"settings.section.feedback.title" = "Feedback";
+"settings.section.feedback.description" = "An Entwickler schreiben / Bewertung hinterlassen";
+"settings.section.feedback.email.text" = "Hallo! Ich möchte eine Bewertung zur App abgeben.\n\n";
+"settings.section.about_us.description" = "Über uns";
+"settings.section.reset_progress.description" = "Ergebnisse zurücksetzen";
+"settings.section.widget.title" = "Widget";
+"settings.section.widget.wordSelection" = "Wortauswahl";
+
+//============================================== СhooseQuizLevel screen ============================================================
+"сhooseQuizLevel.title" = "Wähle den Schwierigkeitsgrad";
+"сhooseQuizLevel.level.light" = "Leicht";
+"сhooseQuizLevel.level.medium" = "Mittel";
+"сhooseQuizLevel.level.heavy" = "Schwer";
+"сhooseQuizLevel.numberOfQuestions" = "Fragen";
+
+//================================================ QuizReview screen ===================================================================
+"quizReview.title" = "Antworten überprüfen";
+"quizReview.totalQuestions" = "Fragen gesamt:";
+"quizReview.yourAnswer" = "Deine Antwort:";
+
+//============================================ World Raking screen ======================================================
+"worldRanking.sprint.Title" = "Sprint-Weltrangliste";
+"worldRanking.EmptyState" = "Sei der Erste in dieser Sprint-Rangliste!";
+"worldRanking.loadError" = "Die Rangliste konnte nicht geladen werden";
+"worldRanking.filter.byCountry" = "Rangliste meines Landes anzeigen";
+"worldRanking.filter.worldwide" = "Weltrangliste anzeigen";
+
+// Feedback Titles
+"quizReview.feedback.title.perfect" = "Perfekt! 🏆";
+"quizReview.feedback.title.excellent" = "Ausgezeichnetes Ergebnis! 🚀";
+"quizReview.feedback.title.good" = "Gut, aber mit Fehlern 🧐";
+"quizReview.feedback.title.needsImprovement" = "Thema wiederholen 📚";
+"quizReview.feedback.title.tryAgain" = "Versuch's noch einmal 🐣";
+
+// Feedback Subtitles
+"quizReview.feedback.subtitle.perfect" = "Kein einziger Fehler. Weiter so!";
+"quizReview.feedback.subtitle.default" = "Schau dir die Fehler unten an, um die richtigen Präpositionen zu lernen.";
+
+//================================================ Trainings screen ===================================================================
+"training.screen.title" = "Training";
+"training.finish.title" = "Gut gemacht!";
+"training.finish.description" = "Du hast alle Karten in diesem Stapel wiederholt";
+"training.finish.button.home" = "Hauptmenü";
+"training.action.repeat" = "Wiederholen";
+"training.action.know" = "Gewusst";
+"training.action.tapToFlip" = "Zum Umdrehen tippen";
+"training.action.listen" = "Hören";
+
+//================================================ My Progress screen ===================================================================
+"myProgress.screen.title" = "Mein Fortschritt";
+"myProgress.search.title" = "Wort suchen...";
+"myProgress.header.level" = "Ausgewählte Stufe: ";
+"myProgress.stats.learned" = "Gelernt: %lld";
+"myProgress.stats.total" = "Gesamt: %lld";
+"myProgress.capsule.all.title" = "Alle";
+
+"myProgress.update.alert.confirm.title" = "Inhalt aktualisieren?";
+"myProgress.update.alert.confirm.description" = "Möchten Sie nach neuen Wörtern oder Korrekturen suchen? Ihr Fortschritt bleibt erhalten.";
+"myProgress.update.alert.confirm.action" = "Aktualisieren";
+
+"myProgress.update.alert.success.title" = "Aktualisiert!";
+"myProgress.update.alert.success.description" = "Neue Daten wurden erfolgreich heruntergeladen. Tippfehler wurden korrigiert und neue Elemente hinzugefügt.";
+
+"myProgress.update.alert.noChanges.title" = "Keine Updates";
+"myProgress.update.alert.noChanges.description" = "Sie verfügen bereits über die aktuellste Version des Wörterbuchs.";
+
+"myProgress.update.alert.error.title" = "Update fehlgeschlagen";
+
+//================================================ Rules Screen =================================================================
+"rules.title" = "Wie funktioniert das Lernen?";
+"writing.rules.title" = "Schreibregeln";
+
+// general
+"rules.target.title" = "Ziel";
+"rules.target.description" = "Erreiche **5 Meisterschaftspunkte** für jedes **Wort mit Präposition**, damit es als gelernt gilt.";
+"rules.where.title" = "Wo lernen?";
+"rules.where.description" = "Punkte werden nur in den Modi **Quiz**, **Sprint** (Quiz auf Zeit) und **Schreiben** vergeben.";
+"rules.correct.title" = "Richtige Antwort";
+"rules.correct.description" = "Fügt dem Wortfortschritt **+1 Punkt** hinzu.";
+"rules.wrong.title" = "Fehler";
+"rules.wrong.description" = "Eine falsche Antwort zieht **1 Punkt** ab.\n\nWenn du einen Fehler bei einem bereits **gelernten** Wort machst, werden **2 Punkte** abgezogen und das Wort gilt wieder als ungelernt.";
+"rules.button.close" = "Verstanden";
+
+// writing
+"rules.writing.case.title" = "Groß-/Kleinschreibung";
+"rules.writing.case.desc" = "Groß- und Kleinschreibung spielt keine Rolle.";
+"rules.writing.umlauts.title" = "Umlaute";
+"rules.writing.umlauts.desc" = "Das Auslassen von **ä/ö/ü** ist erlaubt, aber wir erinnern dich daran.";
+"rules.writing.sich.title" = "Partikel **(sich)**";
+"rules.writing.sich.desc" = "Muss nicht getippt werden, das System erkennt es.";
+
+//================================================ Writing Screen ====================================================
+"writing.title" = "Aufgabe";
+"writing.placeholder" = "Übersetzung eingeben...";
+"writing.button.check" = "Prüfen";
+"writing.button.next" = "Weiter";
+"writing.hint.almost" = "Richtig! Aber vergiss die Umlaute nicht ✍️";
+"writing.hint.error" = "Fehler";
+"writing.hint.perfect" = "Ausgezeichnet!";
+"writing.hint.extra_umlaut" = "Richtig! Aber hier ist ein Umlaut zu viel ✍️";
+"writing.hint.also" = "Man kann auch sagen:";
+"writing.hint.correct_variants" = "Richtige Antworten:";
+
+//============================================OnboardingProfile============================================
+"onboardingProfile.title" = "Dein Profil";
+"onboardingProfile.subtitle" = "Gib deine Daten für das Ranking ein";
+"onboardingProfile.nickname.label" = "Spitzname";
+"onboardingProfile.nickname.placeholder" = "Name eingeben...";
+"onboardingProfile.country.label" = "Woher kommst du?";
+"onboardingProfile.country.placeholder" = "Aus der Liste wählen...";
+"onboardingProfile.saveButton" = "Speichern";
+"onboardingProfile.picker.title" = "Woher kommst du?";
+"onboardingProfile.picker.search" = "Land suchen...";
+
+//================================================ Word selection (for widget) Screen  ==================================================
+"widgetWord.title" = "Verbauswahl";
+"widgetWord.searchText" = "Verben suchen...";
+"widgetWord.header.description" = "Verben für das Widget auswählen";
+
+//================================================ ALERTS ===================================================================
+"alert.finish_test.title" = "Möchtest du den Test abbrechen?";
+"alert.finish_training.title" = "Möchtest du das Training abbrechen?";
+"alert.finish_writing.title" = "Möchtest du die Schreibübung abbrechen?";
+"alert.finish_test.description" = "Dein Fortschritt wird nicht gespeichert.";
+"alert.reset_results.title" = "Möchtest du wirklich alle deine Ergebnisse löschen?";
+"alert.yes" = "Ja";
+"alert.no" = "Nein";
+"alert.ok" = "Ok";
+"alert.repeat" = "Wiederholen";
+"alert.unknown_error" = "Unbekannter Fehler";
+
+//================================================ APP ERRORS ===========================================================
+"appErrors.noInternet" = "Keine Internetverbindung. Bitte überprüfe deine Verbindung und versuche es erneut.";
+"appErrors.serverError" = "Serverfehler:";
+"appErrors.decodingError" = "Die empfangenen Daten konnten nicht verarbeitet werden.";
+"appErrors.unknown" = "Ein unbekannter Fehler ist aufgetreten";
