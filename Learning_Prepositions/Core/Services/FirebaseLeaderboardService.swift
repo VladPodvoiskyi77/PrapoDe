@@ -112,19 +112,16 @@ final class FirebaseLeaderboardService: LeaderboardWriting, LeaderboardReading {
             let snapshot = try await baseQuery.getDocuments()
             let normalizedCode = countryCode.uppercased()
             
-            let entries = snapshot.documents.compactMap { document -> GlobalRankingEntry? in
-                try? document.data(as: GlobalRankingEntry.self)
-            }
-            
-            let countryEntries = entries
-                .filter { $0.countryCode.uppercased() == normalizedCode }
-                .sorted { lhs, rhs in
-                    if lhs.score != rhs.score { return lhs.score > rhs.score }
-                    return lhs.timeElapsed < rhs.timeElapsed
-                }
-            
+            let entries = snapshot.documents.compactMap(decodeEntry)
+
+            let countryEntries = LeaderboardRankingLogic.filterByCountry(
+                entries,
+                countryCode: normalizedCode,
+                limit: AppConfig.Constants.topScores
+            )
+
             print("🌍 Рейтинг по стране \(normalizedCode): \(countryEntries.count) из \(entries.count)")
-            return Array(countryEntries.prefix(AppConfig.Constants.topScores))
+            return countryEntries
         }
         
         let snapshot = try await baseQuery
@@ -133,9 +130,13 @@ final class FirebaseLeaderboardService: LeaderboardWriting, LeaderboardReading {
             .limit(to: AppConfig.Constants.topScores)
             .getDocuments()
         
-        return snapshot.documents.compactMap { document in
-            try? document.data(as: GlobalRankingEntry.self)
-        }
+        return snapshot.documents.compactMap(decodeEntry)
+    }
+
+    private func decodeEntry(from document: QueryDocumentSnapshot) -> GlobalRankingEntry? {
+        guard var entry = try? document.data(as: GlobalRankingEntry.self) else { return nil }
+        entry.id = document.documentID
+        return entry
     }
 }
 

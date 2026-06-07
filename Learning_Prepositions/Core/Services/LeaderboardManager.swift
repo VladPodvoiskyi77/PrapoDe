@@ -42,34 +42,9 @@ final class LeaderboardManager: LeaderboardManaging {
             
             // СОРТИРОВКА
             if firstItem.gameType == .sprint {
-                sortedGroup = groupResults.sorted {
-                    // 1. Сначала очки (чем больше, тем лучше)
-                    if $0.score != $1.score {
-                        return $0.score > $1.score
-                    }
-                    
-                    // 2. Если очки равны, время (чем меньше, тем лучше)
-                    // Примечание: я поправил знак на <, так как в Спринте быстрее = лучше
-                    let time1 = $0.timeElapsed ?? Double.greatestFiniteMagnitude
-                    let time2 = $1.timeElapsed ?? Double.greatestFiniteMagnitude
-                    if time1 != time2 {
-                        return time1 < time2
-                    }
-                    
-                    // 3. ТВОЁ ИЗМЕНЕНИЕ: Если очки и время равны, старый результат ВЫШЕ
-                    return $0.date < $1.date
-                }
+                sortedGroup = LeaderboardRankingLogic.sortSprintResults(groupResults)
             } else {
-                sortedGroup = groupResults.sorted {
-                    // 1. Процент (чем выше, тем лучше)
-                    if $0.percentage != $1.percentage {
-                        return $0.percentage > $1.percentage
-                    }
-                    
-                    // 2. ТВОЁ ИЗМЕНЕНИЕ: Если проценты равны, старый результат ВЫШЕ
-                    // Вместо $0.date > $1.date ставим <
-                    return $0.date < $1.date
-                }
+                sortedGroup = LeaderboardRankingLogic.sortStandardResults(groupResults)
             }
             
             // ОБРЕЗКА (ТОП-10)

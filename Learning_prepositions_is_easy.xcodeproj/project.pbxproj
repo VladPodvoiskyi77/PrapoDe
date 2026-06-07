@@ -32,6 +32,9 @@
 		5299C9AD2EE43DEE00BBEE3F /* UserDefaultsQuizResultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9AC2EE43DE600BBEE3F /* UserDefaultsQuizResultStorage.swift */; };
 		5299C9AF2EE43E3F00BBEE3F /* QuizResultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9AE2EE43E3A00BBEE3F /* QuizResultStorage.swift */; };
 		5299C9B52EE890CA00BBEE3F /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9B42EE890C600BBEE3F /* LeaderboardManager.swift */; };
+		A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */; };
+		A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1TEST0F2F6000010000000F /* XCTest.framework */; };
+		A1TEST102F60000100000010 /* Pods_Learning_prepositions_is_easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */; };
 		5299C9B72EE898F000BBEE3F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9B62EE898E800BBEE3F /* AppError.swift */; };
 		5299C9BB2EE89B4500BBEE3F /* WordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9BA2EE89B2F00BBEE3F /* WordRepository.swift */; };
 		5299C9BD2EE89B8500BBEE3F /* NetworkChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9BC2EE89B7F00BBEE3F /* NetworkChecking.swift */; };
@@ -162,6 +165,13 @@
 			remoteGlobalIDString = 52BA4C372F34DD5A00A10B9C;
 			remoteInfo = PrepoWidgetExtension;
 		};
+		A1TEST072F60000100000007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 523F7B302EAA24A50065E9D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 523F7B372EAA24A50065E9D4;
+			remoteInfo = Learning_prepositions_is_easy;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -207,6 +217,9 @@
 		5299C9AC2EE43DE600BBEE3F /* UserDefaultsQuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsQuizResultStorage.swift; sourceTree = "<group>"; };
 		5299C9AE2EE43E3A00BBEE3F /* QuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultStorage.swift; sourceTree = "<group>"; };
 		5299C9B42EE890C600BBEE3F /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
+		A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRankingLogic.swift; sourceTree = "<group>"; };
+		A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Learning_prepositions_is_easyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1TEST0F2F6000010000000F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Developer/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		5299C9B62EE898E800BBEE3F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5299C9BA2EE89B2F00BBEE3F /* WordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRepository.swift; sourceTree = "<group>"; };
 		5299C9BC2EE89B7F00BBEE3F /* NetworkChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecking.swift; sourceTree = "<group>"; };
@@ -343,6 +356,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		52BA4C3D2F34DD5B00A10B9C /* PrepoWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (52BA4C4F2F34DD5D00A10B9C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = PrepoWidget; sourceTree = "<group>"; };
 		52DA8B412ECF267300129F4E /* Generated */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Generated; sourceTree = "<group>"; };
+		A1TEST0C2F6000010000000C /* Learning_prepositions_is_easyTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Learning_prepositions_is_easyTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +377,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1TEST062F60000100000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1TEST102F60000100000010 /* Pods_Learning_prepositions_is_easy.framework in Frameworks */,
+				A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -373,6 +396,7 @@
 				52BA4C562F34EC3400A10B9C /* Learning_prepositions_is_easy.entitlements */,
 				52DA8AF22ECF20FE00129F4E /* swiftgen.yml */,
 				52DA8B182ECF20FE00129F4E /* Learning_Prepositions */,
+				A1TEST0D2F6000010000000D /* Learning_prepositions_is_easyTests */,
 				52BA4C3D2F34DD5B00A10B9C /* PrepoWidget */,
 				523F7B392EAA24A50065E9D4 /* Products */,
 				66518B0F49127E36EDCE4BDE /* Pods */,
@@ -384,9 +408,18 @@
 			isa = PBXGroup;
 			children = (
 				523F7B382EAA24A50065E9D4 /* Learning_prepositions_is_easy.app */,
+				A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */,
 				52BA4C382F34DD5A00A10B9C /* PrepoWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A1TEST0D2F6000010000000D /* Learning_prepositions_is_easyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1TEST0C2F6000010000000C /* Learning_prepositions_is_easyTests */,
+			);
+			name = Learning_prepositions_is_easyTests;
 			sourceTree = "<group>";
 		};
 		5249A0C32FABA66C00B01CDB /* Analytics */ = {
@@ -772,6 +805,7 @@
 				5299C9CE2EEACA2000BBEE3F /* Audio */,
 				52FD173E2F6BF120005F04D2 /* FirebaseLeaderboardService.swift */,
 				52FD17E62F6DA927005F04D2 /* FirebaseRankingService.swift */,
+				A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */,
 				5299C9B42EE890C600BBEE3F /* LeaderboardManager.swift */,
 				5299C9B82EE89A4600BBEE3F /* Network */,
 				52FD173C2F6BEFAC005F04D2 /* UserProfileManager.swift */,
@@ -928,6 +962,7 @@
 			children = (
 				52BA4C392F34DD5A00A10B9C /* WidgetKit.framework */,
 				52BA4C3B2F34DD5B00A10B9C /* SwiftUI.framework */,
+				A1TEST0F2F6000010000000F /* XCTest.framework */,
 				B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */,
 			);
 			name = Frameworks;
@@ -982,6 +1017,26 @@
 			productReference = 52BA4C382F34DD5A00A10B9C /* PrepoWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A1TEST042F60000100000004 /* Learning_prepositions_is_easyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1TEST092F60000100000009 /* Build configuration list for PBXNativeTarget "Learning_prepositions_is_easyTests" */;
+			buildPhases = (
+				A1TEST052F60000100000005 /* Sources */,
+				A1TEST062F60000100000006 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1TEST082F60000100000008 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A1TEST0C2F6000010000000C /* Learning_prepositions_is_easyTests */,
+			);
+			name = Learning_prepositions_is_easyTests;
+			productName = Learning_prepositions_is_easyTests;
+			productReference = A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -998,6 +1053,10 @@
 					};
 					52BA4C372F34DD5A00A10B9C = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					A1TEST042F60000100000004 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 523F7B372EAA24A50065E9D4;
 					};
 				};
 			};
@@ -1018,6 +1077,7 @@
 			projectRoot = "";
 			targets = (
 				523F7B372EAA24A50065E9D4 /* Learning_prepositions_is_easy */,
+				A1TEST042F60000100000004 /* Learning_prepositions_is_easyTests */,
 				52BA4C372F34DD5A00A10B9C /* PrepoWidgetExtension */,
 			);
 		};
@@ -1262,6 +1322,7 @@
 				52DA8B402ECF20FE00129F4E /* QuizResult.swift in Sources */,
 				52A0E1132F08973500822AAF /* AppTheme.swift in Sources */,
 				5299C9B52EE890CA00BBEE3F /* LeaderboardManager.swift in Sources */,
+				A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */,
 				527A7EF62F20B5FB00C77843 /* InfoRow.swift in Sources */,
 				5299CA252EF02E4400BBEE3F /* Category.swift in Sources */,
 			);
@@ -1282,6 +1343,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1TEST052F60000100000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1289,6 +1357,11 @@
 			isa = PBXTargetDependency;
 			target = 52BA4C372F34DD5A00A10B9C /* PrepoWidgetExtension */;
 			targetProxy = 52BA4C492F34DD5D00A10B9C /* PBXContainerItemProxy */;
+		};
+		A1TEST082F60000100000008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 523F7B372EAA24A50065E9D4 /* Learning_prepositions_is_easy */;
+			targetProxy = A1TEST072F60000100000007 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1593,6 +1666,56 @@
 			};
 			name = Release;
 		};
+		A1TEST0A2F6000010000000A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B94A53697E4210D561EC84FB /* Pods-Learning_prepositions_is_easy.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 28QWPQX3PF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Learning_prepositions_is_easy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Learning_prepositions_is_easy";
+			};
+			name = Debug;
+		};
+		A1TEST0B2F6000010000000B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 28QWPQX3PF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Learning_prepositions_is_easy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Learning_prepositions_is_easy";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1619,6 +1742,15 @@
 			buildConfigurations = (
 				52BA4C4D2F34DD5D00A10B9C /* Debug */,
 				52BA4C4E2F34DD5D00A10B9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1TEST092F60000100000009 /* Build configuration list for PBXNativeTarget "Learning_prepositions_is_easyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1TEST0A2F6000010000000A /* Debug */,
+				A1TEST0B2F6000010000000B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
