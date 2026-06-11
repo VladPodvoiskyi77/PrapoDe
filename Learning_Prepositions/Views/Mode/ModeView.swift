@@ -12,13 +12,11 @@ struct ModeView: View {
     }
     
     var body: some View {
-        ZStack { // 1. Основной контейнер - ZStack
+        ZStack {
             
-            // СЛОЙ 1: Фон (на весь экран)
             AppTheme.mainGradient
                 .ignoresSafeArea()
             
-            // СЛОЙ 2: Контент (Заголовок + Список)
             VStack(spacing: 24) {
                 Text(L10n.Mode.title)
                     .font(.system(size: 32, weight: .bold, design: .rounded))
@@ -31,7 +29,7 @@ struct ModeView: View {
                     VStack(spacing: 16) {
                         ForEach(viewModel.availableModes, id: \.self) { mode in
                             MenuCard(
-                                title: mode.title, // Используем title для UI
+                                title: mode.title,
                                 iconName: mode.iconName,
                                 iconColor: mode.iconColor,
                                 action: {
@@ -44,17 +42,15 @@ struct ModeView: View {
                     .padding(.bottom, 20)
                 }
             }
-            // 2. Если идет загрузка, делаем контент полупрозрачным и блокируем нажатия
             .opacity(viewModel.isLoading ? 0.5 : 1)
             .disabled(viewModel.isLoading)
             
-            // СЛОЙ 3: Лоадер (Поверх всего, по центру)
             if viewModel.isLoading {
                 ZStack {
-                    Color.black.opacity(0.4).ignoresSafeArea() // Затемнение фона
+                    Color.black.opacity(0.4).ignoresSafeArea()
                     CardLoaderView()
-                        .transition(.scale.combined(with: .opacity)) // Плавное появление
-                    }
+                        .transition(.scale.combined(with: .opacity))
+                        }
                     .zIndex(100)
             }
         }

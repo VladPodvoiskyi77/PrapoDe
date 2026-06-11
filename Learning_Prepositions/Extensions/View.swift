@@ -4,8 +4,8 @@ extension View {
     func showAlert(title: String, description: String = "", isPresented: Binding<Bool>, onExit: @escaping () -> Void) -> some View {
         self.alert(title, isPresented: isPresented) {
             Button(L10n.Alert.yes, role: .destructive) {
-                onExit() // Выполняем действие, которое передали (например, dismiss)
-            }
+                onExit()
+                }
             Button(L10n.Alert.no, role: .cancel) { }
         } message: {
             Text(description)
@@ -26,7 +26,6 @@ extension View {
     
     func statusAlert(title: String, description: String = "", isPresented: Binding<Bool>) -> some View {
         self.alert(title, isPresented: isPresented) {
-            // Только одна кнопка закрытия
             Button(L10n.Alert.ok, role: .cancel) { }
         } message: {
             if !description.isEmpty {

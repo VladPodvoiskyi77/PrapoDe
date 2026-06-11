@@ -1,7 +1,6 @@
 import Network
 import SwiftUI
 
-// Абстракция
 protocol NetworkChecking {
     var isConnected: Bool { get }
 }

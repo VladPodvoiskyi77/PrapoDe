@@ -9,6 +9,6 @@ extension UIDevice {
             guard let value = element.value as? Int8, value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
-        return identifier // Вернет что-то вроде "iPhone15,3"
-    }
+        return identifier
+        }
 }

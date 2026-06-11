@@ -1,10 +1,8 @@
 import SwiftUI
 
 enum RulesContext {
-    case general // Общие правила
-    case writing // Правила для модуля набора текста
-    // case flashcards, case speedQuiz и т.д.
-
+    case general
+    case writing
     var title: String {
         switch self {
         case .general: return L10n.Rules.title

@@ -34,10 +34,10 @@ final class VerbEntity {
     
     var caseColor: Color {
         let type = caseTypeRaw.lowercased()
-        if type.contains("nom") { return .green }      // Nominativ — нейтральный/стартовый
-        if type.contains("akk") { return .blue }       // Akkusativ — прямой объект
-        if type.contains("dat") { return .teal }        // Dativ — косвенный объект
-        if type.contains("gen") { return .red }       // Genitiv — принадлежность (сложный)
+        if type.contains("nom") { return .green }
+        if type.contains("akk") { return .blue }
+        if type.contains("dat") { return .teal }
+        if type.contains("gen") { return .red }
         return .gray
     }
     

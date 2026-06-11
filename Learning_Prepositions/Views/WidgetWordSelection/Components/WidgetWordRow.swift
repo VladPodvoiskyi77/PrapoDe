@@ -13,11 +13,9 @@ struct WidgetWordRow: View {
                 
                 Text(word.preposition)
                     .font(.headline)
-                    // Твоё расширение для цвета падежа
                     .foregroundColor(word.caseTypeRaw.caseColor)
             }
             
-            // Твой метод получения перевода
             Text(word.getTranslation(for: language))
                 .font(.caption)
                 .foregroundColor(.secondary)

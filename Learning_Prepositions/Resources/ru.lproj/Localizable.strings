@@ -49,6 +49,25 @@
 "universalMenu.activity.sprint.title" = "Спринт";
 "universalMenu.activity.progress.title" = "Мой прогресс";
 "universalMenu.activity.writing.title" = "Правописание";
+"universalMenu.prepositions.title" = "Предлоги";
+
+//================================================ Prepositions guide =================================================
+"prepositions.list.title" = "Предлоги";
+"prepositions.list.subtitle" = "Немецкие предлоги по падежам — нажми для подробного объяснения";
+"prepositions.detail.meaning" = "Значение";
+"prepositions.detail.grammar" = "Грамматика";
+"prepositions.detail.whenToUse" = "Когда использовать";
+"prepositions.detail.mistakes" = "Частые ошибки";
+"prepositions.detail.contrast" = "Не путать с";
+"prepositions.detail.examples" = "Примеры";
+"prepositions.detail.related" = "Похожие предлоги";
+
+"prepositions.detail.update.alert.confirm.title" = "Обновить статью?";
+"prepositions.detail.update.alert.confirm.description" = "Проверить наличие исправлений или нового контента для этого предлога?";
+"prepositions.detail.update.alert.success.title" = "Обновлено!";
+"prepositions.detail.update.alert.success.description" = "Статья обновлена до последней версии с сервера.";
+"prepositions.detail.update.alert.noChanges.title" = "Обновлений нет";
+"prepositions.detail.update.alert.noChanges.description" = "У вас уже самая актуальная версия этой статьи.";
 
 //================================================ Mode screen ===================================================================
 "mode.title" = "Параметры";
@@ -224,4 +243,5 @@
 "appErrors.noInternet" = "Отсутствует подключение к интернету. Проверьте сеть и попробуйте снова.";
 "appErrors.serverError" = "Ошибка сервера:";
 "appErrors.decodingError" = "Не удалось обработать полученные данные.";
+"appErrors.contentNotAvailable" = "Статья для этого предлога пока недоступна. Попробуйте позже.";
 "appErrors.unknown" = "Произошла неизвестная ошибка";

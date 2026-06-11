@@ -5,7 +5,6 @@ struct FloatingCarousel: View {
     @Binding var selectedItem: String?
     let onSelect: (String?) -> Void
     
-    // 🔥 НОВЫЙ ПАРАМЕТР: Флаг, открыто меню или закрывается
     let isOpen: Bool
     
     var body: some View {
@@ -18,14 +17,12 @@ struct FloatingCarousel: View {
                         
                         Spacer().frame(width: midX - 42)
                         
-                        // 1. ПРЕДЛОГИ
                         ForEach(items, id: \.self) { item in
                             GeometryReader { itemGeo in
                                 CleanCapsuleItem(
                                     preposition: item,
                                     isSelected: selectedItem == item,
                                     action: {
-                                        // При клике: скролл + выбор + закрытие
                                         withAnimation {
                                             proxy.scrollTo(item, anchor: .center)
                                             selectedItem = item
@@ -37,9 +34,7 @@ struct FloatingCarousel: View {
                                 )
                                 .position(x: itemGeo.size.width / 2, y: itemGeo.size.height / 2)
                                 
-                                // Авто-выбор при скролле
                                 .onChange(of: itemGeo.frame(in: .global).midX) {_, newValue in
-                                    // 🔥 БЛОКИРОВКА: Если меню закрывается, ничего не меняем!
                                     guard isOpen else { return }
                                     
                                     if abs(midX - newValue) < 35 && selectedItem != item {
@@ -53,7 +48,6 @@ struct FloatingCarousel: View {
                             .id(item)
                         }
                         
-                        // 2. КНОПКА "ВСЕ"
                         GeometryReader { itemGeo in
                             CleanCapsuleItem(
                                 preposition: L10n.MyProgress.Capsule.All.title,
@@ -71,7 +65,6 @@ struct FloatingCarousel: View {
                             .position(x: itemGeo.size.width / 2, y: itemGeo.size.height / 2)
                             
                             .onChange(of: itemGeo.frame(in: .global).midX) {_, newValue in
-                                // 🔥 БЛОКИРОВКА
                                 guard isOpen else { return }
                                 
                                 if abs(midX - newValue) < 35 && selectedItem != nil {
@@ -88,7 +81,6 @@ struct FloatingCarousel: View {
                     }
                 }
                 .onAppear {
-                    // Стартовая логика
                     if let current = selectedItem {
                         proxy.scrollTo(current, anchor: .center)
                     } else if !items.isEmpty {

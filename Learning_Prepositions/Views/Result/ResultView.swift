@@ -108,7 +108,6 @@ struct ResultView: View {
             nav.goTo(.leaderboard(resultContext))
             
         case .globalRanking:
-            // TODO:
             nav.goTo(.globalRanking(viewModel.quizResultContext.gameType, viewModel.currentLevelRaw, viewModel.quizResultContext.quizDifficulty))
 
         case .home:
@@ -116,8 +115,3 @@ struct ResultView: View {
         }
     }
 }
-
-
-//#Preview {
-//    ResultView(quizResultContext.correctAnswers: 2, resultsHistory: [])
-//}

@@ -8,14 +8,11 @@ struct UniversalMenuView: View {
     @EnvironmentObject private var nav: NavigationViewModel
     @Environment(\.modelContext) private var modelContext
     
-    // Инициализируем ViewModel с параметрами
     @StateObject private var viewModel: UniversalMenuViewModel
     
-    // UI State
     @State private var showSettings = false
     @State private var isRotating = false
     
-    // Custom Init
     init(type: MenuScreenType, category: Category) {
         self.type = type
         self.category = category
@@ -26,10 +23,8 @@ struct UniversalMenuView: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             
-            // --- Основной контент ---
             VStack(spacing: 24) {
                 
-                // Заголовок
                 Text(viewModel.screenTitle)
                     .font(.system(size: 32, weight: .bold, design: .rounded))
                     .foregroundStyle(.primary)
@@ -58,7 +53,6 @@ struct UniversalMenuView: View {
                 AppTheme.mainGradient.ignoresSafeArea()
             )
             
-            // Hint
             if viewModel.showLevelHint {
                 LevelHintView {
                     viewModel.markHintAsSeen()
@@ -80,7 +74,6 @@ struct UniversalMenuView: View {
             
         }
         
-        // --- Toolbar ---
         .toolbar {
             if type == .main {
                 ToolbarItem(placement: .topBarLeading) {
@@ -102,7 +95,6 @@ struct UniversalMenuView: View {
         }
         .toolbarBackground(.hidden, for: .navigationBar)
         
-        // --- Lifecycle ---
         .onAppear {
             if type == .main {
                 let currentNickname = UserProfileManager.shared.userNickname
@@ -159,6 +151,9 @@ struct UniversalMenuView: View {
         case .category(let selectedCategory):
             nav.goTo(.activity(selectedCategory))
             
+        case .prepositionsGuide:
+            nav.goTo(.prepositionsList)
+            
         case .mode(let selectedMode):
             nav.selectedMode = selectedMode
             
@@ -178,7 +173,6 @@ struct UniversalMenuView: View {
         Task {
             let words = await viewModel.loadWords()
             
-            // ✅ Безопасный переход в главном потоке
             await MainActor.run {
                 if !words.isEmpty {
                     

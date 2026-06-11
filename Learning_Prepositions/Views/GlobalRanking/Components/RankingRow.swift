@@ -7,19 +7,15 @@ struct RankingRow: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            // 1. РАНГ (Слева)
             rankCircle
             
-            // 2. ЦЕНТРАЛЬНЫЙ БЛОК (Имя + Флаг + Категория)
             VStack(alignment: .leading, spacing: 4) {
-                // Никнейм
                 Text(entry.userName)
                     .font(.system(size: 17, weight: .black, design: .rounded))
                     .foregroundColor(.black)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                 
-                // Флаг + Категория
                 HStack(alignment: .top, spacing: 6) {
                     Text(entry.countryFlag)
                         .font(.system(size: 18))
@@ -31,18 +27,15 @@ struct RankingRow: View {
                         .padding(.vertical, 3)
                         .background(brandColor.opacity(0.1))
                         .cornerRadius(5)
-                        .lineLimit(2) // Разрешаем 2 строки для очень длинных названий
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true) // Позволяет тексту расти вниз
-                }
+                        .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        }
             }
-            .layoutPriority(1) // Даем этому блоку приоритет в распределении ширины
-            
+            .layoutPriority(1)            
             Spacer(minLength: 5)
             
-            // 3. РЕЗУЛЬТАТ (Справа - более компактный вид)
             VStack(alignment: .trailing, spacing: 2) {
-                // Очки
                 HStack(spacing: 3) {
                     Image(systemName: "checkmark.seal.fill")
                         .font(.system(size: 11))
@@ -52,7 +45,6 @@ struct RankingRow: View {
                         .foregroundColor(.black)
                 }
                 
-                // Время
                 Text("\(entry.formattedTime)s")
                     .font(.system(size: 13, weight: .bold, design: .monospaced))
                     .foregroundColor(brandColor)
@@ -70,7 +62,6 @@ struct RankingRow: View {
         )
     }
     
-    // Вспомогательный вью для Ранга (оставил без изменений)
     private var rankCircle: some View {
         ZStack {
             if rank <= 3 {

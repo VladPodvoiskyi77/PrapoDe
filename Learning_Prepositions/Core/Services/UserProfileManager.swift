@@ -16,7 +16,6 @@ final class UserProfileManager: ObservableObject {
     private let db = Firestore.firestore()
     private var authListener: AuthStateDidChangeListenerHandle?
 
-    // Закрытый init для синглтона
     private init() {
         startAuthListener()
     }
@@ -24,8 +23,6 @@ final class UserProfileManager: ObservableObject {
     // MARK: - Auth Logic
     
     private func startAuthListener() {
-        // Этот метод вызывается один раз при старте.
-        // Он автоматически подхватит юзера, если тот уже заходил ранее.
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             if let user = user {
                 print("✅ UserProfileManager: Юзер найден (\(user.uid))")
@@ -51,7 +48,6 @@ final class UserProfileManager: ObservableObject {
     // MARK: - Profile Setup
     
     func setupProfile(name: String, countryName: String, countryCode: String) {
-        // ШАГ 1: Локальное сохранение (мгновенно)
         self.userNickname = name
         self.userCountry = countryName
         self.userCountryCode = countryCode.uppercased()
@@ -60,8 +56,8 @@ final class UserProfileManager: ObservableObject {
         Task {
             for _ in 0...10 {
                 if currentUid != nil { break }
-                try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 сек
-            }
+                try? await Task.sleep(nanoseconds: 500_000_000)
+                }
             
             guard let uid = currentUid else {
                 print("❌ UserProfileManager: Не удалось получить UID для сохранения профиля")

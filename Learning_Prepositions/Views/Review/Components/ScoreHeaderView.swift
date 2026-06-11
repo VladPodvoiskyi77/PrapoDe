@@ -12,7 +12,6 @@ struct ScoreHeaderView: View {
                 .multilineTextAlignment(.center)
             
             HStack(spacing: 30) {
-                // Круговой график
                 ZStack {
                     Circle()
                         .stroke(Color.gray.opacity(0.15), lineWidth: 12)
@@ -35,7 +34,6 @@ struct ScoreHeaderView: View {
                 }
                 .frame(width: 90, height: 90)
                 
-                // Текстовая детализация
                 VStack(alignment: .leading, spacing: 8) {
                     Label(L10n.QuizReview.correctCountFormatted(viewModel.correctCount), systemImage: "checkmark.circle.fill")
                         .foregroundColor(.green)

@@ -5,19 +5,16 @@ enum Activity: String, CaseIterable, Identifiable {
     case quiz
     case timedQuiz
     
-    // Нужно для ForEach
     var id: String { self.rawValue }
     
-    // Заголовок для UI
     var title: String {
         switch self {
-        case .training: return "Обучение" // или "Lernen"
-        case .quiz: return "Квиз" // или "Quiz"
+        case .training: return "Обучение"
+        case .quiz: return "Квиз"
         case .timedQuiz: return "Квиз на время"
         }
     }
     
-    // Цвет темы (опционально)
     var iconName: String {
         switch self {
         case .training:

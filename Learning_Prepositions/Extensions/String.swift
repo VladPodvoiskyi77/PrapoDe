@@ -2,10 +2,10 @@ import SwiftUI
 
 extension String {
     var caseColor: Color {
-        if self.contains("Akk") { return .blue.opacity(0.8) } // Синий для Akkusativ
-        if self.contains("Dat") { return .green.opacity(0.8) } // Зеленый для Dativ
+        if self.contains("Akk") { return .blue.opacity(0.8) }
+        if self.contains("Dat") { return .green.opacity(0.8) }
         if self.contains("Nom") { return .purple.opacity(0.8) }
-        return .orange // Для остальных (Wechsel и т.д.)
+        return .orange
     }
     
     func isEquivalentIgnoringUmlauts(to target: String) -> Bool {
@@ -68,7 +68,6 @@ extension String {
             
             // Если текущий символ - умляут, ищем его латинский эквивалент
             if let latinEquivalent = mapping[targetChar] {
-                // Проверяем, что ввел юзер на этой позиции
                 if i < inputChars.count {
                     let userChar = String(inputChars[i])
                     
@@ -88,7 +87,6 @@ extension String {
         return attributedString
     }
     
-    // Твой старый метод (можешь оставить его, если он нужен в других местах)
     func highlightingGermanUmlauts(color: Color = .orange) -> AttributedString {
         var attributedString = AttributedString(self)
         let umlauts = ["ä", "ö", "ü", "ß", "Ä", "Ö", "Ü"]
@@ -103,34 +101,23 @@ extension String {
         return attributedString
     }
     
-//    func compareGerman(with target: String) -> WritingResult {
-//            let input = self.lowercased().trimmingCharacters(in: .whitespaces)
-//            let normalizedTarget = target.lowercased().trimmingCharacters(in: .whitespaces)
-//            
-//            // 1. Идеальное совпадение
-//            if input == normalizedTarget { return .perfect(match: target) }
-//            
-//            // 2. Сравнение без умляутов
-//            let inputNoUmlauts = input.folding(options: .diacriticInsensitive, locale: .current)
-//            let targetNoUmlauts = normalizedTarget.folding(options: .diacriticInsensitive, locale: .current)
-//            
-//            if inputNoUmlauts == targetNoUmlauts {
-//                // Если без умляутов они равны, значит проблема в них
-//                // Проверяем: у пользователя меньше умляутов или больше?
-//                if input.count < normalizedTarget.count || input.containsUmlaut == false && normalizedTarget.containsUmlaut {
-//                     return .missingUmlaut(match: target)
-//                } else {
-//                     return .extraUmlaut(match: target)
-//                }
-//            }
-//            
-//            return .wrong
-//        }
-//        
-//        // Вспомогательная проверка на наличие умляутов
-//        var containsUmlaut: Bool {
-//            let umlauts = CharacterSet(charactersIn: "äöüÄÖÜß")
-//            return self.rangeOfCharacter(from: umlauts) != nil
-//        }
+    /// Parses inline Markdown (`**bold**`, `*italic*`) for preposition guide content.
+    var markdownAttributedString: AttributedString {
+        if let attributed = try? AttributedString(
+            markdown: self,
+            options: AttributedString.MarkdownParsingOptions(
+                interpretedSyntax: .inlineOnlyPreservingWhitespace
+            )
+        ) {
+            return attributed
+        }
+        return AttributedString(self)
+    }
+
+    var bulletMarkdownAttributedString: AttributedString {
+        var bullet = AttributedString("• ")
+        bullet.font = .body.bold()
+        return bullet + markdownAttributedString
+    }
 }
 

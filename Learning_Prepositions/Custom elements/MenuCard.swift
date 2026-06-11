@@ -10,7 +10,6 @@ struct MenuCard: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 16) {
-                // Иконка
                 Image(systemName: iconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -18,7 +17,6 @@ struct MenuCard: View {
                     .foregroundStyle(iconColor)
                     .symbolRenderingMode(.hierarchical)
                 
-                // Текст
                 Text(title)
                     .font(.system(.headline, design: .rounded))
                     .foregroundStyle(AppTheme.primaryText)
@@ -28,7 +26,6 @@ struct MenuCard: View {
                 
                 Spacer()
                 
-                // Шеврон
                 Image(systemName: "chevron.right")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(.tertiary)
@@ -38,7 +35,6 @@ struct MenuCard: View {
             .background(
                 RoundedRectangle(cornerRadius: 24)
                     .fill(backgroundColor)
-                    // Тень чуть мягче, чтобы карта не "летала" слишком высоко
                     .shadow(color: AppTheme.cardShadow, radius: 8, x: 0, y: 4)
             )
         }

@@ -6,7 +6,6 @@ struct LanguageSection: View {
     var body: some View {
         SettingsSectionCard(title: L10n.Settings.Section.Language.title) {
             
-            // 1. Язык
             SettingsRow(
                 icon: "globe",
                 color: .purple,
@@ -17,7 +16,6 @@ struct LanguageSection: View {
                         Button {
                             withAnimation { selectedLanguageRawValue = lang.rawValue }
                         } label: {
-                            // Добавляем галочку и тут для единообразия
                             if selectedLanguageRawValue == lang.rawValue {
                                 Label("\(lang.emojiFlag) \(lang.name)", systemImage: "checkmark")
                             } else {
@@ -43,7 +41,6 @@ struct LanguageSection: View {
             Divider()
                 .padding(.leading, 44)
             
-            // 2. Уровень
             SettingsRow(
                 icon: "chart.bar.fill",
                 color: .orange,

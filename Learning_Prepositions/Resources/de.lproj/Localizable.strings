@@ -49,6 +49,25 @@
 "universalMenu.activity.sprint.title" = "Sprint";
 "universalMenu.activity.progress.title" = "Mein Fortschritt";
 "universalMenu.activity.writing.title" = "Schreiben";
+"universalMenu.prepositions.title" = "Präpositionen";
+
+//================================================ Prepositions guide =================================================
+"prepositions.list.title" = "Präpositionen";
+"prepositions.list.subtitle" = "Deutsche Präpositionen nach Kasus — tippen für Details";
+"prepositions.detail.meaning" = "Bedeutung";
+"prepositions.detail.grammar" = "Grammatik";
+"prepositions.detail.whenToUse" = "Wann benutzen";
+"prepositions.detail.mistakes" = "Typische Fehler";
+"prepositions.detail.contrast" = "Nicht verwechseln mit";
+"prepositions.detail.examples" = "Beispiele";
+"prepositions.detail.related" = "Verwandte Präpositionen";
+
+"prepositions.detail.update.alert.confirm.title" = "Artikel aktualisieren?";
+"prepositions.detail.update.alert.confirm.description" = "Nach Korrekturen oder neuen Inhalten für diese Präposition suchen?";
+"prepositions.detail.update.alert.success.title" = "Aktualisiert!";
+"prepositions.detail.update.alert.success.description" = "Der Artikel wurde auf die neueste Version vom Server aktualisiert.";
+"prepositions.detail.update.alert.noChanges.title" = "Keine Updates";
+"prepositions.detail.update.alert.noChanges.description" = "Sie haben bereits die aktuellste Version dieses Artikels.";
 
 //================================================ Mode screen ===================================================================
 "mode.title" = "Optionen";
@@ -224,4 +243,5 @@
 "appErrors.noInternet" = "Keine Internetverbindung. Bitte überprüfe deine Verbindung und versuche es erneut.";
 "appErrors.serverError" = "Serverfehler:";
 "appErrors.decodingError" = "Die empfangenen Daten konnten nicht verarbeitet werden.";
+"appErrors.contentNotAvailable" = "Dieser Leitfaden ist noch nicht verfügbar. Bitte versuche es später erneut.";
 "appErrors.unknown" = "Ein unbekannter Fehler ist aufgetreten";

@@ -1,12 +1,10 @@
 import FirebaseFirestore
 import FirebaseAuth
 
-// Протокол для записи (используем в игровых экранах)
 protocol LeaderboardWriting {
     func uploadResult(_ result: QuizResult, quizDifficulty: QuizDifficulty, profile: UserProfileManager)
 }
 
-// Протокол для чтения (используем в экране рейтинга)
 protocol LeaderboardReading {
     func fetchTopScores(
         gameType: GameType,
@@ -19,30 +17,25 @@ protocol LeaderboardReading {
 final class FirebaseLeaderboardService: LeaderboardWriting, LeaderboardReading {
     private let db = Firestore.firestore()
     
-    // 1. Единое имя коллекции для всех результатов
     private let mainCollection = "global_leaderboard"
     private let isTestingMode = false
     
     // MARK: - Writing (Сохранение лучшего результата)
     func uploadResult(_ result: QuizResult, quizDifficulty: QuizDifficulty, profile: UserProfileManager) {
-        // 1. Проверка: настроен ли профиль
         guard profile.isProfileSetupComplete else {
             print("ℹ️ Профиль не завершен, пропуск загрузки.")
             return
         }
         
         // 2. БЕРЕМ UID ИЗ НАШЕГО МЕНЕДЖЕРА ✅
-        // Теперь мы не используем ?? "unknown_user", а делаем guard.
         // Если ID еще нет (что маловероятно после целого квиза), мы просто выходим.
         guard let realUid = profile.currentUid else {
             print("❌ Ошибка: UID не найден в UserProfileManager. Запись невозможна.")
             return
         }
         
-        // Определяем userId (тестовый или реальный)
         let userId = isTestingMode ? "test_\(UUID().uuidString.prefix(8))" : realUid
         
-        // 3. Уникальный ID документа (оставляем твою логику)
         let documentId = "\(userId)_\(result.gameType.rawValue)_\(quizDifficulty.questionCount)_\(result.levelRaw)"
         let docRef = db.collection(mainCollection).document(documentId)
         

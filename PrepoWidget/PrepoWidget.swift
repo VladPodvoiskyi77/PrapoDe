@@ -18,20 +18,14 @@ struct Provider: TimelineProvider {
         return Language(rawValue: langRaw) ?? .en
     }
     
-    // Функция загрузки из общей папки
     func loadVerbsFromSwiftData() -> [VerbEntity] {
-        // 1. Получаем доступ к нашему общему контейнеру
         let container = PersistenceController.sharedModelContainer
         let context = ModelContext(container)
         
-        // 2. Получаем текущий уровень из настроек App Group
         // Виджет должен показывать только те слова, уровень которых сейчас выбран
         let sharedDefaults = UserDefaults(suiteName: AppConfig.Constants.appGroupID)
         let currentLevel = sharedDefaults?.string(forKey: "selectedLevel") ?? "A1"
         
-        // 3. Создаем запрос:
-        // - Только текущий уровень
-        // - Только те, что помечены isShow == true ✅
         let predicate = #Predicate<VerbEntity> { verb in
             verb.levelRaw == currentLevel && verb.isShow == true
         }
@@ -46,7 +40,6 @@ struct Provider: TimelineProvider {
             
             if verbs.isEmpty {
                 print("⚠️ SwiftData пуста или все слова скрыты. Проверь настройки.")
-                // Если в базе пусто, можно вернуть пустой массив или какой-то дефолт
                 return loadFromBundle()
             }
             
@@ -67,11 +60,8 @@ struct Provider: TimelineProvider {
         do {
             let data = try Data(contentsOf: bundleURL)
             
-            // 1. Декодируем в СТРУКТУРУ VerbItem (она реализует Codable) ✅
             let items = try JSONDecoder().decode([VerbItem].self, from: data)
             
-            // 2. Превращаем структуры в классы VerbEntity через наш инициализатор ✅
-            // Мы уже писали: init(from item: VerbItem) в классе VerbEntity
             let entities = items.map { VerbEntity(from: $0) }
             
             print("📦 Загружено и конвертировано \(entities.count) глаголов из встроенного Bundle")
@@ -83,9 +73,7 @@ struct Provider: TimelineProvider {
         }
     }
     
-    // Заглушка (показывается, пока виджет грузится)
     func placeholder(in context: Context) -> SimpleEntry {
-        // Создаем фейковые данные (используем твои Enums: .akkusativ, .a1)
         let item = VerbEntity(from: VerbItem(
             base: "Laden...",
             preposition: "",
@@ -99,7 +87,6 @@ struct Provider: TimelineProvider {
         return SimpleEntry(date: Date(), verbItem: item, languageCode: currentLanguage)
     }
     
-    // Снимок для галереи виджетов
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
         let item = VerbEntity(from: VerbItem(
             base: "warten",
@@ -114,7 +101,6 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
     
-    // ГЛАВНАЯ ЛОГИКА: Генерация таймлайна
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         let sharedDefaults = UserDefaults(suiteName: AppConfig.Constants.appGroupID)
 
@@ -142,9 +128,6 @@ struct Provider: TimelineProvider {
     }
 }
 
-// ---------------------------------------------------------
-// 3. UI ВИДЖЕТА (View)
-// ---------------------------------------------------------
 struct PrepoWidgetEntryView: View {
     
     var entry: Provider.Entry

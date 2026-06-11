@@ -18,8 +18,8 @@ struct HintCapsule: View {
         .padding(.horizontal, 20)
         .background(
             Capsule()
-                .fill(.white) // Белый фон
-                .shadow(color: color.opacity(0.2), radius: 8, x: 0, y: 4)
+                .fill(.white)
+                    .shadow(color: color.opacity(0.2), radius: 8, x: 0, y: 4)
         )
     }
 }

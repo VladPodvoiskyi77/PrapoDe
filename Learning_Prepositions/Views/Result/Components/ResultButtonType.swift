@@ -22,7 +22,7 @@ enum ResultButtonType {
         case .review: return "doc.text.magnifyingglass"
         case .repeatTest: return "arrow.clockwise"
         case .leaderboard: return "trophy.fill"
-        case .globalRanking: return "globe.europe.africa.fill" // Иконка глобуса
+        case .globalRanking: return "globe.europe.africa.fill"
         case .home: return "house.fill"
         }
     }
@@ -32,7 +32,7 @@ enum ResultButtonType {
         case .review: return .blue
         case .repeatTest: return .green
         case .leaderboard: return .orange
-        case .globalRanking: return .purple // Фиолетовый для отличия от локального топа
+        case .globalRanking: return .purple
         case .home: return .red
         }
     }

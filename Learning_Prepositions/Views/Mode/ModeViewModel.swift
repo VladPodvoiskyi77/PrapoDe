@@ -18,7 +18,6 @@ final class ModeViewModel: BaseDataViewModel {
     
     // MARK: - Logic
     func prepareWords(for mode: ModeType) async -> [WordItem]? {
-        // 1. Если кэш пуст, загружаем
         if allWords.isEmpty {
             guard let loaded = await performLoad(category: category) else {
                 return nil

@@ -18,7 +18,6 @@ final class WordRepository {
     func fetchItems<T: Decodable>(level: String, category: String) async throws -> T {
         let path = "data/\(level)/\(category).json"
         
-        // 1. Сначала ищем в КЭШЕ (Offline mode)
         if let cachedData = local.load(key: path) {
             print("📦 Loaded from Cache: \(path)")
             if let decoded: T = try? decode(data: cachedData) {
@@ -26,21 +25,17 @@ final class WordRepository {
             }
         }
         
-        // 2. Если кэша нет, проверяем ИНТЕРНЕТ перед загрузкой
         guard network.isConnected else {
             // Кэша нет + Интернета нет = Ошибка
             throw AppError.noInternet
         }
         
-        // 3. Загрузка из СЕТИ
         print("☁️ Downloading from Remote: \(path)")
         do {
             let remoteData = try await remote.download(path: path)
             
-            // 4. Сохраняем в кэш
             local.save(data: remoteData, key: path)
             
-            // 5. Декодируем
             return try decode(data: remoteData)
         } catch {
             CrashReporter.record(error, context: [
@@ -82,7 +77,6 @@ final class WordRepository {
         
     private func mergeProgress(newRemote: [WordItem], oldLocal: [WordItem]) -> [WordItem] {
         // 1. Создаем словарь безопасно.
-        // Если ключи совпали (дубликаты в файле), мы выбираем тот, где больше баллов.
         let progressMap = Dictionary(oldLocal.map {
             ("\($0.base)_\($0.preposition)", $0)
         }, uniquingKeysWith: { (first, second) in
@@ -111,7 +105,6 @@ final class WordRepository {
     @MainActor
     func syncWidgetData(context: ModelContext, force: Bool = false) async throws {
         
-        // 1. ПРОВЕРКА: Если данные уже есть и мы не заставляем обновлять — просто выходим.
         let descriptor = FetchDescriptor<VerbEntity>()
         let existingCount = (try? context.fetchCount(descriptor)) ?? 0
         
@@ -137,10 +130,8 @@ final class WordRepository {
         guard let data = rawData else { return }
         
         do {
-            // 3. ДЕКОДИРОВАНИЕ
             let verbs = try JSONDecoder().decode([VerbItem].self, from: data)
             
-            // 4. ПЕРЕЗАПИСЬ: Удаляем ВСЁ и записываем ВСЁ
             // Это гарантирует отсутствие дубликатов без лишних проверок
             try context.delete(model: VerbEntity.self)
             
@@ -148,7 +139,6 @@ final class WordRepository {
                 context.insert(VerbEntity(from: item))
             }
             
-            // 5. СОХРАНЕНИЕ
             try context.save()
             print("💾 База виджета полностью перезаписана: \(verbs.count) элементов.")
             
@@ -166,7 +156,6 @@ final class WordRepository {
         }
     }
     
-    // 👇 НОВЫЙ МЕТОД: Для сохранения прогресса
     func saveItems<T: Encodable>(_ items: T, level: String, category: String) {
         let path = "data/\(level)/\(category).json"
         print("path----->", path)

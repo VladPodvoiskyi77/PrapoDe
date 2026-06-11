@@ -6,7 +6,6 @@ struct FlashcardView: View {
     @State private var isFlipped = false
     @State private var dragOffset: CGSize = .zero
     
-    // Callbacks
     var onRemove: (() -> Void)?
     var onReturn: (() -> Void)?
     
@@ -23,12 +22,10 @@ struct FlashcardView: View {
     
     var body: some View {
         ZStack {
-            // --- ОСНОВА КАРТОЧКИ ---
-            RoundedRectangle(cornerRadius: 32) // Более скругленные углы (Modern look)
+            RoundedRectangle(cornerRadius: 32)
                 .fill(Color(UIColor.secondarySystemGroupedBackground))
-                .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6) // Глубокая тень
-                .overlay(
-                    // Цветная обводка (индикатор падежа)
+                .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6)
+                    .overlay(
                     RoundedRectangle(cornerRadius: 32)
                         .strokeBorder(
                             LinearGradient(
@@ -40,7 +37,6 @@ struct FlashcardView: View {
                         )
                 )
             
-            // --- КОНТЕНТ ---
             ZStack {
                 backSideContent
                     .opacity(isFlipped ? 1 : 0)
@@ -49,18 +45,14 @@ struct FlashcardView: View {
                 frontSideContent
                     .opacity(isFlipped ? 0 : 1)
             }
-            .clipShape(RoundedRectangle(cornerRadius: 32)) // Обрезаем контент по краям
-            
-            // --- ИНДИКАТОР СВАЙПА ---
+            .clipShape(RoundedRectangle(cornerRadius: 32))            
             if dragOffset.width != 0 && !isFlipped {
                 swipeStatusOverlay
             }
         }
-        .frame(height: 540) // Чуть выше для воздуха
-        .frame(maxWidth: .infinity)
-        .padding(.horizontal, 8) // Небольшой отступ от краев экрана
-        
-        // --- АНИМАЦИИ ---
+        .frame(height: 540)
+            .frame(maxWidth: .infinity)
+        .padding(.horizontal, 8)        
         .rotation3DEffect(
             .degrees(isFlipped ? 180 : 0),
             axis: (x: 0, y: 1, z: 0)
@@ -91,16 +83,14 @@ struct FlashcardView: View {
     // MARK: - FRONT SIDE (ВОПРОС)
     private var frontSideContent: some View {
         ZStack {
-            // 1. Декоративный фон (Водяной знак)
             GeometryReader { geo in
-                Text(word.caseType.prefix(3).uppercased()) // Первые 3 буквы падежа (DAT, AKK)
+                Text(word.caseType.prefix(3).uppercased())
                     .font(.system(size: 150, weight: .black, design: .rounded))
-                    .foregroundColor(accentColor.opacity(0.05)) // Очень прозрачный
-                    .rotationEffect(.degrees(-20))
+                    .foregroundColor(accentColor.opacity(0.05))
+                        .rotationEffect(.degrees(-20))
                     .position(x: geo.size.width * 0.8, y: geo.size.height * 0.8)
             }
             
-            // 2. Основной текст
             VStack(spacing: 20) {
                 Spacer()
                 
@@ -108,10 +98,9 @@ struct FlashcardView: View {
                     .font(.system(size: 50, weight: .bold, design: .rounded))
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
-                    .lineLimit(2) // Ограничиваем двумя строками
-                    .minimumScaleFactor(0.6) // Позволяем тексту сжиматься до 60% размера, прежде чем переносить
-                    .fixedSize(horizontal: false, vertical: true) // Запрещаем обрезать текст по горизонтали
-                
+                    .lineLimit(2)
+                        .minimumScaleFactor(0.6)
+                        .fixedSize(horizontal: false, vertical: true)
                 Text(L10n.Training.Action.tapToFlip)
                     .font(.caption)
                     .fontWeight(.semibold)
@@ -131,9 +120,7 @@ struct FlashcardView: View {
     // MARK: - BACK SIDE (ОТВЕТ)
     private var backSideContent: some View {
         VStack(spacing: 0) {
-            // 1. ШАПКА (Теперь она адаптивная!)
             ZStack(alignment: .bottom) {
-                // Фон-прямоугольник подстраивается под контент
                 Rectangle()
                     .fill(
                         LinearGradient(
@@ -144,16 +131,14 @@ struct FlashcardView: View {
                     )
                 
                 VStack(spacing: 8) {
-                    // Глагол + Предлог
                     (Text(word.base) + Text(" ") + Text(word.preposition))
-                        .font(.system(size: 28, weight: .heavy, design: .rounded)) // Уменьшили с largeTitle до 30 для надежности
-                        .foregroundColor(.primary)
+                        .font(.system(size: 28, weight: .heavy, design: .rounded))
+                            .foregroundColor(.primary)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
-                        .minimumScaleFactor(0.5) // Позволяем сильно сжиматься
-                        .padding(.horizontal, 20)
+                        .minimumScaleFactor(0.5)
+                            .padding(.horizontal, 20)
                     
-                    // Перевод
                     Text(word.translationWordWithPrep(for: currentLanguage))
                         .font(.title3)
                         .fontWeight(.medium)
@@ -161,12 +146,10 @@ struct FlashcardView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
                 }
-                .padding(.top, 20)    // Отступ сверху
-                .padding(.bottom, 20) // ОГРОМНЫЙ ОТСТУП СНИЗУ (Чтобы не наплывало на бейдж)
-            }
-            .fixedSize(horizontal: false, vertical: true) // Важно: заставляет ZStack облегать контент
-            
-            // 2. БЕЙДЖ ПАДЕЖА
+                .padding(.top, 20)
+                    .padding(.bottom, 20)
+                }
+            .fixedSize(horizontal: false, vertical: true)            
             Text(word.caseType.uppercased())
                 .font(.footnote)
                 .fontWeight(.black)
@@ -176,15 +159,12 @@ struct FlashcardView: View {
                 .foregroundColor(.white)
                 .clipShape(Capsule())
                 .shadow(color: accentColor.opacity(0.4), radius: 6, y: 4)
-                .offset(y: -15) // Наплыв на границу
-                .zIndex(1) // Поверх всего
-
+                .offset(y: -15)
+                    .zIndex(1)
             
             Spacer()
             
-            // 3. Блок с примером (в "Пузыре")
             VStack(alignment: .leading, spacing: 12) {
-                // Иконка цитаты
                 Image(systemName: "quote.opening")
                     .font(.title2)
                     .foregroundColor(accentColor.opacity(0.5))
@@ -208,7 +188,6 @@ struct FlashcardView: View {
             
             Spacer()
             
-            // 4. Кнопка звука
             Button {
                 Speaker.shared.speak(word.example)
             } label: {

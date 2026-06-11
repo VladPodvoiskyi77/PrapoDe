@@ -33,7 +33,6 @@ struct LevelHintView: View {
                         .foregroundColor(.white)
                 }
                 
-                // Текст
                 VStack(alignment: .leading, spacing: 6) {
                     Text(L10n.UniversalMenu.Category.Hint.title)
                         .font(.system(size: 16, weight: .bold, design: .rounded))
@@ -46,7 +45,6 @@ struct LevelHintView: View {
                         .lineSpacing(2)
                 }
                 
-                // Кнопка закрытия
                 Button(action: onClose) {
                     Image(systemName: "xmark")
                         .font(.system(size: 12, weight: .bold))
@@ -78,10 +76,9 @@ struct LevelHintView: View {
 struct PopoverArrow: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        // Рисуем треугольник
-        path.move(to: CGPoint(x: rect.minX, y: rect.maxY)) // Левый нижний
-        path.addLine(to: CGPoint(x: rect.midX, y: rect.minY)) // Вершина
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY)) // Правый нижний
+        path.move(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         path.closeSubpath()
         return path
     }

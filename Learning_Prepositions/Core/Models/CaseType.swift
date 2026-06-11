@@ -12,14 +12,12 @@ enum CaseType: String, CaseIterable, Hashable, Decodable, Encodable {
 }
 
 extension CaseType {
-    // Стандартные цвета немецкой грамматики
     var color: Color {
         switch self {
         case .akkusativ: return .blue
         case .dativ: return .green
         case .genitiv: return .orange
         case .nominativ: return .gray
-        //case .wechsel: return .purple
         }
     }
 }

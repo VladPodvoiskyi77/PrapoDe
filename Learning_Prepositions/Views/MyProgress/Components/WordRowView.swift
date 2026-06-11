@@ -1,13 +1,11 @@
 import SwiftUI
 
 enum WordRowMode {
-    case learning(score: Int, isLearned: Bool) // Режим с 5 точками
-    case selection(isOn: Binding<Bool>)       // Режим со свитчем
-}
+    case learning(score: Int, isLearned: Bool)
+    case selection(isOn: Binding<Bool>)}
 
 // MARK: - Карточка слова
 struct WordRowView: View {
-    // Входные данные (универсальные строки)
     let base: String
     let preposition: String
     let translation: String
@@ -17,7 +15,6 @@ struct WordRowView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 12) {
             
-            // 1. Левая часть: Тексты
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 0) {
                     Text(base)
@@ -39,7 +36,6 @@ struct WordRowView: View {
             
             Spacer()
             
-            // 2. Середина: Бейдж падежа
             if !caseType.isEmpty {
                 Text(caseType.prefix(3).uppercased())
                     .font(.system(size: 10, weight: .bold))
@@ -50,7 +46,6 @@ struct WordRowView: View {
                     .clipShape(Capsule())
             }
             
-            // 3. Правая часть: СТАТУС ИЛИ СВИТЧ ✅
             rightSideView
         }
         .padding()
@@ -63,7 +58,6 @@ struct WordRowView: View {
     private var rightSideView: some View {
         switch mode {
         case .learning(let score, let isLearned):
-            // Твои 5 точек или галочка
             if isLearned {
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(.green)
@@ -79,11 +73,10 @@ struct WordRowView: View {
             }
             
         case .selection(let isOn):
-            // ВМЕСТО ТОЧЕК — ПРОСТО СВИТЧ ✅
             Toggle("", isOn: isOn)
-                .labelsHidden() // Прячем пустой заголовок
-                .tint(.orange)  // Цвет свитча под цвет точек
-        }
+                .labelsHidden()
+                    .tint(.orange)
+                }
     }
     
     private var caseColor: Color {

@@ -5,10 +5,8 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-            // 1. Компонент фона
             SplashBackgroundView()
             
-            // 2. Центральный контент
             VStack(spacing: 20) {
                 
                 Image(uiImage: Asset.main.image)
@@ -23,7 +21,6 @@ struct SplashView: View {
                     )
                     .shadow(color: Color.black.opacity(0.15), radius: 25, x: 0, y: 12)
                 
-                // Текст
                 VStack(spacing: 12) {
                     Text(AppConfig.Support.appName)
                         .font(.system(size: 54, weight: .black, design: .rounded))

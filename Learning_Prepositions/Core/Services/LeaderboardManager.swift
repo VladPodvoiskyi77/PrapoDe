@@ -13,13 +13,11 @@ final class LeaderboardManager: LeaderboardManaging {
     }
     
     func processNewResult(_ newResult: QuizResult) -> Bool {
-        // 1. Загружаем всё, что есть
         var allResults = storage.load()
         allResults.append(newResult)
         
         // 2. ГРУППИРОВКА
         // Нам нужно разбить результаты на "корзины", чтобы сравнивать только сравнимое.
-        // A1 Standard отдельно, A1 Speed (10 вопросов) отдельно, A1 Speed (30 вопросов) отдельно.
         let grouped = Dictionary(grouping: allResults) { result -> String in
             switch result.gameType {
             case .quiz, .writing:
@@ -34,24 +32,20 @@ final class LeaderboardManager: LeaderboardManaging {
         var finalResults: [QuizResult] = []
         var isNewRecord = false
         
-        // 3. Обработка каждой группы
         for (_, groupResults) in grouped {
             guard let firstItem = groupResults.first else { continue }
             
             let sortedGroup: [QuizResult]
             
-            // СОРТИРОВКА
             if firstItem.gameType == .sprint {
                 sortedGroup = LeaderboardRankingLogic.sortSprintResults(groupResults)
             } else {
                 sortedGroup = LeaderboardRankingLogic.sortStandardResults(groupResults)
             }
             
-            // ОБРЕЗКА (ТОП-10)
             let top10 = Array(sortedGroup.prefix(10))
             finalResults.append(contentsOf: top10)
             
-            // ПРОВЕРКА НА РЕКОРД
             // Проверяем, находится ли наш новый результат на 1 месте В СВОЕЙ ГРУППЕ
             // (Важно проверять группу, к которой относится новый результат)
             let isTargetGroup = (firstItem.gameType == newResult.gameType) &&
@@ -63,7 +57,6 @@ final class LeaderboardManager: LeaderboardManaging {
             }
         }
         
-        // 4. Сохраняем обработанный список обратно
         storage.save(finalResults)
         
         return isNewRecord

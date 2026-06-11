@@ -23,7 +23,6 @@ class BaseDataViewModel: ObservableObject {
         BaseDataViewModel.sharedDefaults.string(forKey: "selectedLevel") ?? Level.a1.rawValue
     }
     
-    // Удобный хелпер для получения Enum языка
     var currentLanguage: Language {
         Language(rawValue: selectedLanguageRaw) ?? .ru
     }
@@ -67,27 +66,21 @@ class BaseDataViewModel: ObservableObject {
         defer { isLoading = false }
         
         do {
-            // 1. Вызываем твой метод из репозитория
             let updateResult = try await repository.forceUpdateCategory(
                 level: currentLevelRaw,
                 category: category.fileName
             )
             
-            // 2. Если данные реально обновились (.updated)
             if case .updated = updateResult {
-                // Загружаем уже обновленный и склеенный массив из локального хранилища
-                // (fetchItems у тебя умеет брать из кэша)
                 let updatedItems: [WordItem] = try await repository.fetchItems(
                     level: currentLevelRaw,
                     category: category.fileName
                 )
                 
-                // Валидируем и возвращаем вместе со статусом
                 let validated = validator.validate(updatedItems)
                 return (validated, .updated)
             }
             
-            // 3. Если изменений нет (.noChanges), возвращаем nil в массиве
             return (nil, updateResult)
             
         } catch let error as AppError {

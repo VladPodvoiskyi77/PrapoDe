@@ -9,7 +9,6 @@ struct WordValidator: WordValidating {
         items.filter { item in
             let hiddenResult = item.example.hidingWord(item.preposition)
             
-            // Валидно, если результат НЕ равен оригиналу (значит, замена произошла)
             let valid = hiddenResult != item.example
             
             if !valid {

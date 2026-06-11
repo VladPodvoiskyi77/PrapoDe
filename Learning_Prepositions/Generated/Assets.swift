@@ -27,7 +27,6 @@ internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let gradientEnd = ColorAsset(name: "GradientEnd")
   internal static let gradientStart = ColorAsset(name: "GradientStart")
-  internal static let main2 = ImageAsset(name: "main 2")
   internal static let main = ImageAsset(name: "main")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

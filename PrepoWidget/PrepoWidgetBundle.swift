@@ -5,7 +5,5 @@ import SwiftUI
 struct PrepoWidgetBundle: WidgetBundle {
     var body: some Widget {
         PrepoWidget()
-        //PrepoWidgetControl()
-        //PrepoWidgetLiveActivity()
     }
 }

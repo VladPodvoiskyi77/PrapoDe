@@ -32,9 +32,6 @@
 		5299C9AD2EE43DEE00BBEE3F /* UserDefaultsQuizResultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9AC2EE43DE600BBEE3F /* UserDefaultsQuizResultStorage.swift */; };
 		5299C9AF2EE43E3F00BBEE3F /* QuizResultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9AE2EE43E3A00BBEE3F /* QuizResultStorage.swift */; };
 		5299C9B52EE890CA00BBEE3F /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9B42EE890C600BBEE3F /* LeaderboardManager.swift */; };
-		A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */; };
-		A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1TEST0F2F6000010000000F /* XCTest.framework */; };
-		A1TEST102F60000100000010 /* Pods_Learning_prepositions_is_easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */; };
 		5299C9B72EE898F000BBEE3F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9B62EE898E800BBEE3F /* AppError.swift */; };
 		5299C9BB2EE89B4500BBEE3F /* WordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9BA2EE89B2F00BBEE3F /* WordRepository.swift */; };
 		5299C9BD2EE89B8500BBEE3F /* NetworkChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C9BC2EE89B7F00BBEE3F /* NetworkChecking.swift */; };
@@ -155,6 +152,16 @@
 		52FD17EB2F6DBB36005F04D2 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EA2F6DBB30005F04D2 /* UIDevice.swift */; };
 		52FD17ED2F6DBCDA005F04D2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EC2F6DBCD5005F04D2 /* Color.swift */; };
 		52FD17EF2F757ABE005F04D2 /* ResultSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EE2F757AAA005F04D2 /* ResultSection.swift */; };
+		52PR00022F80000100000002 /* PrepositionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00012F80000100000001 /* PrepositionModels.swift */; };
+		52PR00042F80000100000004 /* PrepositionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00032F80000100000003 /* PrepositionRepository.swift */; };
+		52PR00062F80000100000006 /* PrepositionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00052F80000100000005 /* PrepositionsListView.swift */; };
+		52PR00082F80000100000008 /* PrepositionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00072F80000100000007 /* PrepositionsListViewModel.swift */; };
+		52PR000A2F8000010000000A /* PrepositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00092F80000100000009 /* PrepositionDetailView.swift */; };
+		52PR000C2F8000010000000C /* PrepositionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */; };
+		52PR000E2F8000010000000E /* PrepositionComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000D2F8000010000000D /* PrepositionComponents.swift */; };
+		A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */; };
+		A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1TEST0F2F6000010000000F /* XCTest.framework */; };
+		A1TEST102F60000100000010 /* Pods_Learning_prepositions_is_easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,9 +224,6 @@
 		5299C9AC2EE43DE600BBEE3F /* UserDefaultsQuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsQuizResultStorage.swift; sourceTree = "<group>"; };
 		5299C9AE2EE43E3A00BBEE3F /* QuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultStorage.swift; sourceTree = "<group>"; };
 		5299C9B42EE890C600BBEE3F /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
-		A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRankingLogic.swift; sourceTree = "<group>"; };
-		A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Learning_prepositions_is_easyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1TEST0F2F6000010000000F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Developer/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		5299C9B62EE898E800BBEE3F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5299C9BA2EE89B2F00BBEE3F /* WordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRepository.swift; sourceTree = "<group>"; };
 		5299C9BC2EE89B7F00BBEE3F /* NetworkChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecking.swift; sourceTree = "<group>"; };
@@ -338,7 +342,17 @@
 		52FD17EA2F6DBB30005F04D2 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		52FD17EC2F6DBCD5005F04D2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52FD17EE2F757AAA005F04D2 /* ResultSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSection.swift; sourceTree = "<group>"; };
+		52PR00012F80000100000001 /* PrepositionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionModels.swift; sourceTree = "<group>"; };
+		52PR00032F80000100000003 /* PrepositionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionRepository.swift; sourceTree = "<group>"; };
+		52PR00052F80000100000005 /* PrepositionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListView.swift; sourceTree = "<group>"; };
+		52PR00072F80000100000007 /* PrepositionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListViewModel.swift; sourceTree = "<group>"; };
+		52PR00092F80000100000009 /* PrepositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailView.swift; sourceTree = "<group>"; };
+		52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailViewModel.swift; sourceTree = "<group>"; };
+		52PR000D2F8000010000000D /* PrepositionComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionComponents.swift; sourceTree = "<group>"; };
 		79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learning_prepositions_is_easy.release.xcconfig"; path = "Target Support Files/Pods-Learning_prepositions_is_easy/Pods-Learning_prepositions_is_easy.release.xcconfig"; sourceTree = "<group>"; };
+		A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRankingLogic.swift; sourceTree = "<group>"; };
+		A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Learning_prepositions_is_easyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1TEST0F2F6000010000000F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Developer/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learning_prepositions_is_easy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B94A53697E4210D561EC84FB /* Pods-Learning_prepositions_is_easy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learning_prepositions_is_easy.debug.xcconfig"; path = "Target Support Files/Pods-Learning_prepositions_is_easy/Pods-Learning_prepositions_is_easy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -412,14 +426,6 @@
 				52BA4C382F34DD5A00A10B9C /* PrepoWidgetExtension.appex */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A1TEST0D2F6000010000000D /* Learning_prepositions_is_easyTests */ = {
-			isa = PBXGroup;
-			children = (
-				A1TEST0C2F6000010000000C /* Learning_prepositions_is_easyTests */,
-			);
-			name = Learning_prepositions_is_easyTests;
 			sourceTree = "<group>";
 		};
 		5249A0C32FABA66C00B01CDB /* Analytics */ = {
@@ -506,6 +512,7 @@
 				52A0E0FA2F06CC6B00822AAF /* QuizQuestions.swift */,
 				52DA8B162ECF20FE00129F4E /* QuizResult.swift */,
 				52DA8B172ECF20FE00129F4E /* WordItem.swift */,
+				52PR00012F80000100000001 /* PrepositionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -537,6 +544,7 @@
 			children = (
 				527A7E732F1415CB00C77843 /* WordValidator.swift */,
 				5299C9BA2EE89B2F00BBEE3F /* WordRepository.swift */,
+				52PR00032F80000100000003 /* PrepositionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -904,6 +912,7 @@
 				5299CA1F2EF01CC600BBEE3F /* UniversalMenu */,
 				52B14B172F7BAFC80021AE67 /* WidgetWordSelection */,
 				52BE6DCC2F4CEAEF00B4C2EC /* Writing */,
+				52PR000F2F8000010000000F /* Prepositions */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -948,6 +957,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		52PR000F2F8000010000000F /* Prepositions */ = {
+			isa = PBXGroup;
+			children = (
+				52PR00102F80000100000010 /* Components */,
+				52PR00052F80000100000005 /* PrepositionsListView.swift */,
+				52PR00072F80000100000007 /* PrepositionsListViewModel.swift */,
+				52PR00092F80000100000009 /* PrepositionDetailView.swift */,
+				52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */,
+			);
+			path = Prepositions;
+			sourceTree = "<group>";
+		};
+		52PR00102F80000100000010 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				52PR000D2F8000010000000D /* PrepositionComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		66518B0F49127E36EDCE4BDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -955,6 +984,14 @@
 				79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A1TEST0D2F6000010000000D /* Learning_prepositions_is_easyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1TEST0C2F6000010000000C /* Learning_prepositions_is_easyTests */,
+			);
+			name = Learning_prepositions_is_easyTests;
 			sourceTree = "<group>";
 		};
 		D8CF117277CE674F526E6FAA /* Frameworks */ = {
@@ -1205,6 +1242,13 @@
 				527A7E722F1406A200C77843 /* String+Preposition.swift in Sources */,
 				52DA8B202ECF20FE00129F4E /* ResultViewModel.swift in Sources */,
 				52FD173F2F6BF123005F04D2 /* FirebaseLeaderboardService.swift in Sources */,
+				52PR00022F80000100000002 /* PrepositionModels.swift in Sources */,
+				52PR00042F80000100000004 /* PrepositionRepository.swift in Sources */,
+				52PR00062F80000100000006 /* PrepositionsListView.swift in Sources */,
+				52PR00082F80000100000008 /* PrepositionsListViewModel.swift in Sources */,
+				52PR000A2F8000010000000A /* PrepositionDetailView.swift in Sources */,
+				52PR000C2F8000010000000C /* PrepositionDetailViewModel.swift in Sources */,
+				52PR000E2F8000010000000E /* PrepositionComponents.swift in Sources */,
 				52FD173B2F6BEF08005F04D2 /* GlobalRecord.swift in Sources */,
 				5299CA322EF2E1EA00BBEE3F /* HeaderView.swift in Sources */,
 				527A7E7F2F17091B00C77843 /* CaseType.swift in Sources */,
@@ -1526,7 +1570,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1545,7 +1589,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1570,7 +1614,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				ENABLE_PREVIEWS = YES;
@@ -1588,7 +1632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1609,7 +1653,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1621,7 +1665,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1641,7 +1685,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1653,7 +1697,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

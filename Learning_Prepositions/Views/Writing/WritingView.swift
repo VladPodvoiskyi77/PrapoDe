@@ -55,8 +55,8 @@ struct WritingView: View {
                             .background(borderColor.opacity(0.05))
                     )
                     .padding(.horizontal, 24)
-                    .disabled(viewModel.currentResult != nil) // Используем enum
-                    .onChange(of: viewModel.userInput) { oldValue, newValue in
+                    .disabled(viewModel.currentResult != nil)
+                        .onChange(of: viewModel.userInput) { oldValue, newValue in
                             if newValue.count > textLimit {
                                 viewModel.userInput = String(newValue.dropLast())
                             }

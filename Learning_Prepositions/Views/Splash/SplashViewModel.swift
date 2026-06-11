@@ -2,22 +2,18 @@ import SwiftUI
 
 @MainActor
 final class SplashViewModel: ObservableObject {    
-    // Состояние анимации UI
     @Published var contentScale = 0.8
     @Published var contentOpacity = 0.0
     
     private let userDefaults: UserDefaults
     
-    // Dependency Injection для тестируемости
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
     }
     
     func onAppear() {
-        // 1. Настройка языка (Smart Setup)
         setupInitialData()
         
-        // 2. Запуск анимации появления
         withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
             contentScale = 1.0
             contentOpacity = 1.0

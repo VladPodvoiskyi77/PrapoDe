@@ -22,10 +22,9 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
 struct QuizResult: Identifiable, Equatable, Codable {
     var id: UUID = UUID()
     
-    // Старые поля
     let score: Int
     let total: Int
-    let levelRaw: String // Уровень юзера (A1, B1...)
+    let levelRaw: String
     let date: Date
     
     var gameType: GameType

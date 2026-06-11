@@ -106,4 +106,27 @@ final class AnalyticsManager {
             AnalyticsParameterScreenClass: screenName
         ])
     }
+
+    // MARK: - Prepositions guide
+
+    func logPrepositionsGuideViewed(prepositionCount: Int, contentLanguage: String) {
+        Analytics.logEvent("prepositions_guide_viewed", parameters: [
+            "preposition_count": prepositionCount,
+            "content_language": contentLanguage
+        ])
+    }
+
+    func logPrepositionArticleViewed(
+        prepositionId: String,
+        lemma: String,
+        caseGroup: String,
+        contentLanguage: String
+    ) {
+        Analytics.logEvent("preposition_article_viewed", parameters: [
+            "preposition_id": prepositionId,
+            "lemma": lemma,
+            "case_group": caseGroup,
+            "content_language": contentLanguage
+        ])
+    }
 }

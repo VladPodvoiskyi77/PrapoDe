@@ -30,15 +30,12 @@ final class QuizReviewViewModel: ObservableObject {
     
     // MARK: - Grade Logic (Оценка результата)
     
-    // Приватное свойство, вычисляющее текущий грейд
     private var grade: QuizGrade {
         QuizGrade(percentage: accuracyPercent)
     }
     
     // MARK: - Presentation Data (Данные для UI)
     
-    // ViewModel просто проксирует данные из Grade.
-    // Если захотим поменять тексты — меняем их в Enum, не трогая ViewModel.
     var feedbackTitle: String {
         grade.title
     }

@@ -28,13 +28,10 @@ final class LeaderboardViewModel: ObservableObject {
     func sortedData() -> [QuizResult] {
         return results
             .filter { result in
-                // 1. Совпадает уровень (A1..C1)
                 let levelMatch = result.levelRaw == selectedFilter.rawValue
                 
-                // 2. Совпадает тип (Standard/Speed)
                 let typeMatch = result.gameType == selectedGameType
                 
-                // 3. Если это Спидран, проверяем совпадает ли количество вопросов (10/20/30)
                 var difficultyMatch = true
                 if selectedGameType == .sprint {
                     difficultyMatch = result.total == selectedDifficulty.questionCount
@@ -44,13 +41,11 @@ final class LeaderboardViewModel: ObservableObject {
             }
             .sorted { (res1, res2) -> Bool in
                 if selectedGameType == .sprint {
-                    // Сортировка для Спидрана: Очки -> Время
                     if res1.score != res2.score {
                         return res1.score > res2.score
                     }
                     return (res1.timeElapsed ?? 999) < (res2.timeElapsed ?? 999)
                 } else {
-                    // Сортировка для Стандарта: Процент -> Дата
                     if res1.percentage != res2.percentage {
                         return res1.percentage > res2.percentage
                     }

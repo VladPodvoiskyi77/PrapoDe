@@ -32,7 +32,6 @@ final class SpeedQuizViewModel: ObservableObject {
     @Published var resultsHistory: [AnswerResult] = []
     @Published var feedbackColor: Color = .clear
     
-    // Высокоточные переменные времени
     private var startDate: Date?
     private var accumulatedTime: TimeInterval = 0
     private var timer: AnyCancellable?
@@ -142,7 +141,6 @@ final class SpeedQuizViewModel: ObservableObject {
         
         let isCorrect = (answer == currentWord.preposition)
         
-        // Создаем запись результата
         let resultEntry = AnswerResult(
             base: currentWord.basePreposition,
             preposition: currentWord.preposition,
@@ -185,7 +183,6 @@ final class SpeedQuizViewModel: ObservableObject {
     }
     
     private func finishGame() {
-        // Захватываем финальное точное время до остановки таймера
         let finalTime = timeElapsed
         stopGame()
         
@@ -195,7 +192,6 @@ final class SpeedQuizViewModel: ObservableObject {
     
     func saveResult(with finalTime: TimeInterval? = nil) {
         sessionCompleted = true
-        // 1. Берем либо переданное время, либо захваченное в конце игры, либо текущее
         let rawTime = finalTime ?? (finalCapturedTime > 0 ? finalCapturedTime : timeElapsed)
         
         let cleanedTime = (rawTime * 100).rounded() / 100
@@ -223,7 +219,6 @@ final class SpeedQuizViewModel: ObservableObject {
             total: difficulty.questionCount
         )
         
-        // 2. Глобальное сохранение
         if UserProfileManager.shared.isProfileSetupComplete {
             let firebaseService = FirebaseLeaderboardService()
             firebaseService.uploadResult(result, quizDifficulty: difficulty, profile: UserProfileManager.shared)
@@ -233,14 +228,11 @@ final class SpeedQuizViewModel: ObservableObject {
     }
     
     func saveProgressSafely() {
-        // Берем только те вопросы, на которые юзер успел ответить
         let playedQuestions = gameQuestions.prefix(currentIndex + 1)
         var hasChanges = false
         
-        // Синхронизация RAM -> Master List
         for playedWord in playedQuestions {
             if let index = fullWordItems.firstIndex(where: { $0.id == playedWord.id }) {
-                // Если статус поменялся - обновляем
                 if fullWordItems[index].learningScore != playedWord.learningScore {
                     fullWordItems[index] = playedWord
                     hasChanges = true
@@ -250,7 +242,6 @@ final class SpeedQuizViewModel: ObservableObject {
         
         if !hasChanges { return }
         
-        // Сохранение на диск
         let itemsToSave = fullWordItems
         let lvl = selectedLevel.rawValue
         let cat = Category(rawValue: categoryName)?.fileName ?? "default"

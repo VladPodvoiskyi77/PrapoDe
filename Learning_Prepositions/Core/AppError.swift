@@ -4,6 +4,7 @@ enum AppError: LocalizedError {
     case noInternet
     case serverError(String)
     case decodingError
+    case contentNotAvailable
     case unknown
     
     var errorDescription: String? {
@@ -14,6 +15,8 @@ enum AppError: LocalizedError {
             return L10n.AppErrors.serverError + "\(msg)"
         case .decodingError:
             return L10n.AppErrors.decodingError
+        case .contentNotAvailable:
+            return L10n.AppErrors.contentNotAvailable
         case .unknown:
             return L10n.AppErrors.unknown
         }

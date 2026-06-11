@@ -6,8 +6,7 @@ struct MyProgressView: View {
     @State private var showInfoSheet = false
     @State private var showConfirmUpdate = false
     @State private var showUpdateStatus = false
-    @State private var updateResult: UpdateResult = .noChanges // Твой Enum
-    
+    @State private var updateResult: UpdateResult = .noChanges    
     let category: Category
     
     init(category: Category) {
@@ -18,7 +17,6 @@ struct MyProgressView: View {
     var body: some View {
         ZStack(alignment: .center) {
             
-            // --- СЛОЙ 1: СПИСОК СЛОВ ---
             VStack(spacing: 0) {
                 MyProgressHeaderView(
                     learnedCount: viewModel.learnedWords,
@@ -47,19 +45,15 @@ struct MyProgressView: View {
             .background(AppTheme.mainGradient.ignoresSafeArea())
             .animation(.default, value: viewModel.showFilterCarousel)
             
-            // --- СЛОЙ 2: ФИЛЬТР (КАРУСЕЛЬ) ---
             if viewModel.showFilterCarousel {
-                // 1. Прозрачный фон для отмены
                 Color.clear
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        // ТАП МИМО -> СБРОС И ЗАКРЫТИЕ
                         viewModel.closeAndResetFilter()
                     }
                     .zIndex(1)
                 
                 if !viewModel.availablePrepositions.isEmpty  {
-                    // 2. Сама карусель
                     FloatingCarousel(
                         items: viewModel.availablePrepositions,
                         selectedItem: $viewModel.selectedPreposition,
@@ -73,26 +67,24 @@ struct MyProgressView: View {
                     )
                     .transition(.scale(scale: 0.9).combined(with: .opacity))
                     .zIndex(2)
-                    .padding(.bottom, 20) // Положение по вертикали
-                }
+                    .padding(.bottom, 20)
+                    }
                 
                 
             }
             
-            // СЛОЙ 3: Лоадер (Поверх всего, по центру)
             if viewModel.isLoading {
                 ZStack {
-                    Color.black.opacity(0.4).ignoresSafeArea() // Затемнение фона
+                    Color.black.opacity(0.4).ignoresSafeArea()
                     CardLoaderView()
-                        .transition(.scale.combined(with: .opacity)) // Плавное появление
-                }
+                        .transition(.scale.combined(with: .opacity))
+                        }
                 .zIndex(100)
             }
         }
         .opacity(viewModel.isLoading ? 0.5 : 1)
         .disabled(viewModel.isLoading)
         
-        // --- НАВИГАЦИЯ ---
         .navigationTitle(L10n.MyProgress.Screen.title)
         .navigationBarTitleDisplayMode(.inline)
         
@@ -103,7 +95,6 @@ struct MyProgressView: View {
         )
         
         .toolbar {
-            // info button
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     showInfoSheet = true
@@ -112,21 +103,17 @@ struct MyProgressView: View {
                         .fontWeight(.medium)
                 }
             }
-            // update data
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showConfirmUpdate = true
-                    // показать алерт с вопросом - обновить данные или нет? если да, сделать уже запрос
                 } label: {
                     Image(systemName: "arrow.clockwise.icloud")
                         .fontWeight(.medium)
                 }
             }
-            // filter button
             ToolbarItem(placement: .topBarTrailing) {
                 HStack(spacing: 12) {
                     
-                    // Кнопка Фильтра
                     Button {
                         if viewModel.showFilterCarousel {
                             
@@ -137,7 +124,6 @@ struct MyProgressView: View {
                             }
                         }
                     } label: {
-                        // Логика цвета иконки
                         let isOpen = viewModel.showFilterCarousel
                         
                         Image(systemName:
@@ -152,8 +138,8 @@ struct MyProgressView: View {
         }
         .sheet(isPresented: $showInfoSheet) {
             LearningRulesView(context: .general)
-                .presentationDetents([ .large]) // Шторка открывается наполовину
-                .presentationDragIndicator(.visible)
+                .presentationDetents([ .large])
+                    .presentationDragIndicator(.visible)
         }
         .errorAlert(isPresented: $viewModel.showError, error: viewModel.appError) {
             Task {
@@ -178,6 +164,3 @@ struct MyProgressView: View {
     }
 }
 
-//#Preview {
-//    MyProgressView(category: .verben)
-//}

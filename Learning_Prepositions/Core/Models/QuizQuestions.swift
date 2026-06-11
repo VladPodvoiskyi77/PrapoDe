@@ -6,18 +6,15 @@ struct LearningSession {
 }
 
 struct AnswerResult: Identifiable, Hashable {
-    let id = UUID() // Нужно для List/ForEach
+    let id = UUID()
     let base: String // слово (глагол/существвительное/прилагательное) с предлогом
     let preposition: String // немецкий прелог
     let prepositionTranslation: String // перевод слова (глагола/существительного/прилагательного) с предлогом
-    let example: String // пример предложения с base на немецком
-    let exampleTranslation: String //переввод примера предложения с base на немецком
-    let caseType: String // Dativ/Akkusativ/Genetiv
-    let usersAnswer: String // ответ юзера
-    
-    // Хелпер, чтобы узнать, правильно ли ответил юзер
+    let example: String
+    let exampleTranslation: String
+    let caseType: String
+    let usersAnswer: String
     var isCorrect: Bool {
         return usersAnswer.isEquivalentIgnoringUmlauts(to: preposition)
-        //return preposition == usersAnswer
     }
 }

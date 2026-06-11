@@ -4,7 +4,6 @@ import SwiftUI
 // MARK: - Поддерживаемые языки
 
 enum Level: String, CaseIterable, Identifiable, Decodable, Encodable {
-    //case all = "All"
     case a1 = "A1"
     case a2 = "A2"
     case b1 = "B1"

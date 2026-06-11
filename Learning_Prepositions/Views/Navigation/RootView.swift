@@ -35,6 +35,8 @@ enum Screen: Hashable {
     case onboardingProfile
     case globalRanking(GameType, String, QuizDifficulty)
     case widgetWordSelection
+    case prepositionsList
+    case prepositionDetail(String, String, String)
     
     var nameScreen: String {
         switch self {
@@ -71,6 +73,10 @@ enum Screen: Hashable {
             "GlobalRanking"
         case .widgetWordSelection:
             "WidgetWordSelection"
+        case .prepositionsList:
+            "PrepositionsList"
+        case .prepositionDetail(_, _, _):
+            "PrepositionDetail"
         }
     }
 }
@@ -125,6 +131,14 @@ struct RootView: View {
                             GlobalRankingView(gameType: gameType, level: Level(rawValue: level) ?? .a1, quizDifficulty: quizDifficulty)
                         case .widgetWordSelection:
                             WidgetWordSelectionView(modelContext: modelContext).environmentObject(navModel)
+                        case .prepositionsList:
+                            PrepositionsListView().environmentObject(navModel)
+                        case .prepositionDetail(let id, let path, let lemma):
+                            PrepositionDetailView(
+                                prepositionId: id,
+                                detailPath: path,
+                                lemma: lemma
+                            )
                         }
                     }
             }

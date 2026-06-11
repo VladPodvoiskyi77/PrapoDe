@@ -7,15 +7,12 @@ struct QuizReviewCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
-            // ВЕРХНЯЯ ЧАСТЬ: Слово и Перевод
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
-                    // Базовое слово
                     Text(item.base)
                         .font(.headline)
                         .foregroundColor(.primary)
                     
-                    // Перевод слова
                     Text(item.prepositionTranslation)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
@@ -23,7 +20,6 @@ struct QuizReviewCard: View {
                 
                 Spacer()
                 
-                // Бэджик падежа (справа сверху)
                 Text(item.caseType)
                     .font(.caption)
                     .fontWeight(.bold)
@@ -38,7 +34,6 @@ struct QuizReviewCard: View {
             Divider()
                 .padding(.leading)
             
-            // СРЕДНЯЯ ЧАСТЬ: Пример и контекст
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "text.quote")
@@ -62,7 +57,6 @@ struct QuizReviewCard: View {
             
             HStack {
                 if item.isCorrect {
-                    // Если правильно
                     HStack {
                         Image(systemName: "checkmark.circle.fill")
                         Text(L10n.QuizReview.yourAnswer + " \(item.usersAnswer)")
@@ -70,9 +64,7 @@ struct QuizReviewCard: View {
                     }
                     .foregroundColor(.green)
                 } else {
-                    // Если ошибка
                     HStack {
-                        // Что ответил юзер
                         HStack(spacing: 4) {
                             Image(systemName: "xmark.circle.fill")
                             Text(item.usersAnswer)
@@ -88,7 +80,6 @@ struct QuizReviewCard: View {
                         
                         Spacer()
                         
-                        // Как надо было
                         HStack(spacing: 4) {
                             Text(item.preposition)
                                 .fontWeight(.bold)
@@ -105,11 +96,9 @@ struct QuizReviewCard: View {
         .background(Color(.secondarySystemGroupedBackground))
         .cornerRadius(16)
         .overlay(
-            // Тонкая цветная рамка, чтобы выделить статус карточки
             RoundedRectangle(cornerRadius: 16)
                 .stroke(item.isCorrect ? Color.green.opacity(0.3) : Color.red.opacity(0.3), lineWidth: 1)
         )
-        // Тень для объема
         .shadow(color: Color.black.opacity(0.04), radius: 4, x: 0, y: 2)
     }
 }

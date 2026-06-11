@@ -5,11 +5,8 @@ final class UniversalMenuViewModel: BaseDataViewModel {
     
     // MARK: - Properties
     
-    // Входящие данные (Dependencies)
     private let screenType: MenuScreenType
-    private let currentCategory: Category // Текущая категория (важно для режимов)
-    
-    // Выходящие данные (Outputs for View)
+    private let currentCategory: Category    
     @Published var menuItems: [MenuUIItem] = []
     @Published var screenTitle: String = ""
     
@@ -36,10 +33,14 @@ final class UniversalMenuViewModel: BaseDataViewModel {
             
         case .main:
 
-            //repository.removeItems(level: "C1", category: "nomen")
             
-            // Формируем список категорий
-            self.menuItems = Category.allCases.map { category in
+            let prepositionsItem = MenuUIItem(
+                title: L10n.UniversalMenu.Prepositions.title,
+                iconName: "character.book.closed.fill",
+                iconColor: .teal,
+                payload: .prepositionsGuide
+            )
+            var items = Category.allCases.map { category in
                 MenuUIItem(
                     title: category.rawValue,
                     iconName: category.iconName,
@@ -47,9 +48,10 @@ final class UniversalMenuViewModel: BaseDataViewModel {
                     payload: .category(category)
                 )
             }
+            items.insert(prepositionsItem, at: 0)
+            self.menuItems = items
             if !hintDefaults.bool(forKey: hintShownKey) {
                 
-                // Запускаем через секунду, чтобы интерфейс успел появиться
                 Task {
                     try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
                     showLevelHint = true
@@ -57,7 +59,6 @@ final class UniversalMenuViewModel: BaseDataViewModel {
             }
             
         case .activity:
-            // Формируем список режимов
             self.menuItems = Activity.allCases.map { mode in
                 MenuUIItem(
                     title: mode.title,
@@ -69,7 +70,6 @@ final class UniversalMenuViewModel: BaseDataViewModel {
         }
     }
     
-    // 🔥 ДЕЙСТВИЕ: Скрыть и запомнить
         func markHintAsSeen() {
             withAnimation {
                 showLevelHint = false
@@ -80,7 +80,6 @@ final class UniversalMenuViewModel: BaseDataViewModel {
     // MARK: - Actions
 
     func loadWords() async -> [WordItem] {
-        // Логика BaseDataViewModel
         if let words = await performLoad(category: currentCategory) {
             return words
         }

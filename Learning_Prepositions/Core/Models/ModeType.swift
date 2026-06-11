@@ -35,10 +35,13 @@ enum ModeType: String, CaseIterable {
     var iconColor: Color {
         switch self {
         case .akkusativ: return .blue
-        case .dativ:     return .purple
+        case .dativ:
+        return .purple
         case .random:   return .indigo
-        case .az:       return .orange
-        case .za:       return .red
+        case .az:
+        return .orange
+        case .za:
+        return .red
         }
     }
 }

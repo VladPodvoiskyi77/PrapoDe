@@ -20,7 +20,6 @@ struct OnboardingProfileView: View {
 
     var body: some View {
         ZStack {
-            // Фон реагирует на касание и закрывает клавиатуру
             AppTheme.mainGradient
                 .ignoresSafeArea()
                 .onTapGesture {
@@ -44,7 +43,6 @@ struct OnboardingProfileView: View {
                 .padding(.top, 40)
 
                 VStack(spacing: 20) {
-                    // Поле Никнейма
                     inputContainer(title: L10n.OnboardingProfile.Nickname.label) {
                         TextField(L10n.OnboardingProfile.Nickname.placeholder, text: $nickname)
                             .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -52,7 +50,6 @@ struct OnboardingProfileView: View {
                             .autocorrectionDisabled()
                     }
 
-                    // Поле Страны
                     inputContainer(title: L10n.OnboardingProfile.Country.label) {
                         Button {
                             hideKeyboard()
@@ -78,7 +75,6 @@ struct OnboardingProfileView: View {
 
                 Spacer()
                 
-                // Кнопка сохранения
                 AppButton(
                     title: L10n.OnboardingProfile.saveButton,
                     minHeight: 60,
@@ -106,7 +102,6 @@ struct OnboardingProfileView: View {
         }
     }
 
-    // Универсальный контейнер для полей ввода
     private func inputContainer<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
@@ -121,7 +116,6 @@ struct OnboardingProfileView: View {
         }
     }
 
-    // Список выбора страны
     var countrySelectionList: some View {
         NavigationView {
             List(filteredCountries) { country in

@@ -20,7 +20,6 @@ final class QuizViewModel: ObservableObject {
     @AppStorage("selectedLevel", store: UserDefaults(suiteName: AppConfig.Constants.appGroupID))
     private var levelRaw = Level.a1.rawValue
     
-    // Хранилища слов
     private var fullWordItems: [WordItem]
     @Published private(set) var wordItems: [WordItem]
     @Published var resultsHistory: [AnswerResult] = []
@@ -42,7 +41,6 @@ final class QuizViewModel: ObservableObject {
     var currentLanguage: Language { Language(rawValue: languageRaw) ?? .en }
     var selectedLevel: Level { Level(rawValue: levelRaw) ?? .a1 }
     
-    // Безопасный доступ к слову
     var currentWord: WordItem {
         guard currentIndex < wordItems.count else { return wordItems.first! }
         return wordItems[currentIndex]
@@ -68,7 +66,6 @@ final class QuizViewModel: ObservableObject {
     // MARK: - Game Logic
     
     func generateOptions() {
-        // Логика простая: берем опции из модели
         guard currentIndex < wordItems.count else { return }
         stableOptions = currentWord.getAnswerOptions().map { OptionItem(text: $0) }
     }
@@ -111,7 +108,6 @@ final class QuizViewModel: ObservableObject {
     }
     
     private func saveProgressSafely() {
-        // 1. Обновляем данные в памяти (это быстро, Main Thread)
         let changedWord = wordItems[currentIndex]
         
         if let index = fullWordItems.firstIndex(where: { $0.id == changedWord.id }) {
@@ -126,7 +122,6 @@ final class QuizViewModel: ObservableObject {
 
         let currentCategory = Category(rawValue: categoryName)?.fileName ?? ""
         
-        // 3. УХОДИМ В ФОН (Detached Task)
         Task.detached(priority: .utility) {
             await self.repository.saveItems(itemsToSave,
                                             level: self.selectedLevel.rawValue,
@@ -186,8 +181,7 @@ final class QuizViewModel: ObservableObject {
         )
 
         wordItems = candidateWords.getWordsForQuiz(count: safeCount)
-        totalQuestions = wordItems.count // Обновляем кол-во вопросов, если вдруг слов стало меньше
-        
+        totalQuestions = wordItems.count        
         isNewRecord = leaderboardManager.processNewResult(result)
     }
 

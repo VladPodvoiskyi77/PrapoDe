@@ -13,7 +13,6 @@ struct MyProgressHeaderView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            // 1. Верхняя часть (без изменений)
             HStack(alignment: .center) {
                 Text(category)
                     .font(.title2)
@@ -29,12 +28,10 @@ struct MyProgressHeaderView: View {
                     .shadow(color: .black.opacity(0.15), radius: 2, x: 2, y: 2)
             }
             
-            // 2. Секция Прогресса
             VStack(spacing: 8) {
                 
                 HStack(spacing: 12) {
                     
-                    // Сама полоска
                     GeometryReader { geometry in
                         ZStack(alignment: .leading) {
                             Capsule()
@@ -53,16 +50,13 @@ struct MyProgressHeaderView: View {
                                 .animation(.easeOut(duration: 1.5), value: showProgress)
                         }
                     }
-                    .frame(height: 12) // Фиксируем высоту контейнера полоски
-                    
-                    // 👇 Текст с процентами справа
+                    .frame(height: 12)                    
                     Text("\(Int(progress * 100))%")
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                         .frame(width: 45, alignment: .trailing)
                 }
                 
-                // Подписи снизу
                 HStack {
                     Text(L10n.MyProgress.Stats.learned(learnedCount))
                     Spacer()

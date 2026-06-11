@@ -50,6 +50,11 @@ DIMENSIONS = [
     DimensionDef("user_answer", "User answer", "EVENT", "What the user selected or typed"),
     DimensionDef("country_code", "Country code", "EVENT", "Onboarding country"),
     DimensionDef("status", "Toggle status", "EVENT", "Widget word enabled/disabled"),
+    DimensionDef("preposition_id", "Preposition ID", "EVENT", "Article id (fur, in, …)"),
+    DimensionDef("lemma", "Preposition lemma", "EVENT", "German preposition (für, in, …)"),
+    DimensionDef("case_group", "Preposition case group", "EVENT", "dativ / akkusativ / genitiv / wechsel"),
+    DimensionDef("content_language", "Content language", "EVENT", "Article UI language ru / ua / en"),
+    DimensionDef("preposition_count", "Preposition count", "EVENT", "Items in prepositions guide"),
     DimensionDef("nickname", "Nickname", "USER", "Display name from profile"),
     DimensionDef("current_study_level", "Current study level", "USER", "Selected CEFR level"),
 ]
@@ -110,6 +115,25 @@ def normalize_property_id(raw: str) -> str:
     if raw.startswith("properties/"):
         return raw.split("/", 1)[1]
     return raw
+
+
+def validate_property_id(raw: str) -> str:
+    property_id = normalize_property_id(raw)
+    placeholders = {"YOUR_NUMERIC_ID", "123456789", "YOUR_ID", "REPLACE_ME"}
+    if property_id in placeholders:
+        sys.exit(
+            f"Invalid GA4_PROPERTY_ID={raw!r} — this is a placeholder, not a real property ID.\n"
+            "Run discovery first:\n"
+            "  python3 firebase/setup_custom_dimensions.py --discover\n"
+            "Then export the numeric ID, e.g.:\n"
+            '  export GA4_PROPERTY_ID="525311318"'
+        )
+    if not property_id.isdigit():
+        sys.exit(
+            f"Invalid GA4_PROPERTY_ID={raw!r} — expected a numeric ID like 525311318.\n"
+            "Run: python3 firebase/setup_custom_dimensions.py --discover"
+        )
+    return property_id
 
 
 def list_existing_dimensions(credentials: service_account.Credentials, property_id: str) -> Set[str]:
@@ -187,10 +211,10 @@ def main() -> None:
             "Run discovery first:\n"
             "  python3 firebase/setup_custom_dimensions.py --discover\n"
             "Then:\n"
-            '  export GA4_PROPERTY_ID="YOUR_NUMERIC_ID"'
+            '  export GA4_PROPERTY_ID="525311318"'
         )
 
-    property_id = normalize_property_id(args.property_id)
+    property_id = validate_property_id(args.property_id)
     existing = list_existing_dimensions(credentials, property_id)
 
     print(f"Property: properties/{property_id}")

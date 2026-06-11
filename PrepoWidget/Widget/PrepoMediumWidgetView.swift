@@ -7,10 +7,8 @@ struct PrepoMediumWidgetView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
-            // --- ВЕРХНЯЯ ЧАСТЬ ---
             HStack(alignment: .top, spacing: 12) {
                 
-                // 1. Иконка (фиксированный размер)
                 Image("mainWidget")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -18,11 +16,8 @@ struct PrepoMediumWidgetView: View {
                     .cornerRadius(16)
                     .shadow(color: .black.opacity(0.15), radius: 4, y: 2)
                 
-                // 2. КОНТЕНТНАЯ КОЛОНКА
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    // ЛИНИЯ 1: Метаданные (Уровень + Падеж)
-                    // Ограничиваем высоту этой строки, чтобы она не "съедала" пространство
                     HStack(spacing: 4) {
                         Text(entry.verbItem.levelRaw)
                             .font(.system(size: 10, weight: .black, design: .rounded))
@@ -31,7 +26,7 @@ struct PrepoMediumWidgetView: View {
                             .background(Color.black.opacity(0.2))
                             .cornerRadius(4)
                         
-                        Text(entry.verbItem.caseTypeRaw)// shortCaseName.uppercased())
+                        Text(entry.verbItem.caseTypeRaw)
                             .font(.system(size: 9, weight: .heavy))
                             .padding(.horizontal, 6)
                             .padding(.vertical, 4)
@@ -41,7 +36,6 @@ struct PrepoMediumWidgetView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 4)
                     
-                    // ЛИНИЯ 2: Глагол + Предлог
                     Text(entry.verbItem.basePreposition)
                         .font(.system(size: 24, weight: .black, design: .rounded))
                         .foregroundColor(.white)
@@ -49,8 +43,6 @@ struct PrepoMediumWidgetView: View {
                         .minimumScaleFactor(0.7)
                         .layoutPriority(2)
                     
-                    // ЛИНИЯ 3: Перевод
-                    // Теперь он тоже яркий и крупный
                     Text(entry.verbItem.getTranslation(for: entry.languageCode))
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .foregroundColor(.white.opacity(0.95))

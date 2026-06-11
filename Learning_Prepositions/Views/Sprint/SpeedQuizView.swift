@@ -16,7 +16,6 @@ struct SpeedQuizView: View {
             AppTheme.mainGradient
                 .ignoresSafeArea()
             
-            // Фон-вспышка
             viewModel.feedbackColor
                 .ignoresSafeArea()
                 .animation(.easeInOut(duration: 0.25), value: viewModel.feedbackColor)
@@ -55,7 +54,6 @@ struct SpeedQuizView: View {
             .blur(radius: (viewModel.isCountingDown || showExitAlert) ? 15 : 0)
             .disabled(showExitAlert)
             
-            // Оверлей отсчета
             if viewModel.isCountingDown {
                 Color.black.opacity(0.4).ignoresSafeArea()
                 
@@ -114,10 +112,8 @@ struct SpeedQuizView: View {
     }
     
     private func proceedToResults() {
-        // 1. Вызываем сохранение (теперь в нем будет и локальный рекорд, и отправка в Firebase)
         viewModel.saveResult()
         
-        // 2. Формируем контекст для экрана результатов
         let context = QuizResultContext(
             correctAnswers: viewModel.correctAnswers,
             resultsHistory: viewModel.resultsHistory,
@@ -126,7 +122,6 @@ struct SpeedQuizView: View {
             numberOfQuestions: viewModel.difficulty.questionCount
         )
         
-        // 3. Переходим на экран результатов
         nav.goTo(.result(context))
     }
 }

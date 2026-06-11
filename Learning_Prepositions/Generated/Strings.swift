@@ -115,6 +115,8 @@ internal enum L10n {
     }
   }
   internal enum AppErrors {
+    /// This guide is not available yet. Try again later.
+    internal static let contentNotAvailable = L10n.tr("Localizable", "appErrors.contentNotAvailable", fallback: "This guide is not available yet. Try again later.")
     /// Failed to process the received data.
     internal static let decodingError = L10n.tr("Localizable", "appErrors.decodingError", fallback: "Failed to process the received data.")
     /// No internet connection. Please check your network and try again.
@@ -238,6 +240,52 @@ internal enum L10n {
       internal static let search = L10n.tr("Localizable", "onboardingProfile.picker.search", fallback: "Search country...")
       /// Where are you from?
       internal static let title = L10n.tr("Localizable", "onboardingProfile.picker.title", fallback: "Where are you from?")
+    }
+  }
+  internal enum Prepositions {
+    internal enum Detail {
+      /// Don't confuse with
+      internal static let contrast = L10n.tr("Localizable", "prepositions.detail.contrast", fallback: "Don't confuse with")
+      /// Examples
+      internal static let examples = L10n.tr("Localizable", "prepositions.detail.examples", fallback: "Examples")
+      /// Grammar
+      internal static let grammar = L10n.tr("Localizable", "prepositions.detail.grammar", fallback: "Grammar")
+      /// Meaning
+      internal static let meaning = L10n.tr("Localizable", "prepositions.detail.meaning", fallback: "Meaning")
+      /// Common mistakes
+      internal static let mistakes = L10n.tr("Localizable", "prepositions.detail.mistakes", fallback: "Common mistakes")
+      /// Related prepositions
+      internal static let related = L10n.tr("Localizable", "prepositions.detail.related", fallback: "Related prepositions")
+      /// When to use
+      internal static let whenToUse = L10n.tr("Localizable", "prepositions.detail.whenToUse", fallback: "When to use")
+      internal enum Update {
+        internal enum Alert {
+          internal enum Confirm {
+            /// Check Firebase for corrections or new content for this preposition?
+            internal static let description = L10n.tr("Localizable", "prepositions.detail.update.alert.confirm.description", fallback: "Check Firebase for corrections or new content for this preposition?")
+            /// Update article?
+            internal static let title = L10n.tr("Localizable", "prepositions.detail.update.alert.confirm.title", fallback: "Update article?")
+          }
+          internal enum NoChanges {
+            /// You already have the latest version of this article.
+            internal static let description = L10n.tr("Localizable", "prepositions.detail.update.alert.noChanges.description", fallback: "You already have the latest version of this article.")
+            /// No updates
+            internal static let title = L10n.tr("Localizable", "prepositions.detail.update.alert.noChanges.title", fallback: "No updates")
+          }
+          internal enum Success {
+            /// The article was updated with the latest version from the server.
+            internal static let description = L10n.tr("Localizable", "prepositions.detail.update.alert.success.description", fallback: "The article was updated with the latest version from the server.")
+            /// Updated!
+            internal static let title = L10n.tr("Localizable", "prepositions.detail.update.alert.success.title", fallback: "Updated!")
+          }
+        }
+      }
+    }
+    internal enum List {
+      /// German prepositions by case — tap for a detailed guide
+      internal static let subtitle = L10n.tr("Localizable", "prepositions.list.subtitle", fallback: "German prepositions by case — tap for a detailed guide")
+      /// Prepositions
+      internal static let title = L10n.tr("Localizable", "prepositions.list.title", fallback: "Prepositions")
     }
   }
   internal enum Quiz {
@@ -504,6 +552,10 @@ internal enum L10n {
         /// Learn Efficiently
         internal static let title = L10n.tr("Localizable", "universalMenu.category.hint.title", fallback: "Learn Efficiently")
       }
+    }
+    internal enum Prepositions {
+      /// Prepositions
+      internal static let title = L10n.tr("Localizable", "universalMenu.prepositions.title", fallback: "Prepositions")
     }
   }
   internal enum WidgetWord {

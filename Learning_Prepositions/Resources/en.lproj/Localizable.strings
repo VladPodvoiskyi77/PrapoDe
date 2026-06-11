@@ -49,6 +49,25 @@
 "universalMenu.activity.sprint.title" = "Sprint";
 "universalMenu.activity.progress.title" = "My Progress";
 "universalMenu.activity.writing.title" = "Writing";
+"universalMenu.prepositions.title" = "Prepositions";
+
+//================================================ Prepositions guide =================================================
+"prepositions.list.title" = "Prepositions";
+"prepositions.list.subtitle" = "German prepositions by case — tap for a detailed guide";
+"prepositions.detail.meaning" = "Meaning";
+"prepositions.detail.grammar" = "Grammar";
+"prepositions.detail.whenToUse" = "When to use";
+"prepositions.detail.mistakes" = "Common mistakes";
+"prepositions.detail.contrast" = "Don't confuse with";
+"prepositions.detail.examples" = "Examples";
+"prepositions.detail.related" = "Related prepositions";
+
+"prepositions.detail.update.alert.confirm.title" = "Update article?";
+"prepositions.detail.update.alert.confirm.description" = "Check Firebase for corrections or new content for this preposition?";
+"prepositions.detail.update.alert.success.title" = "Updated!";
+"prepositions.detail.update.alert.success.description" = "The article was updated with the latest version from the server.";
+"prepositions.detail.update.alert.noChanges.title" = "No updates";
+"prepositions.detail.update.alert.noChanges.description" = "You already have the latest version of this article.";
 
 //================================================ Mode screen ===================================================================
 "mode.title" = "Options";
@@ -225,4 +244,5 @@
 "appErrors.noInternet" = "No internet connection. Please check your network and try again.";
 "appErrors.serverError" = "Server error:";
 "appErrors.decodingError" = "Failed to process the received data.";
+"appErrors.contentNotAvailable" = "This guide is not available yet. Try again later.";
 "appErrors.unknown" = "An unknown error occurred";

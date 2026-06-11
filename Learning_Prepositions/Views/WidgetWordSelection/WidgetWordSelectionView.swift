@@ -11,9 +11,7 @@ struct WidgetWordSelectionView: View {
     var body: some View {
         ZStack(alignment: .center) {
             
-            // --- СЛОЙ 1: ОСНОВНОЙ КОНТЕНТ ---
             VStack(spacing: 0) {
-                // Твой заголовок (адаптированный под виджет)
                 WidgetSelectionHeaderView(
                     selectedCount: viewModel.selectedCount,
                     totalCount: viewModel.totalCount,
@@ -41,7 +39,6 @@ struct WidgetWordSelectionView: View {
             }
             .background(AppTheme.mainGradient.ignoresSafeArea())
             
-            // --- СЛОЙ 2: ФИЛЬТР (КАРУСЕЛЬ) ---
             if viewModel.showFilterCarousel {
                 Color.black.opacity(0.001)
                     .onTapGesture { viewModel.closeAndResetFilter() }
@@ -63,7 +60,6 @@ struct WidgetWordSelectionView: View {
                 }
             }
             
-            // СЛОЙ 3: ЛОАДЕР
             if viewModel.isLoading {
                 ZStack {
                     Color.black.opacity(0.4).ignoresSafeArea()

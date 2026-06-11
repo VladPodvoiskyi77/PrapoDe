@@ -21,7 +21,6 @@ struct QuizView: View {
             
             // MARK: - Верхний блок (Слово + Падеж)
             VStack(spacing: 12) {
-                // Блок с переводом (показывается только после ответа)
                 HStack(alignment: .center, spacing: 10) {
                     Text(viewModel.currentWord.formattedTranslation(for: viewModel.currentLanguage))
                         .font(.system(.title3, design: .rounded))
@@ -32,7 +31,6 @@ struct QuizView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .layoutPriority(1)
                     
-                    // Кнопка аудио
                     Button {
                         Speaker.shared.speak(viewModel.currentWord.basePreposition)
                     } label: {
@@ -52,7 +50,6 @@ struct QuizView: View {
                 .opacity(viewModel.isAnswered ? 1 : 0)
                 .animation(.spring(response: 0.4, dampingFraction: 0.8), value: viewModel.isAnswered)
                 
-                // Карточка падежа (Переворачивается)
                 ZStack {
                     Color.clear
                         .frame(width: 140, height: 44)
@@ -148,11 +145,10 @@ struct QuizView: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.bottom, 20) // Отступ от низа экрана
+            .padding(.bottom, 20)
         }
         .background(AppTheme.mainGradient.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
-        // Алерты
         .showAlert(title: L10n.Alert.FinishTest.title,
                    description: L10n.Alert.FinishTest.description,
                    isPresented: $showExitAlert,
@@ -169,7 +165,3 @@ struct QuizView: View {
         viewModel.currentWord.caseColor
     }
 }
-
-//#Preview {
-//    QuizView(viewModel: viewModel)
-//}

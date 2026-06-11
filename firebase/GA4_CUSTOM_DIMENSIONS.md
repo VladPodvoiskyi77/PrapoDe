@@ -16,6 +16,11 @@ Firebase Analytics (GA4) **не регистрирует custom dimensions из 
 | `user_answer` | Event | `*_error` | Что выбрал пользователь |
 | `country_code` | Event | `profile_setup_completed` | География onboarding |
 | `status` | Event | `widget_word_toggle` | enabled / disabled |
+| `preposition_id` | Event | `preposition_article_viewed` | ID статьи (fur, in, …) |
+| `lemma` | Event | `preposition_article_viewed` | Немецкий предлог (für, in, …) |
+| `case_group` | Event | `preposition_article_viewed` | dativ / akkusativ / genitiv / wechsel |
+| `content_language` | Event | `prepositions_guide_viewed`, `preposition_article_viewed` | ru / ua / en |
+| `preposition_count` | Event | `prepositions_guide_viewed` | Число предлогов в справочнике |
 
 ## User-scoped properties
 
@@ -48,7 +53,7 @@ cd Learning_Prepositions_is_easy
 # см. firebase/README_SETUP.md — полная инструкция (5–10 мин один раз)
 export GOOGLE_APPLICATION_CREDENTIALS="$PWD/firebase/keys/prapode-sa.json"
 python3 firebase/setup_custom_dimensions.py --discover
-export GA4_PROPERTY_ID="YOUR_NUMERIC_ID"
+export GA4_PROPERTY_ID="525311318"
 python3 firebase/setup_custom_dimensions.py
 ```
 
@@ -63,5 +68,6 @@ python3 firebase/setup_custom_dimensions.py
 - Funnel: `quiz_started` → `quiz_finished` → filter by `category`
 - Abandon rate: `quiz_abandoned` / `quiz_started`
 - Onboarding: `profile_setup_started` → `profile_setup_completed`
+- Top prepositions: `preposition_article_viewed` → breakdown by `lemma`
 
 См. также `ANALYTICS.md` в корне Xcode-проекта.

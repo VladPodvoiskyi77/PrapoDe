@@ -107,7 +107,7 @@ python3 firebase/setup_custom_dimensions.py --discover
 Проверка без записи:
 
 ```bash
-export GA4_PROPERTY_ID="YOUR_NUMERIC_ID"
+export GA4_PROPERTY_ID="525311318"
 python3 firebase/setup_custom_dimensions.py --dry-run
 ```
 

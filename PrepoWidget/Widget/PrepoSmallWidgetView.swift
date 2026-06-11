@@ -22,7 +22,6 @@ struct PrepoSmallWidgetView: View {
                         .background(.white.opacity(0.2))
                         .clipShape(Capsule())
                     
-                    // Крупный Уровень
                     Text(entry.languageCode.rawValue)
                         .font(.system(size: 16, weight: .heavy, design: .rounded))
                         .foregroundColor(.white)
@@ -40,7 +39,7 @@ struct PrepoSmallWidgetView: View {
                 .lineLimit(2)
                 .minimumScaleFactor(0.8)
             
-            Text(entry.verbItem.getTranslation(for: entry.languageCode)) // Используем Enum
+            Text(entry.verbItem.getTranslation(for: entry.languageCode))
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.white.opacity(0.85))
                 .lineLimit(2)

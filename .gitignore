@@ -22,3 +22,7 @@ Pods/
 # Firebase automation (never commit keys)
 firebase/keys/*.json
 firebase/.venv/
+
+# Local analytics / data exports (regenerate via scripts)
+firebase/leaderboard_sprint_*
+firebase/top10_wrong_answers*.json

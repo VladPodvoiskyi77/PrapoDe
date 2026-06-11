@@ -49,6 +49,25 @@
 "universalMenu.activity.sprint.title" = "Спринт";
 "universalMenu.activity.progress.title" = "Мій прогрес";
 "universalMenu.activity.writing.title" = "Правопис";
+"universalMenu.prepositions.title" = "Прийменники";
+
+//================================================ Prepositions guide =================================================
+"prepositions.list.title" = "Прийменники";
+"prepositions.list.subtitle" = "Німецькі прийменники за відмінками — натисни для детального пояснення";
+"prepositions.detail.meaning" = "Значення";
+"prepositions.detail.grammar" = "Граматика";
+"prepositions.detail.whenToUse" = "Коли вживати";
+"prepositions.detail.mistakes" = "Типові помилки";
+"prepositions.detail.contrast" = "Не плутати з";
+"prepositions.detail.examples" = "Приклади";
+"prepositions.detail.related" = "Схожі прийменники";
+
+"prepositions.detail.update.alert.confirm.title" = "Оновити статтю?";
+"prepositions.detail.update.alert.confirm.description" = "Перевірити наявність виправлень або нового контенту для цього прийменника?";
+"prepositions.detail.update.alert.success.title" = "Оновлено!";
+"prepositions.detail.update.alert.success.description" = "Статтю оновлено до останньої версії з сервера.";
+"prepositions.detail.update.alert.noChanges.title" = "Оновлень немає";
+"prepositions.detail.update.alert.noChanges.description" = "У вас уже найактуальніша версія цієї статті.";
 
 //================================================ Mode screen ===================================================================
 "mode.title" = "Параметри";
@@ -224,6 +243,7 @@
 "appErrors.noInternet" = "Відсутнє підключення до інтернету. Перевірте мережу та спробуйте ще раз.";
 "appErrors.serverError" = "Помилка сервера:";
 "appErrors.decodingError" = "Не вдалося обробити отримані дані.";
+"appErrors.contentNotAvailable" = "Стаття для цього прийменника ще недоступна. Спробуйте пізніше.";
 "appErrors.unknown" = "Сталася невідома помилка";
 
 

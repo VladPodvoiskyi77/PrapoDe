@@ -4,17 +4,17 @@ import SwiftUI
 struct WordItem: Identifiable, Codable, Equatable, Hashable {
     var id = UUID()
     
-    let base: String                // z.B. "abhängig"
-    let preposition: String         // правильный предлог ("von")
-    let translationRu: String       // "зависеть от"
-    let translationUa: String       // "залежати від"
-    let translationEn: String       // "depend on"
-    let caseType: String            // "Dativ" или "Akkusativ"
-    let example: String             // Пример: "Ich bin abhängig von meinen Eltern."
-    let exampleRu: String       // "Я завишу от своих родителей."
-    let exampleUa: String       // "Я залежу від своїх батьків."
-    let exampleEn: String       // "I am dependent on my parents."
-    
+    let base: String
+    let preposition: String
+    // правильный предлог ("von")
+    let translationRu: String
+    let translationUa: String
+    let translationEn: String
+    let caseType: String
+    let example: String
+    let exampleRu: String
+    let exampleUa: String
+    let exampleEn: String
     var learningScore: Int
     var isLearned: Bool
     var lastReviewDate: Date?
@@ -22,7 +22,6 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
     static let masteryThreshold = 5
     
     // MARK: - CodingKeys
-    // Нужно добавить сюда ВСЕ поля, если мы хотим сохранять прогресс
     private enum CodingKeys: String, CodingKey {
         case id, base, preposition, translationRu, translationUa, translationEn
         case caseType, example, exampleRu, exampleUa, exampleEn
@@ -33,7 +32,6 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        // Обязательные поля (статичные данные слова)
         self.base = try container.decode(String.self, forKey: .base)
         self.preposition = try container.decode(String.self, forKey: .preposition)
         self.translationRu = try container.decode(String.self, forKey: .translationRu)
@@ -45,7 +43,6 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
         self.exampleUa = try container.decode(String.self, forKey: .exampleUa)
         self.exampleEn = try container.decode(String.self, forKey: .exampleEn)
         
-        // Восстанавливаем прогресс или ставим дефолт
         id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
         learningScore = try container.decodeIfPresent(Int.self, forKey: .learningScore) ?? 0
         isLearned = try container.decodeIfPresent(Bool.self, forKey: .isLearned) ?? false
@@ -83,17 +80,11 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
     func exampleWithHighlighted(word: String, color: Color = .orange, size: CGFloat = 26) -> AttributedString {
             var attributedString = AttributedString(example)
             
-            // Поиск диапазона (игнорируем регистр)
             if let range = attributedString.range(of: word, options: .caseInsensitive) {
                 attributedString[range].foregroundColor = color
                 
-                // Устанавливаем шрифт большего размера и жирного начертания ✅
-                // Можно использовать .rounded для более современного вида
                 attributedString[range].font = .system(size: size, weight: .black, design: .rounded)
                 
-                // Опционально: если шрифт слишком большой, можно чуть приподнять слово
-                // чтобы оно стояло ровно по линии текста (baselineOffset)
-                // attributedString[range].baselineOffset = 1
             }
             
             return attributedString
@@ -123,9 +114,7 @@ extension WordItem {
     func formattedTranslation(for language: Language) -> String {
         return "\(basePreposition) - \(translationWordWithPrep(for: language))"
     }
-    // Логика цвета (View Data)
     var caseColor: Color {
-        // Проверка на "Dativ" или "Akkusativ" без учета регистра
         return caseType.localizedCaseInsensitiveContains("dativ") ? .red : .blue
     }
 }

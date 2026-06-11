@@ -6,7 +6,6 @@ struct WritingHintCard: View {
     let attributedMessage: AttributedString
     let otherVariants: [String]
     
-    // Тексты для подзаголовков (локализация передается извне)
     let alsoText: String
     let correctVariantsText: String
 
@@ -15,8 +14,7 @@ struct WritingHintCard: View {
             Image(systemName: feedbackIcon)
                 .font(.system(size: 32))
                 .foregroundColor(feedbackColor)
-                .symbolRenderingMode(.hierarchical) // Делает иконки более современными
-            
+                .symbolRenderingMode(.hierarchical)            
             VStack(alignment: .leading, spacing: 6) {
                 Text(title.uppercased())
                     .font(.system(size: 11, weight: .black))
@@ -30,7 +28,6 @@ struct WritingHintCard: View {
                 
                 if !otherVariants.isEmpty {
                     VStack(alignment: .leading, spacing: 4) {
-                        // Если результат .wrong — показываем "Правильные варианты", иначе "Также:"
                         Text(result == .wrong ? correctVariantsText : alsoText)
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.secondary)

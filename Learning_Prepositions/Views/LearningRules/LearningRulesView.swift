@@ -2,18 +2,15 @@ import SwiftUI
 
 struct LearningRulesView: View {
     @Environment(\.dismiss) var dismiss
-    let context: RulesContext // Принимаем контекст при инициализации
-    
+    let context: RulesContext    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 
-                // Динамический заголовок
                 Text(context.title)
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .padding(.top, 20)
                 
-                // Отрисовка правил из массива
                 ForEach(context.items) { rule in
                     InfoRow(
                         icon: rule.icon,

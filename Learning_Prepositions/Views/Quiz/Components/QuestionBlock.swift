@@ -6,12 +6,12 @@ struct QuestionBlock: View {
      
 
     var body: some View {
-        VStack(spacing: 24) { // Увеличил отступ между карточкой и кнопками
+        VStack(spacing: 24) {
             // MARK: - Вопрос
             QuestionCard(item: item, isAnswered: viewModel.isAnswered)
                 .id("q_\(item.id)")
                 .transition(.opacity.combined(with: .scale(scale: 0.95)))
-                .padding(.horizontal, 8) // Небольшой отступ
+                .padding(.horizontal, 8)
             
             // MARK: - Варианты ответов
             let options = viewModel.stableOptions
@@ -22,12 +22,12 @@ struct QuestionBlock: View {
                         viewModel.selectAnswer(option.text)
                     } label: {
                         Text(option.text)
-                            .font(.system(.headline, design: .rounded)) // Rounded шрифт
+                            .font(.system(.headline, design: .rounded))
                             .fontWeight(.medium)
                             .foregroundStyle(isColored(option.text) ? .white : .primary)
                             .lineLimit(1)
-                            .minimumScaleFactor(0.5) // 👈 Важно для длинных слов!
-                            .frame(maxWidth: .infinity, minHeight: 60) // Кнопки чуть выше (удобнее нажимать)
+                            .minimumScaleFactor(0.5)
+                            .frame(maxWidth: .infinity, minHeight: 60)
                             .background(getBackgroundColor(for: option.text))
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)
@@ -36,30 +36,26 @@ struct QuestionBlock: View {
                     .disabled(viewModel.isAnswered)
                 }
             }
-            .padding(.horizontal, 4) // Чуть-чуть отжимаем от краев
+            .padding(.horizontal, 4)
         }
     }
     
     // MARK: - Helpers
     
-    // Проверяем, окрашена ли кнопка (Правильно/Неправильно)
     private func isColored(_ text: String) -> Bool {
         let color = viewModel.buttonColor(for: text)
         // Если цвет НЕ белый и НЕ прозрачный — значит это результат ответа
         return color != .white && color != .clear
     }
     
-    // Умный цвет фона
     private func getBackgroundColor(for text: String) -> Color {
         let vmColor = viewModel.buttonColor(for: text)
         
-        // Если ViewModel возвращает белый (стандартный) цвет,
         // мы подменяем его на АДАПТИВНЫЙ системный цвет.
         if vmColor == .white {
             return Color(UIColor.secondarySystemGroupedBackground)
         }
         
-        // Иначе возвращаем цвет ответа (Зеленый/Красный)
         return vmColor
     }
 }

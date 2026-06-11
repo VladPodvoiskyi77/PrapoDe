@@ -23,7 +23,6 @@ struct SettingsRow<RightContent: View>: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            // Иконка
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(color.opacity(0.15))
@@ -34,7 +33,6 @@ struct SettingsRow<RightContent: View>: View {
                     .foregroundStyle(color)
             }
             
-            // Текст заголовка
             Text(title)
                 .font(.system(size: 17))
                 .foregroundStyle(AppTheme.primaryText)

@@ -4,8 +4,7 @@ struct InfoRow: View {
     let icon: String
     let color: Color
     let title: String
-    let text: String // SwiftGen отдает String
-    
+    let text: String    
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             Image(systemName: icon)

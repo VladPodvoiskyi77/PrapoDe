@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Country: Identifiable, Hashable {
-    let id: String // ISO код (UA, DE, US...)
+    let id: String
     let name: String
     let flag: String
     
@@ -33,7 +33,6 @@ struct Country: Identifiable, Hashable {
         }
         .sorted { (country1, country2) -> Bool in
             // Использование localizedStandardCompare решает проблему с Є, І, Ї
-            // и правильно расставляет страны в алфавитном порядке выбранного языка
             return country1.name.localizedStandardCompare(country2.name) == .orderedAscending
         }
     }

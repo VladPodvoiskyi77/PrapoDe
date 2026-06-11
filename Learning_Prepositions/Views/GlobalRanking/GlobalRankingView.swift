@@ -20,10 +20,8 @@ struct GlobalRankingView: View {
             AppTheme.mainGradient.ignoresSafeArea()
             
             VStack(spacing: 16) {
-                // 1. Header (Всегда будет сверху)
                 rankingHeader
                 
-                // 2. Фильтры
                 Picker("Difficulty", selection: $viewModel.selectedDifficulty) {
                     ForEach(QuizDifficulty.allCases) { diff in
                         Text(diff.title).tag(diff)
@@ -47,7 +45,6 @@ struct GlobalRankingView: View {
                     refreshData()
                 }
                 
-                // 3. Контент (Теперь занимает всё оставшееся пространство)
                 ZStack {
                     if viewModel.isLoading {
                         CardLoaderView()

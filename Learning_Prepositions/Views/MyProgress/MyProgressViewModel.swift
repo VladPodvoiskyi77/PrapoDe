@@ -13,10 +13,8 @@ class MyProgressViewModel: BaseDataViewModel {
     // MARK: - Настройки
     
     @Published var showFilterCarousel = false
-    @Published var selectedPreposition: String? = nil // Если nil, то показываем все
-    @Published var activePreposition: String? = nil   // реально применённый фильтр
-    
-    // Служебные
+    @Published var selectedPreposition: String? = nil
+    @Published var activePreposition: String? = nil
     private let category: Category
     
     // MARK: - Init
@@ -31,10 +29,8 @@ class MyProgressViewModel: BaseDataViewModel {
     
     // MARK: - Логика фильтрации
     
-    // 1. Собираем все уникальные предлоги из текущего списка слов
     var availablePrepositions: [String] {
         let allPreps = words.map { $0.preposition }
-        // Удаляем дубликаты через Set и сортируем по алфавиту
         return Array(Set(allPreps)).sorted()
     }
     
@@ -68,40 +64,33 @@ class MyProgressViewModel: BaseDataViewModel {
     
     // MARK: - Загрузка данных
     func loadData() async {
-        // Вызываем метод загрузки из BaseDataViewModel
         guard let loaded = await performLoad(category: category) else {
             return
         }
         
-        // Обновляем UI (автоматически на Main Thread из-за @MainActor)
         self.words = loaded
     }
     
     func refreshData() {
             Task {
-                // Вызываем логику из базовой модели
                 let (newItems, result) = await performUpdate(category: category)
                 
                 // Логика выбора текста и состояния происходит ЗДЕСЬ ✅
                 switch result {
                 case .updated:
                     if let items = newItems {
-                        self.words = items // Обновляем список в UI
-                        // Настраиваем успех через L10n
+                        self.words = items
                         self.statusAlertTitle = L10n.MyProgress.Update.Alert.Success.title
                         self.statusAlertDescription = L10n.MyProgress.Update.Alert.Success.description
                         self.showStatusAlert = true
                     }
                     
                 case .noChanges:
-                    // Настраиваем "нет изменений" через L10n
                     self.statusAlertTitle = L10n.MyProgress.Update.Alert.NoChanges.title
                     self.statusAlertDescription = L10n.MyProgress.Update.Alert.NoChanges.description
                     self.showStatusAlert = true
                     
                 case .error(let message):
-                    // Ошибка уже обрабатывается через showError в BaseDataViewModel
-                    // (если ты так реализовал performUpdate),
                     // поэтому здесь можно просто вывести в консоль для дебага
                     print("❌ Update error: \(message)")
                 }

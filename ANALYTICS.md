@@ -125,7 +125,18 @@
 
 ---
 
-### 2.8 Экраны (screen_view)
+### 2.8 Справочник предлогов
+
+| Событие | Триггер | Параметры |
+|---------|---------|-----------|
+| `prepositions_guide_viewed` | Успешная загрузка списка предлогов | `preposition_count`, `content_language` |
+| `preposition_article_viewed` | Успешная загрузка статьи предлога | `preposition_id`, `lemma`, `case_group`, `content_language` |
+
+**Как смотреть популярные предлоги:** Events → `preposition_article_viewed` → breakdown by `lemma` или `preposition_id`. Фильтр по `case_group` — dativ / akkusativ / genitiv / wechsel.
+
+---
+
+### 2.9 Экраны (screen_view)
 
 Стандартное событие Firebase `screen_view`:
 
@@ -134,6 +145,8 @@
 | `Settings` | Настройки |
 | `GlobalRanking` | Глобальный рейтинг |
 | `Widget_Word_Selection` | Выбор слов для виджета |
+| `PrepositionsList` | Список предлогов |
+| `PrepositionDetail` | Статья предлога |
 
 ---
 
@@ -166,6 +179,8 @@
 | **Популярность категорий** | Verben vs Adjektive vs Nomen | `{mode}_started` → `category` | Breakdown by `category` |
 | **Сложные слова** | Где чаще ошибаются | `{mode}_error` → `wordWithPrap` | Events → Top events by parameter (quiz / sprint / writing) |
 | **Использование виджета** | Кастомизация | `widget_word_toggle` | Count; filter `status` |
+| **Популярные предлоги** | Какие статьи читают | `preposition_article_viewed` → `lemma` | Events → breakdown by `lemma` |
+| **Интерес к справочнику** | Открытия раздела | `prepositions_guide_viewed` | Event count |
 | **Интерес к рейтингу** | Открытия рейтинга | `screen_view` where name = `GlobalRanking` | Events → `screen_view` → filter |
 | **Распределение по уровню** | Уровень учёбы аудитории | User property `current_study_level` | Analytics → User properties |
 
@@ -176,6 +191,7 @@
 3. **Writing funnel:** `writing_started` → `writing_finished`
 4. **Training funnel:** `training_started` → `training_finished`
 5. **Widget adoption:** `screen_view` (Widget_Word_Selection) → `widget_word_toggle`
+6. **Prepositions:** `prepositions_guide_viewed` → `preposition_article_viewed` → top `lemma`
 
 ### BigQuery (опционально)
 
@@ -264,3 +280,5 @@ WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTER
 | `Views/Settings/SettingsView.swift` | Screen view + user level |
 | `Views/WidgetWordSelection/*` | Widget analytics |
 | `Views/GlobalRanking/GlobalRankingView.swift` | Screen view |
+| `Views/Prepositions/PrepositionsListViewModel.swift` | Guide list analytics |
+| `Views/Prepositions/PrepositionDetailViewModel.swift` | Article view analytics |

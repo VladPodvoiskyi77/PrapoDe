@@ -1,6 +1,5 @@
 import SwiftUI
 
-// Панель с таймером и очками
 struct SpeedQuizHeader: View {
     let timeRemaining: TimeInterval
     let totalTime: TimeInterval
@@ -8,7 +7,6 @@ struct SpeedQuizHeader: View {
     
     var body: some View {
         HStack {
-            // Таймер
             HStack(spacing: 6) {
                 Image(systemName: "timer")
                 Text(timeRemaining, format: .number.precision(.fractionLength(2)))
@@ -22,7 +20,6 @@ struct SpeedQuizHeader: View {
             
             Spacer()
             
-            // Прогресс
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     Capsule().fill(Color.gray.opacity(0.2))
@@ -36,7 +33,6 @@ struct SpeedQuizHeader: View {
             
             Spacer()
             
-            // Очки
             HStack(spacing: 4) {
                 Image(systemName: "star.fill").foregroundColor(.yellow)
                 Text("\(score)")

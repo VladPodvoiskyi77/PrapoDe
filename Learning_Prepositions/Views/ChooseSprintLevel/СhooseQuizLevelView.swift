@@ -10,7 +10,6 @@ struct СhooseQuizLevelView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            // Заголовок
             Text(L10n.СhooseQuizLevel.title)
                 .font(.system(size: 32, weight: .bold, design: .rounded))
                 .foregroundStyle(AppTheme.primaryText)
@@ -18,9 +17,7 @@ struct СhooseQuizLevelView: View {
                 .padding(.top, 60)
                 .padding(.horizontal, 24)
             
-            // Основной блок с карточками и кнопкой рейтинга
             VStack(spacing: 16) {
-                // 3 карточки сложности
                 ForEach(QuizDifficulty.allCases, id: \.self) { mode in
                     MenuCard(
                         title: mode.label,
@@ -43,8 +40,8 @@ struct СhooseQuizLevelView: View {
             }
             .padding(.horizontal, 24)
             
-            Spacer() // Выталкивает контент вверх
-        }
+            Spacer()
+            }
         .background(
             AppTheme.mainGradient.ignoresSafeArea()
         )
@@ -52,7 +49,4 @@ struct СhooseQuizLevelView: View {
     }
 }
 
-//#Preview {
-//    СhooseQuizLevelView()
-//}
 

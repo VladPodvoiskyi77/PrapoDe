@@ -7,10 +7,8 @@ enum Activity: String, CaseIterable, Identifiable {
     case sprint
     case writing
     
-    // Нужно для ForEach
     var id: String { self.rawValue }
     
-    // Заголовок для UI
     var title: String {
         switch self {
         case .myProgress: return L10n.UniversalMenu.Activity.Progress.title
@@ -21,7 +19,6 @@ enum Activity: String, CaseIterable, Identifiable {
         }
     }
     
-    // Цвет темы (опционально)
     var iconName: String {
         switch self {
         case .myProgress: return "chart.line.uptrend.xyaxis"

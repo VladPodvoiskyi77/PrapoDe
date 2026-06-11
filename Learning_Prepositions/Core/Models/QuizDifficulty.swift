@@ -15,7 +15,6 @@ enum QuizDifficulty: String, CaseIterable, Identifiable {
         }
     }
     
-    // Количество вопросов в раунде
     var questionCount: Int {
         switch self {
         case .easy: return 10
@@ -40,13 +39,6 @@ enum QuizDifficulty: String, CaseIterable, Identifiable {
         }
     }
     
-//    var emoji: String {
-//        switch self {
-//        case .easy: return "☕️" // На расслабоне
-//        case .medium: return "🔥" // Жарко
-//        case .hard: return "🚀" // Космос / Хардкор
-//        }
-//    }
     
     var label: String {
         "\(title)" + " (" + "\(questionCount)" + " \(L10n.СhooseQuizLevel.numberOfQuestions)"+")"
