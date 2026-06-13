@@ -149,10 +149,11 @@ struct UniversalMenuView: View {
         viewModel.markHintAsSeen()
         switch item.payload {
         case .category(let selectedCategory):
-            nav.goTo(.activity(selectedCategory))
-            
-        case .prepositionsGuide:
-            nav.goTo(.prepositionsList)
+            if selectedCategory.isPrepositionsGuide {
+                nav.goTo(.prepositionsList)
+            } else {
+                nav.goTo(.activity(selectedCategory))
+            }
             
         case .mode(let selectedMode):
             nav.selectedMode = selectedMode

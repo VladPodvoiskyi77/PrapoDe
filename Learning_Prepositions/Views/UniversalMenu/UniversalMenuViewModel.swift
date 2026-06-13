@@ -32,15 +32,7 @@ final class UniversalMenuViewModel: BaseDataViewModel {
         switch screenType {
             
         case .main:
-
-            
-            let prepositionsItem = MenuUIItem(
-                title: L10n.UniversalMenu.Prepositions.title,
-                iconName: "character.book.closed.fill",
-                iconColor: .teal,
-                payload: .prepositionsGuide
-            )
-            var items = Category.allCases.map { category in
+            self.menuItems = Category.allCases.map { category in
                 MenuUIItem(
                     title: category.rawValue,
                     iconName: category.iconName,
@@ -48,8 +40,6 @@ final class UniversalMenuViewModel: BaseDataViewModel {
                     payload: .category(category)
                 )
             }
-            items.insert(prepositionsItem, at: 0)
-            self.menuItems = items
             if !hintDefaults.bool(forKey: hintShownKey) {
                 
                 Task {

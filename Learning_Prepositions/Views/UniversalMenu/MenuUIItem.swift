@@ -11,6 +11,5 @@ struct MenuUIItem: Identifiable {
 enum MenuPayload {
     case category(Category)
     case mode(Activity)
-    case prepositionsGuide
 }
 
