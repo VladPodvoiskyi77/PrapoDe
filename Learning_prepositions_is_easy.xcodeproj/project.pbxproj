@@ -69,6 +69,7 @@
 		52A0E10B2F07BD9D00822AAF /* QuizGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E10A2F07BD9700822AAF /* QuizGrade.swift */; };
 		52A0E1132F08973500822AAF /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1122F08972D00822AAF /* AppTheme.swift */; };
 		52A0E1152F08978700822AAF /* MenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1142F08978600822AAF /* MenuCard.swift */; };
+		52UIANIM22F70000200822AAF /* UIAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52UIANIM12F70000100822AAF /* UIAnimations.swift */; };
 		52A0E1172F08994400822AAF /* MenuUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1162F08993C00822AAF /* MenuUIItem.swift */; };
 		52A0E11D2F0C718600822AAF /* ResultButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E11C2F0C717E00822AAF /* ResultButtonType.swift */; };
 		52A0E1202F0C7EB700822AAF /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E11F2F0C7EB000822AAF /* SettingsRow.swift */; };
@@ -261,6 +262,7 @@
 		52A0E10A2F07BD9700822AAF /* QuizGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGrade.swift; sourceTree = "<group>"; };
 		52A0E1122F08972D00822AAF /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		52A0E1142F08978600822AAF /* MenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCard.swift; sourceTree = "<group>"; };
+		52UIANIM12F70000100822AAF /* UIAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimations.swift; sourceTree = "<group>"; };
 		52A0E1162F08993C00822AAF /* MenuUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIItem.swift; sourceTree = "<group>"; };
 		52A0E11C2F0C717E00822AAF /* ResultButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultButtonType.swift; sourceTree = "<group>"; };
 		52A0E11F2F0C7EB000822AAF /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
@@ -765,6 +767,7 @@
 				52B536852F2F871B00058919 /* InteractionBlockerModifier.swift */,
 				527A7EF02F20B28C00C77843 /* CardLoaderView.swift */,
 				52A0E1142F08978600822AAF /* MenuCard.swift */,
+				52UIANIM12F70000100822AAF /* UIAnimations.swift */,
 				5299CA312EF2E1AE00BBEE3F /* HeaderView.swift */,
 				52DA8ADD2ECF20FE00129F4E /* AppButton.swift */,
 			);
@@ -1310,6 +1313,7 @@
 				5299CA232EF01EDE00BBEE3F /* MenuScreenType.swift in Sources */,
 				5299CA212EF01EBD00BBEE3F /* UniversalMenu.swift in Sources */,
 				52A0E1152F08978700822AAF /* MenuCard.swift in Sources */,
+				52UIANIM22F70000200822AAF /* UIAnimations.swift in Sources */,
 				52DA8B322ECF20FE00129F4E /* RootView.swift in Sources */,
 				52A0E1042F06DC1900822AAF /* QuizReviewModel.swift in Sources */,
 				52DA8B332ECF20FE00129F4E /* QuizView.swift in Sources */,

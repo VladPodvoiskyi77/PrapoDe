@@ -12,6 +12,7 @@ struct UniversalMenuView: View {
     
     @State private var showSettings = false
     @State private var isRotating = false
+    @State private var isMenuVisible = false
     
     init(type: MenuScreenType, category: Category) {
         self.type = type
@@ -34,11 +35,13 @@ struct UniversalMenuView: View {
                 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
-                        ForEach(viewModel.menuItems) { item in
+                        ForEach(Array(viewModel.menuItems.enumerated()), id: \.element.id) { index, item in
                             MenuCard(
                                 title: item.title,
                                 iconName: item.iconName,
                                 iconColor: item.iconColor,
+                                staggerIndex: index,
+                                isMenuVisible: isMenuVisible,
                                 action: { handleSelection(item) }
                             )
                         }
@@ -109,6 +112,13 @@ struct UniversalMenuView: View {
             withAnimation(.easeOut(duration: 0.4)) {
                 showSettings = type == .main
             }
+            isMenuVisible = false
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                isMenuVisible = true
+            }
+        }
+        .onDisappear {
+            isMenuVisible = false
         }
         .errorAlert(isPresented: $viewModel.showError, error: viewModel.appError) {
             fetchDataAndShowView(selectedMode: nav.selectedMode)

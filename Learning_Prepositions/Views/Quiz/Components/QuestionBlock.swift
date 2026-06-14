@@ -8,10 +8,18 @@ struct QuestionBlock: View {
     var body: some View {
         VStack(spacing: 24) {
             // MARK: - Вопрос
-            QuestionCard(item: item, isAnswered: viewModel.isAnswered)
-                .id("q_\(item.id)")
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
-                .padding(.horizontal, 8)
+            ZStack {
+                QuestionCard(item: item, isAnswered: viewModel.isAnswered)
+                    .id("q_\(item.id)")
+
+                if viewModel.isAnswered {
+                    AnswerCelebrationOverlay(
+                        isCorrect: viewModel.selectedAnswer == item.preposition
+                    )
+                }
+            }
+            .transition(.opacity.combined(with: .scale(scale: 0.95)))
+            .padding(.horizontal, 8)
             
             // MARK: - Варианты ответов
             let options = viewModel.stableOptions

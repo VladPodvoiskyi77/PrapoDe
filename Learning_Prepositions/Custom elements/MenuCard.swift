@@ -5,7 +5,11 @@ struct MenuCard: View {
     let iconName: String
     let iconColor: Color
     var backgroundColor: AnyShapeStyle = AnyShapeStyle(AppTheme.cardBackground)
+    var staggerIndex: Int = 0
+    var isMenuVisible: Bool = true
     let action: () -> Void
+
+    @State private var iconBounce = false
     
     var body: some View {
         Button(action: action) {
@@ -16,6 +20,7 @@ struct MenuCard: View {
                     .frame(width: 32, height: 32)
                     .foregroundStyle(iconColor)
                     .symbolRenderingMode(.hierarchical)
+                    .symbolEffect(.bounce, value: iconBounce)
                 
                 Text(title)
                     .font(.system(.headline, design: .rounded))
@@ -39,5 +44,19 @@ struct MenuCard: View {
             )
         }
         .buttonStyle(ScaleButtonStyle())
+        .staggeredMenuAppearance(index: staggerIndex, isVisible: isMenuVisible)
+        .onAppear {
+            let delay = Double(staggerIndex) * 0.07 + 0.12
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                iconBounce.toggle()
+            }
+        }
+        .onChange(of: isMenuVisible) { _, visible in
+            guard visible else { return }
+            let delay = Double(staggerIndex) * 0.07 + 0.12
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                iconBounce.toggle()
+            }
+        }
     }
 }
