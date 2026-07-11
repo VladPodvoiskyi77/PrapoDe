@@ -3,13 +3,22 @@ import SwiftUI
 struct PrepositionDetailView: View {
     @StateObject private var viewModel: PrepositionDetailViewModel
     @State private var showConfirmUpdate = false
-    
-    init(prepositionId: String, detailPath: String, lemma: String) {
+    private let onDismiss: (() -> Void)?
+
+    init(
+        prepositionId: String,
+        detailPath: String,
+        lemma: String,
+        articleSource: PrepositionArticleSource = .menu,
+        onDismiss: (() -> Void)? = nil
+    ) {
+        self.onDismiss = onDismiss
         _viewModel = StateObject(
             wrappedValue: PrepositionDetailViewModel(
                 prepositionId: prepositionId,
                 detailPath: detailPath,
-                lemma: lemma
+                lemma: lemma,
+                articleSource: articleSource
             )
         )
     }
@@ -99,6 +108,15 @@ struct PrepositionDetailView: View {
         .navigationTitle(viewModel.lemma)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            if let onDismiss {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: onDismiss) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title3)
+                            .symbolRenderingMode(.hierarchical)
+                    }
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     showConfirmUpdate = true

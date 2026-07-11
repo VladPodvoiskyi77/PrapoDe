@@ -23,7 +23,7 @@ struct MyProgressView: View {
                     totalCount: viewModel.totalWords,
                     progress: viewModel.progressValue,
                     level: viewModel.currentLevelRaw,
-                    category: category.rawValue
+                    category: category.displayTitle
                 )
                 .padding()
                 

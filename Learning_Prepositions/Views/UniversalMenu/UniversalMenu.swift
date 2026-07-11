@@ -81,7 +81,7 @@ struct UniversalMenuView: View {
             if type == .main {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        nav.goTo(.aboutApp)
+                        nav.goTo(.prepositionsList)
                     } label: {
                         Image(systemName: "questionmark.circle")
                             .fontWeight(.medium)
@@ -159,11 +159,7 @@ struct UniversalMenuView: View {
         viewModel.markHintAsSeen()
         switch item.payload {
         case .category(let selectedCategory):
-            if selectedCategory.isPrepositionsGuide {
-                nav.goTo(.prepositionsList)
-            } else {
-                nav.goTo(.activity(selectedCategory))
-            }
+            nav.goTo(.activity(selectedCategory))
             
         case .mode(let selectedMode):
             nav.selectedMode = selectedMode

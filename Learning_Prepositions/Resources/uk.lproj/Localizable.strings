@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Навчайся ефективно";
 "universalMenu.category.hint.description" = "Обери відповідний рівень, щоб прогресувати швидше";
 
+"category.verben.title" = "Дієслова";
+"category.verben.subtitle" = "з прийменниками";
+"category.adjektive.title" = "Прикметники";
+"category.adjektive.subtitle" = "з прийменниками";
+"category.nomen.title" = "Іменники";
+"category.nomen.subtitle" = "з прийменниками";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Обери режим";
 "universalMenu.activity.training.title" = "Тренування";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Прийменники";
 "prepositions.list.subtitle" = "Німецькі прийменники за відмінками — натисни для детального пояснення";
+"prepositions.learnMore" = "Про прийменник «%@»";
 "prepositions.detail.meaning" = "Значення";
 "prepositions.detail.grammar" = "Граматика";
 "prepositions.detail.whenToUse" = "Коли вживати";
@@ -150,6 +158,8 @@
 "training.screen.title" = "Тренування";
 "training.finish.title" = "Чудова робота!";
 "training.finish.description" = "Ти повторив усі слова з цієї колоди";
+"training.finish.reviewed" = "Позначено «Знаю»: %lld";
+"training.finish.progress" = "+%lld до прогресу · освоєно: %lld";
 "training.finish.button.home" = "Головне меню";
 "training.action.repeat" = "Повторити";
 "training.action.know" = "Знаю";

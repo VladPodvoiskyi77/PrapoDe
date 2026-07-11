@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Learn Efficiently";
 "universalMenu.category.hint.description" = "Choose the right level to progress faster";
 
+"category.verben.title" = "Verbs";
+"category.verben.subtitle" = "with prepositions";
+"category.adjektive.title" = "Adjectives";
+"category.adjektive.subtitle" = "with prepositions";
+"category.nomen.title" = "Nouns";
+"category.nomen.subtitle" = "with prepositions";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Choose Mode";
 "universalMenu.activity.training.title" = "Training";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Prepositions";
 "prepositions.list.subtitle" = "German prepositions by case — tap for a detailed guide";
+"prepositions.learnMore" = "About \"%@\"";
 "prepositions.detail.meaning" = "Meaning";
 "prepositions.detail.grammar" = "Grammar";
 "prepositions.detail.whenToUse" = "When to use";
@@ -150,6 +158,8 @@
 "training.screen.title" = "Training";
 "training.finish.title" = "Great job!";
 "training.finish.description" = "You have reviewed all words in this deck";
+"training.finish.reviewed" = "You marked %lld word(s) as known";
+"training.finish.progress" = "+%lld progress points · %lld mastered";
 "training.finish.button.home" = "Main Menu";
 "training.action.repeat" = "Repeat";
 "training.action.know" = "I know";

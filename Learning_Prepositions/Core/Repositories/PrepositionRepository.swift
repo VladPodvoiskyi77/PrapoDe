@@ -112,3 +112,30 @@ final class PrepositionRepository {
         try? JSONDecoder().decode(T.self, from: data)
     }
 }
+
+// MARK: - Lookup (quiz / review → detail article)
+
+@MainActor
+final class PrepositionLookup {
+    static let shared = PrepositionLookup()
+
+    private let repository: PrepositionRepository
+    private var itemsByLemma: [String: PrepositionIndexItem]?
+
+    init(repository: PrepositionRepository = .shared) {
+        self.repository = repository
+    }
+
+    func indexItem(for lemma: String) async -> PrepositionIndexItem? {
+        await ensureCache()
+        return itemsByLemma?[lemma.lowercased()]
+    }
+
+    private func ensureCache() async {
+        guard itemsByLemma == nil else { return }
+        guard let index = try? await repository.fetchIndex() else { return }
+        itemsByLemma = Dictionary(
+            uniqueKeysWithValues: index.items.map { ($0.lemma.lowercased(), $0) }
+        )
+    }
+}

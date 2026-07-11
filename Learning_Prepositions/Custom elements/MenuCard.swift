@@ -13,7 +13,7 @@ struct MenuCard: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 16) {
+            HStack(alignment: .center, spacing: 16) {
                 Image(systemName: iconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -27,9 +27,8 @@ struct MenuCard: View {
                     .foregroundStyle(AppTheme.primaryText)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
-                    .minimumScaleFactor(1.0)
-                
-                Spacer()
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Image(systemName: "chevron.right")
                     .font(.system(size: 14, weight: .bold))

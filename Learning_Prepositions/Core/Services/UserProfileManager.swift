@@ -48,7 +48,10 @@ final class UserProfileManager: ObservableObject {
     // MARK: - Profile Setup
     
     func setupProfile(name: String, countryName: String, countryCode: String) {
-        self.userNickname = name
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedName.isEmpty else { return }
+
+        self.userNickname = trimmedName
         self.userCountry = countryName
         self.userCountryCode = countryCode.uppercased()
         self.isProfileSetupComplete = true
@@ -66,16 +69,19 @@ final class UserProfileManager: ObservableObject {
             
             let profile = UserProfile(
                 id: uid,
-                name: name,
+                name: trimmedName,
                 country: countryName,
                 totalGamesPlayed: 0,
+                completedQuizzes: 0,
+                completedTrainings: 0,
+                completedSprints: 0,
                 bestSprintScore: 0,
                 createdAt: Date()
             )
             
             do {
                 try db.collection("users").document(uid).setData(from: profile)
-                print("✅ UserProfileManager: Профиль \(name) успешно сохранен в Firestore")
+                print("✅ UserProfileManager: Профиль \(trimmedName) успешно сохранен в Firestore")
                 AnalyticsManager.shared.logProfileSetupCompleted(countryCode: countryCode)
             } catch {
                 print("❌ UserProfileManager: Ошибка setData: \(error.localizedDescription)")
@@ -83,6 +89,29 @@ final class UserProfileManager: ObservableObject {
                     "operation": "setupProfile",
                     "userId": uid
                 ])
+            }
+        }
+    }
+
+    func recordCompletedActivity(_ mode: Activity) {
+        guard let uid = currentUid else { return }
+
+        let field: String
+        switch mode {
+        case .quiz: field = "completedQuizzes"
+        case .training: field = "completedTrainings"
+        case .sprint: field = "completedSprints"
+        case .writing, .myProgress: return
+        }
+
+        Task {
+            do {
+                try await db.collection("users").document(uid).updateData([
+                    field: FieldValue.increment(Int64(1)),
+                    "totalGamesPlayed": FieldValue.increment(Int64(1))
+                ])
+            } catch {
+                // Profile document may not exist yet for users who skipped onboarding.
             }
         }
     }

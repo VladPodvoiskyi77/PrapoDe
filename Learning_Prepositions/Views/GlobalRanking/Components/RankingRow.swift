@@ -27,13 +27,11 @@ struct RankingRow: View {
                         .padding(.vertical, 3)
                         .background(brandColor.opacity(0.1))
                         .cornerRadius(5)
-                        .lineLimit(2)
-                            .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        }
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                }
             }
-            .layoutPriority(1)            
-            Spacer(minLength: 5)
+            .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(alignment: .trailing, spacing: 2) {
                 HStack(spacing: 3) {
@@ -43,16 +41,24 @@ struct RankingRow: View {
                     Text("\(entry.score)/\(entry.total)")
                         .font(.system(size: 15, weight: .heavy, design: .rounded))
                         .foregroundColor(.black)
+                        .monospacedDigit()
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: false)
                 }
                 
                 Text("\(entry.formattedTime)s")
                     .font(.system(size: 13, weight: .bold, design: .monospaced))
                     .foregroundColor(brandColor)
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
                     .background(brandColor.opacity(0.06))
                     .cornerRadius(4)
             }
+            .fixedSize(horizontal: true, vertical: false)
+            .layoutPriority(1)
         }
         .padding(.all, 14)
         .background(

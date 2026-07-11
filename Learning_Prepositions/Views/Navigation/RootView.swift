@@ -25,7 +25,7 @@ enum Screen: Hashable {
     case result(QuizResultContext)
     case settings
     case leaderboard(ResultContext)
-    case training([WordItem], Category)
+    case training([WordItem], [WordItem], Category)
     case speedQuiz([WordItem], String, QuizDifficulty)
     case chooseQuizLevel ([WordItem], String)
     case analysis([AnswerResult])
@@ -53,7 +53,7 @@ enum Screen: Hashable {
             "Settings"
         case .leaderboard(_):
             "Leaderboard"
-        case .training(_, _):
+        case .training(_, _, _):
             "Training"
         case .speedQuiz(_, _, _):
             "SpeedQuiz"
@@ -103,8 +103,8 @@ struct RootView: View {
                         case .quiz(let words, let filteredItem, let category):
                             QuizView(items: words, filteredItem: filteredItem, categoryName: category)
                                 .environmentObject(navModel)
-                        case .training(let words, let category):
-                            TrainingView(items: words, category: category)
+                        case .training(let allWords, let deckWords, let category):
+                            TrainingView(allWords: allWords, deckWords: deckWords, category: category)
                                 .environmentObject(navModel)
                         case .result(let quizResultContext):
                             ResultView(quizResultContext: quizResultContext)
@@ -137,7 +137,8 @@ struct RootView: View {
                             PrepositionDetailView(
                                 prepositionId: id,
                                 detailPath: path,
-                                lemma: lemma
+                                lemma: lemma,
+                                articleSource: .menu
                             )
                         }
                     }

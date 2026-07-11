@@ -3,7 +3,8 @@ import SwiftUI
 // MARK: - Компонент: Карточка вопроса
 struct QuizReviewCard: View {
     let item: AnswerResult
-    
+    var onOpenPrepositionDetail: ((PrepositionDetailSheetItem) -> Void)? = nil
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
@@ -92,6 +93,14 @@ struct QuizReviewCard: View {
             .font(.subheadline)
             .padding()
             .background(item.isCorrect ? Color.green.opacity(0.1) : Color.red.opacity(0.1))
+
+            PrepositionLearnMoreButton(
+                lemma: item.preposition,
+                isProminent: !item.isCorrect,
+                articleSource: .review,
+                onOpenDetail: onOpenPrepositionDetail
+            )
+            .padding(12)
         }
         .background(Color(.secondarySystemGroupedBackground))
         .cornerRadius(16)

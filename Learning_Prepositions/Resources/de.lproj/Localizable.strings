@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Effektiv lernen";
 "universalMenu.category.hint.description" = "Wähle das passende Niveau, um schneller Fortschritte zu machen";
 
+"category.verben.title" = "Verben";
+"category.verben.subtitle" = "mit Präpositionen";
+"category.adjektive.title" = "Adjektive";
+"category.adjektive.subtitle" = "mit Präpositionen";
+"category.nomen.title" = "Nomen";
+"category.nomen.subtitle" = "mit Präpositionen";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Modus wählen";
 "universalMenu.activity.training.title" = "Training";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Präpositionen";
 "prepositions.list.subtitle" = "Deutsche Präpositionen nach Kasus — tippen für Details";
+"prepositions.learnMore" = "Über „%@“";
 "prepositions.detail.meaning" = "Bedeutung";
 "prepositions.detail.grammar" = "Grammatik";
 "prepositions.detail.whenToUse" = "Wann benutzen";
@@ -150,6 +158,8 @@
 "training.screen.title" = "Training";
 "training.finish.title" = "Gut gemacht!";
 "training.finish.description" = "Du hast alle Karten in diesem Stapel wiederholt";
+"training.finish.reviewed" = "%lld Wörter als bekannt markiert";
+"training.finish.progress" = "+%lld Fortschrittspunkte · %lld gemeistert";
 "training.finish.button.home" = "Hauptmenü";
 "training.action.repeat" = "Wiederholen";
 "training.action.know" = "Gewusst";

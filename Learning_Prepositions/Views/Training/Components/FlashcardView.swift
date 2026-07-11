@@ -2,12 +2,14 @@ import SwiftUI
 
 struct FlashcardView: View {
     let word: WordItem
-    
+
     @State private var isFlipped = false
     @State private var dragOffset: CGSize = .zero
     
     var onRemove: (() -> Void)?
     var onReturn: (() -> Void)?
+    var onKnowSwipe: (() -> Void)?
+    var onOpenPrepositionDetail: ((PrepositionDetailSheetItem) -> Void)?
     
     @AppStorage("selectedLanguage", store: UserDefaults(suiteName: AppConfig.Constants.appGroupID))
     private var selectedLanguageRawValue = Language.en.rawValue
@@ -160,9 +162,11 @@ struct FlashcardView: View {
                 .clipShape(Capsule())
                 .shadow(color: accentColor.opacity(0.4), radius: 6, y: 4)
                 .offset(y: -15)
-                    .zIndex(1)
-            
-            Spacer()
+                .zIndex(1)
+
+            masteryProgressView
+                .padding(.top, -4)
+                .padding(.bottom, 8)
             
             VStack(alignment: .leading, spacing: 12) {
                 Image(systemName: "quote.opening")
@@ -187,7 +191,14 @@ struct FlashcardView: View {
             .padding(.horizontal, 20)
             
             Spacer()
-            
+
+            PrepositionLearnMoreButton(
+                lemma: word.preposition,
+                articleSource: .training,
+                onOpenDetail: onOpenPrepositionDetail
+            )
+                .padding(.horizontal, 20)
+
             Button {
                 Speaker.shared.speak(word.example)
             } label: {
@@ -206,7 +217,23 @@ struct FlashcardView: View {
     }
     
     // MARK: - OVERLAY & HELPERS
-    
+
+    private var masteryProgressView: some View {
+        HStack(spacing: 4) {
+            if word.isLearned {
+                Image(systemName: "checkmark.seal.fill")
+                    .foregroundStyle(.green)
+                    .font(.title3)
+            } else {
+                ForEach(0..<WordItem.masteryThreshold, id: \.self) { index in
+                    Circle()
+                        .fill(index < word.learningScore ? accentColor : Color.gray.opacity(0.25))
+                        .frame(width: 8, height: 8)
+                }
+            }
+        }
+    }
+
     private var swipeStatusOverlay: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 32)
@@ -222,6 +249,10 @@ struct FlashcardView: View {
     }
     
     private func completeSwipe(direction: CGFloat, action: (() -> Void)?) {
+        if direction > 0 {
+            onKnowSwipe?()
+        }
+
         withAnimation(.easeIn(duration: 0.2)) {
             dragOffset.width = direction
         }

@@ -120,13 +120,15 @@ final class AnalyticsManager {
         prepositionId: String,
         lemma: String,
         caseGroup: String,
-        contentLanguage: String
+        contentLanguage: String,
+        source: PrepositionArticleSource
     ) {
         Analytics.logEvent("preposition_article_viewed", parameters: [
             "preposition_id": prepositionId,
             "lemma": lemma,
             "case_group": caseGroup,
-            "content_language": contentLanguage
+            "content_language": contentLanguage,
+            "source": source.rawValue
         ])
     }
 }

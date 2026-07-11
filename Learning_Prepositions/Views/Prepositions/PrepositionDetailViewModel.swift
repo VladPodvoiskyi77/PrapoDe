@@ -21,6 +21,7 @@ final class PrepositionDetailViewModel: ObservableObject {
     let prepositionId: String
     let detailPath: String
     let lemma: String
+    let articleSource: PrepositionArticleSource
     
     private let repository: PrepositionRepository
     private var hasLoggedArticleView = false
@@ -29,11 +30,13 @@ final class PrepositionDetailViewModel: ObservableObject {
         prepositionId: String,
         detailPath: String,
         lemma: String,
+        articleSource: PrepositionArticleSource = .menu,
         repository: PrepositionRepository = .shared
     ) {
         self.prepositionId = prepositionId
         self.detailPath = detailPath
         self.lemma = lemma
+        self.articleSource = articleSource
         self.repository = repository
     }
     
@@ -111,7 +114,8 @@ final class PrepositionDetailViewModel: ObservableObject {
             prepositionId: prepositionId,
             lemma: lemma,
             caseGroup: caseGroup,
-            contentLanguage: selectedLanguage.rawValue
+            contentLanguage: selectedLanguage.rawValue,
+            source: articleSource
         )
     }
 }

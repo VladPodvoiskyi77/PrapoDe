@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Учись эффективно";
 "universalMenu.category.hint.description" = "Выбери подходящий уровень, чтобы прогрессировать быстрее";
 
+"category.verben.title" = "Глаголы";
+"category.verben.subtitle" = "с предлогами";
+"category.adjektive.title" = "Прилагательные";
+"category.adjektive.subtitle" = "с предлогами";
+"category.nomen.title" = "Существительные";
+"category.nomen.subtitle" = "с предлогами";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Выберите режим";
 "universalMenu.activity.training.title" = "Тренировка";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Предлоги";
 "prepositions.list.subtitle" = "Немецкие предлоги по падежам — нажми для подробного объяснения";
+"prepositions.learnMore" = "О предлоге «%@»";
 "prepositions.detail.meaning" = "Значение";
 "prepositions.detail.grammar" = "Грамматика";
 "prepositions.detail.whenToUse" = "Когда использовать";
@@ -150,6 +158,8 @@
 "training.screen.title" = "Тренировка";
 "training.finish.title" = "Отличная работа!";
 "training.finish.description" = "Вы повторили все слова из этой колоды";
+"training.finish.reviewed" = "Отмечено как «Знаю»: %lld";
+"training.finish.progress" = "+%lld к прогрессу · освоено: %lld";
 "training.finish.button.home" = "Главное меню";
 "training.action.repeat" = "Повторить";
 "training.action.know" = "Знаю";

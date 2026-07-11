@@ -3,10 +3,18 @@ import SwiftUI
 struct QuestionBlock: View {
     @ObservedObject var viewModel: QuizViewModel
     let item: WordItem
-     
+    var isCompactHeight = false
+
+    private var blockSpacing: CGFloat {
+        isCompactHeight ? 14 : 24
+    }
+
+    private var optionMinHeight: CGFloat {
+        isCompactHeight ? 52 : 60
+    }
 
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: blockSpacing) {
             // MARK: - Вопрос
             ZStack {
                 QuestionCard(item: item, isAnswered: viewModel.isAnswered)
@@ -24,7 +32,7 @@ struct QuestionBlock: View {
             // MARK: - Варианты ответов
             let options = viewModel.stableOptions
             
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 14) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: isCompactHeight ? 10 : 14) {
                 ForEach(options) { option in
                     Button {
                         viewModel.selectAnswer(option.text)
@@ -35,7 +43,7 @@ struct QuestionBlock: View {
                             .foregroundStyle(isColored(option.text) ? .white : .primary)
                             .lineLimit(1)
                             .minimumScaleFactor(0.5)
-                            .frame(maxWidth: .infinity, minHeight: 60)
+                            .frame(maxWidth: .infinity, minHeight: optionMinHeight)
                             .background(getBackgroundColor(for: option.text))
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 2)

@@ -98,3 +98,38 @@ extension View {
         modifier(ScorePulseModifier(score: score))
     }
 }
+
+struct FloatingPlusOneLabel: View {
+    var text: String = "+1"
+    var color: Color = .green
+
+    @State private var offsetX: CGFloat = 0
+    @State private var offsetY: CGFloat = 10
+    @State private var opacity: Double = 0
+    @State private var scale: CGFloat = 0.5
+
+    var body: some View {
+        Text(text)
+            .font(.system(size: 32, weight: .heavy, design: .rounded))
+            .foregroundStyle(color)
+            .shadow(color: .black.opacity(0.12), radius: 2, y: 1)
+            .shadow(color: color.opacity(0.4), radius: 8, y: 3)
+            .scaleEffect(scale)
+            .opacity(opacity)
+            .offset(x: offsetX, y: offsetY)
+            .allowsHitTesting(false)
+            .onAppear {
+                withAnimation(.spring(response: 0.18, dampingFraction: 0.62)) {
+                    scale = 1.08
+                    opacity = 1
+                    offsetY = 0
+                }
+                withAnimation(.easeOut(duration: 0.32).delay(0.08)) {
+                    offsetX = 16
+                    offsetY = -36
+                    opacity = 0
+                    scale = 0.9
+                }
+            }
+    }
+}

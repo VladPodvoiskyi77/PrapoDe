@@ -183,6 +183,7 @@ final class QuizViewModel: ObservableObject {
         wordItems = candidateWords.getWordsForQuiz(count: safeCount)
         totalQuestions = wordItems.count        
         isNewRecord = leaderboardManager.processNewResult(result)
+        UserProfileManager.shared.recordCompletedActivity(.quiz)
     }
 
     func logAbandonedIfNeeded() {

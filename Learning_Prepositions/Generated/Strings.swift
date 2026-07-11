@@ -126,6 +126,26 @@ internal enum L10n {
     /// An unknown error occurred
     internal static let unknown = L10n.tr("Localizable", "appErrors.unknown", fallback: "An unknown error occurred")
   }
+  internal enum Category {
+    internal enum Adjektive {
+      /// with prepositions
+      internal static let subtitle = L10n.tr("Localizable", "category.adjektive.subtitle", fallback: "with prepositions")
+      /// Adjectives
+      internal static let title = L10n.tr("Localizable", "category.adjektive.title", fallback: "Adjectives")
+    }
+    internal enum Nomen {
+      /// with prepositions
+      internal static let subtitle = L10n.tr("Localizable", "category.nomen.subtitle", fallback: "with prepositions")
+      /// Nouns
+      internal static let title = L10n.tr("Localizable", "category.nomen.title", fallback: "Nouns")
+    }
+    internal enum Verben {
+      /// with prepositions
+      internal static let subtitle = L10n.tr("Localizable", "category.verben.subtitle", fallback: "with prepositions")
+      /// Verbs
+      internal static let title = L10n.tr("Localizable", "category.verben.title", fallback: "Verbs")
+    }
+  }
   internal enum Leaderboard {
     /// Your Best Results
     internal static let title = L10n.tr("Localizable", "leaderboard.title", fallback: "Your Best Results")
@@ -243,6 +263,10 @@ internal enum L10n {
     }
   }
   internal enum Prepositions {
+    /// About "%@"
+    internal static func learnMore(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "prepositions.learnMore", String(describing: p1), fallback: "About \"%@\"")
+    }
     internal enum Detail {
       /// Don't confuse with
       internal static let contrast = L10n.tr("Localizable", "prepositions.detail.contrast", fallback: "Don't confuse with")
@@ -506,6 +530,14 @@ internal enum L10n {
     internal enum Finish {
       /// You have reviewed all words in this deck
       internal static let description = L10n.tr("Localizable", "training.finish.description", fallback: "You have reviewed all words in this deck")
+      /// +%lld progress points · %lld mastered
+      internal static func progress(_ p1: Int, _ p2: Int) -> String {
+        return L10n.tr("Localizable", "training.finish.progress", p1, p2, fallback: "+%lld progress points · %lld mastered")
+      }
+      /// You marked %lld word(s) as known
+      internal static func reviewed(_ p1: Int) -> String {
+        return L10n.tr("Localizable", "training.finish.reviewed", p1, fallback: "You marked %lld word(s) as known")
+      }
       /// Great job!
       internal static let title = L10n.tr("Localizable", "training.finish.title", fallback: "Great job!")
       internal enum Button {

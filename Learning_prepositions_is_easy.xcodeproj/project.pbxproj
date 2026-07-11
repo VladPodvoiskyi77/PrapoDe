@@ -69,7 +69,6 @@
 		52A0E10B2F07BD9D00822AAF /* QuizGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E10A2F07BD9700822AAF /* QuizGrade.swift */; };
 		52A0E1132F08973500822AAF /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1122F08972D00822AAF /* AppTheme.swift */; };
 		52A0E1152F08978700822AAF /* MenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1142F08978600822AAF /* MenuCard.swift */; };
-		52UIANIM22F70000200822AAF /* UIAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52UIANIM12F70000100822AAF /* UIAnimations.swift */; };
 		52A0E1172F08994400822AAF /* MenuUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1162F08993C00822AAF /* MenuUIItem.swift */; };
 		52A0E11D2F0C718600822AAF /* ResultButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E11C2F0C717E00822AAF /* ResultButtonType.swift */; };
 		52A0E1202F0C7EB700822AAF /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E11F2F0C7EB000822AAF /* SettingsRow.swift */; };
@@ -154,12 +153,14 @@
 		52FD17ED2F6DBCDA005F04D2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EC2F6DBCD5005F04D2 /* Color.swift */; };
 		52FD17EF2F757ABE005F04D2 /* ResultSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EE2F757AAA005F04D2 /* ResultSection.swift */; };
 		52PR00022F80000100000002 /* PrepositionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00012F80000100000001 /* PrepositionModels.swift */; };
+		52PR00112F90000100000011 /* PrepositionArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00102F90000100000010 /* PrepositionArticleSource.swift */; };
 		52PR00042F80000100000004 /* PrepositionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00032F80000100000003 /* PrepositionRepository.swift */; };
 		52PR00062F80000100000006 /* PrepositionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00052F80000100000005 /* PrepositionsListView.swift */; };
 		52PR00082F80000100000008 /* PrepositionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00072F80000100000007 /* PrepositionsListViewModel.swift */; };
 		52PR000A2F8000010000000A /* PrepositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00092F80000100000009 /* PrepositionDetailView.swift */; };
 		52PR000C2F8000010000000C /* PrepositionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */; };
 		52PR000E2F8000010000000E /* PrepositionComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000D2F8000010000000D /* PrepositionComponents.swift */; };
+		52UIANIM22F70000200822AAF /* UIAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52UIANIM12F70000100822AAF /* UIAnimations.swift */; };
 		A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */; };
 		A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1TEST0F2F6000010000000F /* XCTest.framework */; };
 		A1TEST102F60000100000010 /* Pods_Learning_prepositions_is_easy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48938852D226165EF2F02A2 /* Pods_Learning_prepositions_is_easy.framework */; };
@@ -262,7 +263,6 @@
 		52A0E10A2F07BD9700822AAF /* QuizGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGrade.swift; sourceTree = "<group>"; };
 		52A0E1122F08972D00822AAF /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		52A0E1142F08978600822AAF /* MenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCard.swift; sourceTree = "<group>"; };
-		52UIANIM12F70000100822AAF /* UIAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimations.swift; sourceTree = "<group>"; };
 		52A0E1162F08993C00822AAF /* MenuUIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUIItem.swift; sourceTree = "<group>"; };
 		52A0E11C2F0C717E00822AAF /* ResultButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultButtonType.swift; sourceTree = "<group>"; };
 		52A0E11F2F0C7EB000822AAF /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
@@ -345,12 +345,14 @@
 		52FD17EC2F6DBCD5005F04D2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52FD17EE2F757AAA005F04D2 /* ResultSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSection.swift; sourceTree = "<group>"; };
 		52PR00012F80000100000001 /* PrepositionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionModels.swift; sourceTree = "<group>"; };
+		52PR00102F90000100000010 /* PrepositionArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionArticleSource.swift; sourceTree = "<group>"; };
 		52PR00032F80000100000003 /* PrepositionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionRepository.swift; sourceTree = "<group>"; };
 		52PR00052F80000100000005 /* PrepositionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListView.swift; sourceTree = "<group>"; };
 		52PR00072F80000100000007 /* PrepositionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListViewModel.swift; sourceTree = "<group>"; };
 		52PR00092F80000100000009 /* PrepositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailView.swift; sourceTree = "<group>"; };
 		52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailViewModel.swift; sourceTree = "<group>"; };
 		52PR000D2F8000010000000D /* PrepositionComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionComponents.swift; sourceTree = "<group>"; };
+		52UIANIM12F70000100822AAF /* UIAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimations.swift; sourceTree = "<group>"; };
 		79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learning_prepositions_is_easy.release.xcconfig"; path = "Target Support Files/Pods-Learning_prepositions_is_easy/Pods-Learning_prepositions_is_easy.release.xcconfig"; sourceTree = "<group>"; };
 		A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRankingLogic.swift; sourceTree = "<group>"; };
 		A1TEST032F60000100000003 /* Learning_prepositions_is_easyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Learning_prepositions_is_easyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -515,6 +517,7 @@
 				52DA8B162ECF20FE00129F4E /* QuizResult.swift */,
 				52DA8B172ECF20FE00129F4E /* WordItem.swift */,
 				52PR00012F80000100000001 /* PrepositionModels.swift */,
+				52PR00102F90000100000010 /* PrepositionArticleSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1246,6 +1249,7 @@
 				52DA8B202ECF20FE00129F4E /* ResultViewModel.swift in Sources */,
 				52FD173F2F6BF123005F04D2 /* FirebaseLeaderboardService.swift in Sources */,
 				52PR00022F80000100000002 /* PrepositionModels.swift in Sources */,
+				52PR00112F90000100000011 /* PrepositionArticleSource.swift in Sources */,
 				52PR00042F80000100000004 /* PrepositionRepository.swift in Sources */,
 				52PR00062F80000100000006 /* PrepositionsListView.swift in Sources */,
 				52PR00082F80000100000008 /* PrepositionsListViewModel.swift in Sources */,
@@ -1501,6 +1505,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1560,6 +1565,7 @@
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1574,7 +1580,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1593,7 +1599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1602,6 +1608,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1618,7 +1625,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				ENABLE_PREVIEWS = YES;
@@ -1636,7 +1643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1645,6 +1652,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1657,7 +1665,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1669,7 +1677,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1677,6 +1685,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1689,7 +1698,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1701,7 +1710,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1709,6 +1718,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1733,6 +1743,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Learning_prepositions_is_easy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Learning_prepositions_is_easy";
@@ -1758,6 +1769,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Learning_prepositions_is_easy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Learning_prepositions_is_easy";

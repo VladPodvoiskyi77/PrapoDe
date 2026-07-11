@@ -54,6 +54,7 @@ DIMENSIONS = [
     DimensionDef("lemma", "Preposition lemma", "EVENT", "German preposition (für, in, …)"),
     DimensionDef("case_group", "Preposition case group", "EVENT", "dativ / akkusativ / genitiv / wechsel"),
     DimensionDef("content_language", "Content language", "EVENT", "Article UI language ru / ua / en"),
+    DimensionDef("source", "Article source", "EVENT", "menu / quiz / review / training"),
     DimensionDef("preposition_count", "Preposition count", "EVENT", "Items in prepositions guide"),
     DimensionDef("nickname", "Nickname", "USER", "Display name from profile"),
     DimensionDef("current_study_level", "Current study level", "USER", "Selected CEFR level"),

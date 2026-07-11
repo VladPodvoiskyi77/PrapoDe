@@ -218,6 +218,7 @@ final class SpeedQuizViewModel: ObservableObject {
             score: correctAnswers,
             total: difficulty.questionCount
         )
+        UserProfileManager.shared.recordCompletedActivity(.sprint)
         
         if UserProfileManager.shared.isProfileSetupComplete {
             let firebaseService = FirebaseLeaderboardService()

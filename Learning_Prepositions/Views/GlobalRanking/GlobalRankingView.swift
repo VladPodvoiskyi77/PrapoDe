@@ -132,22 +132,28 @@ struct GlobalRankingView: View {
     }
     
     private var rankingHeader: some View {
-        HStack {
+        HStack(alignment: .center, spacing: 8) {
             Button { dismiss() } label: {
                 Image(systemName: "chevron.left")
                     .font(.title2.bold())
                     .foregroundColor(.white)
             }
-            Spacer()
-            VStack(spacing: 2) {
-                Text(L10n.WorldRanking.Sprint.title)
-                    .font(.system(size: 24, weight: .black, design: .rounded))
+            .frame(width: 44, height: 44)
+
+            Text(L10n.WorldRanking.Sprint.title)
+                .font(.system(size: 22, weight: .black, design: .rounded))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.85)
+                .frame(maxWidth: .infinity)
+
+            Group {
+                scopeToggleButton
             }
-            .foregroundColor(.white)
-            Spacer()
-            scopeToggleButton
+            .frame(width: 44, height: 44)
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 8)
         .padding(.top, 10)
     }
     
