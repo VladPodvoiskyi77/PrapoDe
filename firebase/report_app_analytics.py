@@ -99,9 +99,6 @@ def fetch_firestore_users(credentials, limit: int = 10) -> list[dict]:
                     "name": fields.get("name", {}).get("stringValue", "—"),
                     "country": fields.get("country", {}).get("stringValue", "—"),
                     "totalGamesPlayed": int(fields.get("totalGamesPlayed", {}).get("integerValue", "0")),
-                    "completedQuizzes": int(fields.get("completedQuizzes", {}).get("integerValue", "0")),
-                    "completedTrainings": int(fields.get("completedTrainings", {}).get("integerValue", "0")),
-                    "completedSprints": int(fields.get("completedSprints", {}).get("integerValue", "0")),
                     "bestSprintScore": int(fields.get("bestSprintScore", {}).get("integerValue", "0")),
                     "createdAt": created_at,
                 }
@@ -291,7 +288,7 @@ def print_new_users(client, property_id: str, credentials, days: int, limit: int
         print(f"  {i}. {u['name']}  ({u['country']})")
         print(f"     UID: {u['uid'][:12]}…")
         print(f"     Registered: {created}")
-        print(f"     Firestore — quiz: {u['completedQuizzes']}, training: {u['completedTrainings']}, sprint: {u['completedSprints']}  (total: {games_fs})")
+        print(f"     Firestore totalGamesPlayed: {games_fs}")
         print(f"     GA4 sessions ({days}d): {sessions}")
         print(f"     Finished — quiz: {quiz_f}, sprint: {sprint_f}, training: {train_f}, writing: {writing_f}  (total: {total_finished})")
         if act.get("prepositions_guide"):

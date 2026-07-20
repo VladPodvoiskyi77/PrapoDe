@@ -124,6 +124,7 @@ struct Provider: TimelineProvider {
         }
         
         let timeline = Timeline(entries: entries, policy: .atEnd)
+        WidgetAnalyticsStore.recordTimelineRefresh(entryCount: entries.count)
         completion(timeline)
     }
 }
@@ -133,16 +134,30 @@ struct PrepoWidgetEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
     
+    private var widgetDeepLink: URL? {
+        var components = URLComponents()
+        components.scheme = "prapode"
+        components.host = "widget"
+        components.queryItems = [
+            URLQueryItem(name: "verb", value: entry.verbItem.base),
+            URLQueryItem(name: "level", value: entry.verbItem.levelRaw)
+        ]
+        return components.url
+    }
+    
     @ViewBuilder
     var body: some View {
-        switch family {
-        case .systemSmall:
-            PrepoSmallWidgetView(entry: entry)
-        case .systemMedium:
-            PrepoMediumWidgetView(entry: entry)
-        default:
-            PrepoMediumWidgetView(entry: entry)
+        Group {
+            switch family {
+            case .systemSmall:
+                PrepoSmallWidgetView(entry: entry)
+            case .systemMedium:
+                PrepoMediumWidgetView(entry: entry)
+            default:
+                PrepoMediumWidgetView(entry: entry)
+            }
         }
+        .widgetURL(widgetDeepLink)
     }
 }
 

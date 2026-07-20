@@ -30,29 +30,34 @@ struct QuizView: View {
             .padding(.top, isCompactHeight ? 8 : 16)
             .padding(.bottom, isCompactHeight ? 8 : 12)
 
-            ScrollView {
+            questionSection
+                .padding(.horizontal, 16)
+                .padding(.bottom, isCompactHeight ? 8 : 12)
+
+            if viewModel.isAnswered {
                 VStack(spacing: sectionSpacing) {
-                    if viewModel.isAnswered {
-                        answeredHeaderSection
-                            .transition(.opacity.combined(with: .move(edge: .top)))
-                    }
-
-                    questionSection
-
-                    if viewModel.isAnswered {
-                        translationSection
-                            .transition(.opacity)
-                    }
+                    answeredHeaderSection
+                    translationSection
+                    PrepositionLearnMoreButton(
+                        lemma: viewModel.currentWord.preposition,
+                        isProminent: viewModel.selectedAnswer != viewModel.currentWord.preposition,
+                        articleSource: .quiz,
+                        onOpenDetail: { prepositionSheetItem = $0 }
+                    )
                 }
                 .padding(.horizontal, 16)
-                .padding(.bottom, 12)
-                .animation(.easeInOut(duration: 0.3), value: viewModel.isAnswered)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .id(viewModel.currentIndex)
+                .transition(.opacity)
+            } else {
+                Spacer(minLength: 0)
             }
 
             actionButtonSection
         }
         .background(AppTheme.mainGradient.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
+        .animation(.easeInOut(duration: 0.3), value: viewModel.isAnswered)
         .showAlert(title: L10n.Alert.FinishTest.title,
                    description: L10n.Alert.FinishTest.description,
                    isPresented: $showExitAlert,
@@ -61,22 +66,25 @@ struct QuizView: View {
             dismiss()
         })
         .onAppear {
-            guard !didStartSession else { return }
-            didStartSession = true
-            viewModel.refreshData()
+            if viewModel.isSessionCompleted {
+                viewModel.refreshData()
+            } else if !didStartSession {
+                didStartSession = true
+                viewModel.refreshData()
+            }
         }
         .prepositionDetailSheet(item: $prepositionSheetItem)
     }
 
     @ViewBuilder
     private var answeredHeaderSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: isCompactHeight ? 8 : 12) {
             HStack(alignment: .center, spacing: 10) {
                 Text(viewModel.currentWord.formattedTranslation(for: viewModel.currentLanguage))
-                    .font(.system(isCompactHeight ? .body : .title3, design: .rounded))
+                    .font(.system(isCompactHeight ? .subheadline : .title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundStyle(.primary)
-                    .lineLimit(3)
+                    .lineLimit(2)
                     .multilineTextAlignment(.leading)
                     .fixedSize(horizontal: false, vertical: true)
                     .layoutPriority(1)
@@ -85,12 +93,12 @@ struct QuizView: View {
                     Speaker.shared.speak(viewModel.currentWord.basePreposition)
                 } label: {
                     Image(systemName: "speaker.wave.2.circle.fill")
-                        .font(.title2)
+                        .font(isCompactHeight ? .title3 : .title2)
                         .foregroundStyle(.blue)
                 }
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, isCompactHeight ? 10 : 12)
+            .padding(.horizontal, isCompactHeight ? 16 : 20)
+            .padding(.vertical, isCompactHeight ? 8 : 12)
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
             .overlay(
@@ -99,10 +107,10 @@ struct QuizView: View {
             )
 
             Text(viewModel.currentWord.caseType)
-                .font(.headline)
+                .font(isCompactHeight ? .subheadline : .headline)
                 .fontWeight(.bold)
                 .foregroundStyle(caseColor)
-                .frame(width: 140, height: 44)
+                .frame(width: isCompactHeight ? 120 : 140, height: isCompactHeight ? 36 : 44)
                 .background(
                     Capsule()
                         .fill(caseColor.opacity(0.15))
@@ -121,13 +129,6 @@ struct QuizView: View {
                         flip = true
                     }
                 }
-
-            PrepositionLearnMoreButton(
-                lemma: viewModel.currentWord.preposition,
-                isProminent: viewModel.selectedAnswer != viewModel.currentWord.preposition,
-                articleSource: .quiz,
-                onOpenDetail: { prepositionSheetItem = $0 }
-            )
         }
         .padding(.horizontal, 4)
     }
@@ -149,9 +150,10 @@ struct QuizView: View {
 
     private var translationSection: some View {
         Text(viewModel.wordItems[viewModel.currentIndex].translation(for: viewModel.currentLanguage))
-            .font(.body)
+            .font(isCompactHeight ? .callout : .body)
             .multilineTextAlignment(.center)
             .foregroundStyle(.primary)
+            .lineLimit(isCompactHeight ? 3 : 4)
             .padding(.horizontal, 8)
             .fixedSize(horizontal: false, vertical: true)
     }

@@ -105,6 +105,7 @@ struct UniversalMenuView: View {
                     userId: UserProfileManager.shared.currentUid,
                     nickname: currentNickname
                 )
+                WidgetAnalyticsService.sync()
                 Task {
                     await viewModel.performStartupCheck(context: modelContext)
                 }

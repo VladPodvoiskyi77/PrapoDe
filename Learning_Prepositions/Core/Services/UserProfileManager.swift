@@ -9,19 +9,22 @@ final class UserProfileManager: ObservableObject {
     @AppStorage("userNickname", store: store) var userNickname: String = ""
     @AppStorage("userCountry", store: store) var userCountry: String = ""
     @AppStorage("userCountryCode", store: store) var userCountryCode: String = ""
-    
+
+    @Published private(set) var sessionStats = UserSessionStats()
+
     @Published var currentUid: String?
-    
+
     static let shared = UserProfileManager()
     private let db = Firestore.firestore()
     private var authListener: AuthStateDidChangeListenerHandle?
 
     private init() {
+        sessionStats = Self.loadSessionStats()
         startAuthListener()
     }
 
     // MARK: - Auth Logic
-    
+
     private func startAuthListener() {
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             if let user = user {
@@ -46,7 +49,7 @@ final class UserProfileManager: ObservableObject {
     }
 
     // MARK: - Profile Setup
-    
+
     func setupProfile(name: String, countryName: String, countryCode: String) {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else { return }
@@ -55,30 +58,27 @@ final class UserProfileManager: ObservableObject {
         self.userCountry = countryName
         self.userCountryCode = countryCode.uppercased()
         self.isProfileSetupComplete = true
-        
+
         Task {
             for _ in 0...10 {
                 if currentUid != nil { break }
                 try? await Task.sleep(nanoseconds: 500_000_000)
                 }
-            
+
             guard let uid = currentUid else {
                 print("❌ UserProfileManager: Не удалось получить UID для сохранения профиля")
                 return
             }
-            
+
             let profile = UserProfile(
                 id: uid,
                 name: trimmedName,
                 country: countryName,
                 totalGamesPlayed: 0,
-                completedQuizzes: 0,
-                completedTrainings: 0,
-                completedSprints: 0,
                 bestSprintScore: 0,
                 createdAt: Date()
             )
-            
+
             do {
                 try db.collection("users").document(uid).setData(from: profile)
                 print("✅ UserProfileManager: Профиль \(trimmedName) успешно сохранен в Firestore")
@@ -94,25 +94,22 @@ final class UserProfileManager: ObservableObject {
     }
 
     func recordCompletedActivity(_ mode: Activity) {
-        guard let uid = currentUid else { return }
+        var stats = sessionStats
+        stats.recordCompletion(for: mode)
+        sessionStats = stats
+        saveSessionStats(stats)
+    }
 
-        let field: String
-        switch mode {
-        case .quiz: field = "completedQuizzes"
-        case .training: field = "completedTrainings"
-        case .sprint: field = "completedSprints"
-        case .writing, .myProgress: return
+    private static func loadSessionStats() -> UserSessionStats {
+        guard let data = store.data(forKey: AppConfig.Keys.sessionStats),
+              let stats = try? JSONDecoder().decode(UserSessionStats.self, from: data) else {
+            return UserSessionStats()
         }
+        return stats
+    }
 
-        Task {
-            do {
-                try await db.collection("users").document(uid).updateData([
-                    field: FieldValue.increment(Int64(1)),
-                    "totalGamesPlayed": FieldValue.increment(Int64(1))
-                ])
-            } catch {
-                // Profile document may not exist yet for users who skipped onboarding.
-            }
-        }
+    private func saveSessionStats(_ stats: UserSessionStats) {
+        guard let data = try? JSONEncoder().encode(stats) else { return }
+        Self.store.set(data, forKey: AppConfig.Keys.sessionStats)
     }
 }

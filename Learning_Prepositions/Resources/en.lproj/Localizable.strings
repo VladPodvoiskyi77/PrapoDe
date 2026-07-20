@@ -185,6 +185,7 @@
 "myProgress.update.alert.noChanges.description" = "You already have the latest version of the dictionary.";
 
 "myProgress.update.alert.error.title" = "Update Failed";
+"myProgress.update.alert.error.description" = "A server error occurred. Please try again later or contact the developer.";
 
 //================================================ Rules Screen =================================================================
 

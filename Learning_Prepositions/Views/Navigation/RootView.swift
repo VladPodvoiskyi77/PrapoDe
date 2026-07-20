@@ -85,6 +85,7 @@ enum Screen: Hashable {
 struct RootView: View {
     @StateObject private var navModel = NavigationViewModel()
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.scenePhase) private var scenePhase
     
     @State private var showSplash = true
     
@@ -154,6 +155,11 @@ struct RootView: View {
                         }
                     }
                 }
+            }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active {
+                WidgetAnalyticsService.sync()
             }
         }
     }

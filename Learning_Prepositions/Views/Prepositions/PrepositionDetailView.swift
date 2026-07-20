@@ -30,12 +30,13 @@ struct PrepositionDetailView: View {
             if viewModel.isLoading && viewModel.detail == nil {
                 CardLoaderView()
             } else if let content = viewModel.localizedContent {
+                let titles = detailSectionTitles(for: viewModel.selectedLanguage)
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 20) {
                         heroHeader(content: content)
                         
                         PrepositionContentSection(
-                            title: L10n.Prepositions.Detail.meaning,
+                            title: titles.meaning,
                             icon: "text.book.closed.fill",
                             iconColor: .blue,
                             bodyText: content.meaning,
@@ -44,7 +45,7 @@ struct PrepositionDetailView: View {
                         
                         if let notes = content.grammarNotes, !notes.isEmpty {
                             PrepositionContentSection(
-                                title: L10n.Prepositions.Detail.grammar,
+                                title: titles.grammar,
                                 icon: "graduationcap.fill",
                                 iconColor: .indigo,
                                 bodyText: nil,
@@ -53,12 +54,12 @@ struct PrepositionDetailView: View {
                         }
                         
                         if let detail = viewModel.detail, detail.caseGroup == "wechsel" {
-                            wechselSections(detail: detail, content: content)
+                            wechselSections(detail: detail, content: content, examplesTitle: titles.examples)
                         }
                         
                         if let uses = content.whenToUse, !uses.isEmpty {
                             PrepositionContentSection(
-                                title: L10n.Prepositions.Detail.whenToUse,
+                                title: titles.whenToUse,
                                 icon: "lightbulb.fill",
                                 iconColor: .yellow,
                                 bodyText: nil,
@@ -68,7 +69,7 @@ struct PrepositionDetailView: View {
                         
                         if let mistakes = content.commonMistakes, !mistakes.isEmpty {
                             PrepositionContentSection(
-                                title: L10n.Prepositions.Detail.mistakes,
+                                title: titles.mistakes,
                                 icon: "exclamationmark.triangle.fill",
                                 iconColor: .orange,
                                 bodyText: nil,
@@ -77,18 +78,18 @@ struct PrepositionDetailView: View {
                         }
                         
                         if let contrasts = content.contrastWith, !contrasts.isEmpty {
-                            contrastSection(contrasts)
+                            contrastSection(contrasts, title: titles.contrast)
                         }
                         
                         if viewModel.detail?.caseGroup != "wechsel" {
                             examplesSection(
-                                title: L10n.Prepositions.Detail.examples,
+                                title: titles.examples,
                                 examples: content.examples ?? []
                             )
                         }
                         
                         if let related = viewModel.detail?.relatedPrepositions, !related.isEmpty {
-                            relatedSection(related)
+                            relatedSection(related, title: titles.related)
                         }
                     }
                     .padding(.horizontal, 24)
@@ -180,8 +181,32 @@ struct PrepositionDetailView: View {
         .padding(.top, 8)
     }
     
+    private func detailSectionTitles(for language: Language) -> (
+        meaning: String,
+        grammar: String,
+        whenToUse: String,
+        mistakes: String,
+        examples: String,
+        contrast: String,
+        related: String
+    ) {
+        (
+            language.localized("prepositions.detail.meaning", fallback: "Meaning"),
+            language.localized("prepositions.detail.grammar", fallback: "Grammar"),
+            language.localized("prepositions.detail.whenToUse", fallback: "When to use"),
+            language.localized("prepositions.detail.mistakes", fallback: "Common mistakes"),
+            language.localized("prepositions.detail.examples", fallback: "Examples"),
+            language.localized("prepositions.detail.contrast", fallback: "Don't confuse with"),
+            language.localized("prepositions.detail.related", fallback: "Related prepositions")
+        )
+    }
+
     @ViewBuilder
-    private func wechselSections(detail: PrepositionDetail, content: PrepositionLocalizedContent) -> some View {
+    private func wechselSections(
+        detail: PrepositionDetail,
+        content: PrepositionLocalizedContent,
+        examplesTitle: String
+    ) -> some View {
         let language = viewModel.selectedLanguage
         
         if let dativLabel = detail.wechselRules?.dativ?.labels?.text(for: language) {
@@ -202,7 +227,7 @@ struct PrepositionDetailView: View {
            viewModel.examples(for: "akkusativ").isEmpty,
            let examples = content.examples,
            !examples.isEmpty {
-            examplesSection(title: L10n.Prepositions.Detail.examples, examples: examples)
+            examplesSection(title: examplesTitle, examples: examples)
         }
     }
     
@@ -236,13 +261,13 @@ struct PrepositionDetailView: View {
     }
     
     @ViewBuilder
-    private func contrastSection(_ contrasts: [PrepositionContrast]) -> some View {
+    private func contrastSection(_ contrasts: [PrepositionContrast], title: String) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 10) {
                 Image(systemName: "arrow.left.arrow.right")
                     .font(.title3)
                     .foregroundStyle(.purple)
-                Text(L10n.Prepositions.Detail.contrast)
+                Text(title)
                     .font(.system(.headline, design: .rounded))
             }
             
@@ -270,9 +295,9 @@ struct PrepositionDetailView: View {
     }
     
     @ViewBuilder
-    private func relatedSection(_ related: [String]) -> some View {
+    private func relatedSection(_ related: [String], title: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(L10n.Prepositions.Detail.related)
+            Text(title)
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)

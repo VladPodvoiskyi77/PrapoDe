@@ -51,6 +51,10 @@ class WidgetWordSelectionViewModel: BaseDataViewModel {
             verb: word.base,
             isShown: word.isShow
         )
+        AnalyticsManager.shared.logWidgetWordsConfigured(
+            enabledCount: selectedCount,
+            totalCount: totalCount
+        )
         
         objectWillChange.send()
     }

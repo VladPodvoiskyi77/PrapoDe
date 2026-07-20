@@ -11,6 +11,9 @@ struct Learning_prepositions_is_easyApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .onOpenURL { url in
+                    WidgetAnalyticsService.handleWidgetTap(url: url)
+                }
         }
         .modelContainer(PersistenceController.sharedModelContainer)
     }

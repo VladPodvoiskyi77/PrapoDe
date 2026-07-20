@@ -89,8 +89,12 @@
 		52B14B192F7BAFE90021AE67 /* WidgetWordSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B182F7BAFE50021AE67 /* WidgetWordSelectionView.swift */; };
 		52B14B1B2F7BB0130021AE67 /* WidgetWordSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1A2F7BB00D0021AE67 /* WidgetWordSelectionViewModel.swift */; };
 		52B14B1D2F7BB8750021AE67 /* SwiftDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1C2F7BB8730021AE67 /* SwiftDataManager.swift */; };
+		52B14B202F7B2D100021AE67 /* UserSessionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1F2F7B2D100021AE67 /* UserSessionStats.swift */; };
 		52B14B202F7BD3AD0021AE67 /* WidgetWordRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1F2F7BD3AB0021AE67 /* WidgetWordRow.swift */; };
+		52B14B212F7B2D200021AE67 /* WidgetAnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1E2F7B2D200021AE67 /* WidgetAnalyticsStore.swift */; };
 		52B14B222F7BD4A90021AE67 /* WidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B212F7BD49A0021AE67 /* WidgetSection.swift */; };
+		52B14B232F7B2D300021AE67 /* WidgetAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1D2F7B2D300021AE67 /* WidgetAnalyticsService.swift */; };
+		52B14B242F7B2D200021AE67 /* WidgetAnalyticsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1E2F7B2D200021AE67 /* WidgetAnalyticsStore.swift */; };
 		52B14B242F7C47660021AE67 /* WidgetSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B232F7C47630021AE67 /* WidgetSelectionHeaderView.swift */; };
 		52B14B252F7CAC7F0021AE67 /* SwiftDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B1C2F7BB8730021AE67 /* SwiftDataManager.swift */; };
 		52B14B262F7CAC840021AE67 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14B152F7B318D0021AE67 /* PersistenceController.swift */; };
@@ -153,13 +157,13 @@
 		52FD17ED2F6DBCDA005F04D2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EC2F6DBCD5005F04D2 /* Color.swift */; };
 		52FD17EF2F757ABE005F04D2 /* ResultSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD17EE2F757AAA005F04D2 /* ResultSection.swift */; };
 		52PR00022F80000100000002 /* PrepositionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00012F80000100000001 /* PrepositionModels.swift */; };
-		52PR00112F90000100000011 /* PrepositionArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00102F90000100000010 /* PrepositionArticleSource.swift */; };
 		52PR00042F80000100000004 /* PrepositionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00032F80000100000003 /* PrepositionRepository.swift */; };
 		52PR00062F80000100000006 /* PrepositionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00052F80000100000005 /* PrepositionsListView.swift */; };
 		52PR00082F80000100000008 /* PrepositionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00072F80000100000007 /* PrepositionsListViewModel.swift */; };
 		52PR000A2F8000010000000A /* PrepositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00092F80000100000009 /* PrepositionDetailView.swift */; };
 		52PR000C2F8000010000000C /* PrepositionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */; };
 		52PR000E2F8000010000000E /* PrepositionComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR000D2F8000010000000D /* PrepositionComponents.swift */; };
+		52PR00112F90000100000011 /* PrepositionArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52PR00102F90000100000010 /* PrepositionArticleSource.swift */; };
 		52UIANIM22F70000200822AAF /* UIAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52UIANIM12F70000100822AAF /* UIAnimations.swift */; };
 		A1TEST022F60000100000002 /* LeaderboardRankingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */; };
 		A1TEST0E2F6000010000000E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1TEST0F2F6000010000000F /* XCTest.framework */; };
@@ -283,6 +287,9 @@
 		52B14B182F7BAFE50021AE67 /* WidgetWordSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWordSelectionView.swift; sourceTree = "<group>"; };
 		52B14B1A2F7BB00D0021AE67 /* WidgetWordSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWordSelectionViewModel.swift; sourceTree = "<group>"; };
 		52B14B1C2F7BB8730021AE67 /* SwiftDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataManager.swift; sourceTree = "<group>"; };
+		52B14B1D2F7B2D300021AE67 /* WidgetAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAnalyticsService.swift; sourceTree = "<group>"; };
+		52B14B1E2F7B2D200021AE67 /* WidgetAnalyticsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAnalyticsStore.swift; sourceTree = "<group>"; };
+		52B14B1F2F7B2D100021AE67 /* UserSessionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionStats.swift; sourceTree = "<group>"; };
 		52B14B1F2F7BD3AB0021AE67 /* WidgetWordRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWordRow.swift; sourceTree = "<group>"; };
 		52B14B212F7BD49A0021AE67 /* WidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSection.swift; sourceTree = "<group>"; };
 		52B14B232F7C47630021AE67 /* WidgetSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSelectionHeaderView.swift; sourceTree = "<group>"; };
@@ -345,13 +352,13 @@
 		52FD17EC2F6DBCD5005F04D2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		52FD17EE2F757AAA005F04D2 /* ResultSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSection.swift; sourceTree = "<group>"; };
 		52PR00012F80000100000001 /* PrepositionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionModels.swift; sourceTree = "<group>"; };
-		52PR00102F90000100000010 /* PrepositionArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionArticleSource.swift; sourceTree = "<group>"; };
 		52PR00032F80000100000003 /* PrepositionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionRepository.swift; sourceTree = "<group>"; };
 		52PR00052F80000100000005 /* PrepositionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListView.swift; sourceTree = "<group>"; };
 		52PR00072F80000100000007 /* PrepositionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsListViewModel.swift; sourceTree = "<group>"; };
 		52PR00092F80000100000009 /* PrepositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailView.swift; sourceTree = "<group>"; };
 		52PR000B2F8000010000000B /* PrepositionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDetailViewModel.swift; sourceTree = "<group>"; };
 		52PR000D2F8000010000000D /* PrepositionComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionComponents.swift; sourceTree = "<group>"; };
+		52PR00102F90000100000010 /* PrepositionArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionArticleSource.swift; sourceTree = "<group>"; };
 		52UIANIM12F70000100822AAF /* UIAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimations.swift; sourceTree = "<group>"; };
 		79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learning_prepositions_is_easy.release.xcconfig"; path = "Target Support Files/Pods-Learning_prepositions_is_easy/Pods-Learning_prepositions_is_easy.release.xcconfig"; sourceTree = "<group>"; };
 		A1TEST012F60000100000001 /* LeaderboardRankingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRankingLogic.swift; sourceTree = "<group>"; };
@@ -436,6 +443,8 @@
 			isa = PBXGroup;
 			children = (
 				5249A0C42FABA67300B01CDB /* AnalyticsManager.swift */,
+				52B14B1D2F7B2D300021AE67 /* WidgetAnalyticsService.swift */,
+				52B14B1E2F7B2D200021AE67 /* WidgetAnalyticsStore.swift */,
 				5249A0E12FABB01000B01CDB /* CrashReporter.swift */,
 				5249A0CF2FABA70000B01CDB /* StoreReviewManager.swift */,
 			);
@@ -502,6 +511,7 @@
 				52B14AF42F769F2C0021AE67 /* UpdateResult.swift */,
 				52FD17722F6BFACA005F04D2 /* Country.swift */,
 				52FD17702F6BF6E7005F04D2 /* UserProfile.swift */,
+				52B14B1F2F7B2D100021AE67 /* UserSessionStats.swift */,
 				52FD173A2F6BEEFE005F04D2 /* GlobalRecord.swift */,
 				52BA4C512F34DD9B00A10B9C /* VerbItem.swift */,
 				527A7E7E2F17090700C77843 /* CaseType.swift */,
@@ -1267,6 +1277,7 @@
 				5299C9C72EE9F63100BBEE3F /* AppConfig.swift in Sources */,
 				5299CA382EFEFCBF00BBEE3F /* QuizDifficulty.swift in Sources */,
 				52FD17712F6BF6EA005F04D2 /* UserProfile.swift in Sources */,
+				52B14B202F7B2D100021AE67 /* UserSessionStats.swift in Sources */,
 				52A0E1262F0C8AE400822AAF /* GeneralSettingsSection.swift in Sources */,
 				5299CA4C2F0042FB00BBEE3F /* QuestionCard.swift in Sources */,
 				52B14B132F7B2D060021AE67 /* VerbEntity.swift in Sources */,
@@ -1332,6 +1343,8 @@
 				52DA8B372ECF20FE00129F4E /* ResultView.swift in Sources */,
 				52A0E1202F0C7EB700822AAF /* SettingsRow.swift in Sources */,
 				5249A0C52FABA68100B01CDB /* AnalyticsManager.swift in Sources */,
+				52B14B212F7B2D200021AE67 /* WidgetAnalyticsStore.swift in Sources */,
+				52B14B232F7B2D300021AE67 /* WidgetAnalyticsService.swift in Sources */,
 				5249A0E22FABB01000B01CDB /* CrashReporter.swift in Sources */,
 				5249A0D02FABA70000B01CDB /* StoreReviewManager.swift in Sources */,
 				52FD173D2F6BEFAE005F04D2 /* UserProfileManager.swift in Sources */,
@@ -1392,6 +1405,7 @@
 				52B14B272F7CAD480021AE67 /* VerbEntity.swift in Sources */,
 				52B14B262F7CAC840021AE67 /* PersistenceController.swift in Sources */,
 				52BA4C682F39E49E00A10B9C /* Language.swift in Sources */,
+				52B14B242F7B2D200021AE67 /* WidgetAnalyticsStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1580,7 +1594,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1599,7 +1613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1625,7 +1639,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				ENABLE_PREVIEWS = YES;
@@ -1643,7 +1657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1665,7 +1679,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1677,15 +1691,15 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1698,7 +1712,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1710,15 +1724,15 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

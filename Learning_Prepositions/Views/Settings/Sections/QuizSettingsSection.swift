@@ -12,7 +12,16 @@ struct QuizSettingsSection: View {
                 title: L10n.Settings.Section.Quiz.description
             ) {
                 Menu {
-                    ForEach(Array(stride(from: 5, through: 30, by: 5)), id: \.self) { count in
+                    ForEach(
+                        Array(
+                            stride(
+                                from: AppConfig.QuizSettings.minQuestionCount,
+                                through: AppConfig.QuizSettings.maxQuestionCount,
+                                by: AppConfig.QuizSettings.questionCountStep
+                            )
+                        ),
+                        id: \.self
+                    ) { count in
                         Button {
                             withAnimation { questionCount = count }
                         } label: {

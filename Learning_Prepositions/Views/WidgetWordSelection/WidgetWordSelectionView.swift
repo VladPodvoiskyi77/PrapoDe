@@ -70,6 +70,10 @@ struct WidgetWordSelectionView: View {
         }
         .onAppear {
             AnalyticsManager.shared.logScreenView("Widget_Word_Selection")
+            AnalyticsManager.shared.logWidgetWordsConfigured(
+                enabledCount: viewModel.selectedCount,
+                totalCount: viewModel.totalCount
+            )
         }
         .navigationTitle(L10n.WidgetWord.title)
         .navigationBarTitleDisplayMode(.inline)

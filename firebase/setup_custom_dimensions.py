@@ -50,6 +50,13 @@ DIMENSIONS = [
     DimensionDef("user_answer", "User answer", "EVENT", "What the user selected or typed"),
     DimensionDef("country_code", "Country code", "EVENT", "Onboarding country"),
     DimensionDef("status", "Toggle status", "EVENT", "Widget word enabled/disabled"),
+    DimensionDef("enabled_count", "Widget enabled words", "EVENT", "Words shown in widget"),
+    DimensionDef("total_count", "Widget total words", "EVENT", "Words available for widget"),
+    DimensionDef("widget_count", "Installed widgets", "EVENT", "Home screen widget instances"),
+    DimensionDef("family", "Widget size family", "EVENT", "small / medium / large"),
+    DimensionDef("refresh_count", "Widget refresh count", "EVENT", "Batched timeline refreshes"),
+    DimensionDef("entry_count", "Widget entry count", "EVENT", "Timeline entries generated"),
+    DimensionDef("previous_count", "Previous widget count", "EVENT", "Count before widget removal"),
     DimensionDef("preposition_id", "Preposition ID", "EVENT", "Article id (fur, in, …)"),
     DimensionDef("lemma", "Preposition lemma", "EVENT", "German preposition (für, in, …)"),
     DimensionDef("case_group", "Preposition case group", "EVENT", "dativ / akkusativ / genitiv / wechsel"),
@@ -58,6 +65,8 @@ DIMENSIONS = [
     DimensionDef("preposition_count", "Preposition count", "EVENT", "Items in prepositions guide"),
     DimensionDef("nickname", "Nickname", "USER", "Display name from profile"),
     DimensionDef("current_study_level", "Current study level", "USER", "Selected CEFR level"),
+    DimensionDef("has_widget_installed", "Widget installed", "USER", "true / false"),
+    DimensionDef("widget_enabled_words", "Widget enabled words", "USER", "Count of words enabled for widget"),
 ]
 
 

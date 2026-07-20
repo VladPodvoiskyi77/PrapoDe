@@ -185,6 +185,7 @@
 "myProgress.update.alert.noChanges.description" = "У вас вже найактуальніша версія словника.";
 
 "myProgress.update.alert.error.title" = "Помилка оновлення";
+"myProgress.update.alert.error.description" = "Сталася помилка сервера. Спробуй пізніше або напиши розробнику.";
 
 //================================================ Rules Screen =================================================================
 "rules.title" = "Як працює навчання?";

@@ -87,12 +87,6 @@ service cloud.firestore {
         && request.resource.data.country.size() <= 60
         && request.resource.data.totalGamesPlayed is int
         && request.resource.data.totalGamesPlayed == 0
-        && request.resource.data.completedQuizzes is int
-        && request.resource.data.completedQuizzes == 0
-        && request.resource.data.completedTrainings is int
-        && request.resource.data.completedTrainings == 0
-        && request.resource.data.completedSprints is int
-        && request.resource.data.completedSprints == 0
         && request.resource.data.bestSprintScore is int
         && request.resource.data.bestSprintScore == 0;
 

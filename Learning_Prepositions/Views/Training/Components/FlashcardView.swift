@@ -168,36 +168,39 @@ struct FlashcardView: View {
                 .padding(.top, -4)
                 .padding(.bottom, 8)
             
-            VStack(alignment: .leading, spacing: 12) {
-                Image(systemName: "quote.opening")
-                    .font(.title2)
-                    .foregroundColor(accentColor.opacity(0.5))
+            VStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: 12) {
+                    Image(systemName: "quote.opening")
+                        .font(.title2)
+                        .foregroundColor(accentColor.opacity(0.5))
+                    
+                    Text(word.example)
+                        .font(.system(size: 18, weight: .medium, design: .serif))
+                        .foregroundColor(.primary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    
+                    Text(word.translation(for: currentLanguage))
+                        .font(.subheadline)
+                        .italic()
+                        .foregroundColor(.secondary)
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.primary.opacity(0.03))
+                )
                 
-                Text(word.example)
-                    .font(.system(size: 18, weight: .medium, design: .serif))
-                    .foregroundColor(.primary)
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                Text(word.translation(for: currentLanguage))
-                    .font(.subheadline)
-                    .italic()
-                    .foregroundColor(.secondary)
+                PrepositionLearnMoreButton(
+                    lemma: word.preposition,
+                    articleSource: .training,
+                    onOpenDetail: onOpenPrepositionDetail
+                )
+                .frame(maxWidth: .infinity)
             }
-            .padding(20)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.primary.opacity(0.03))
-            )
             .padding(.horizontal, 20)
             
-            Spacer()
-
-            PrepositionLearnMoreButton(
-                lemma: word.preposition,
-                articleSource: .training,
-                onOpenDetail: onOpenPrepositionDetail
-            )
-                .padding(.horizontal, 20)
+            Spacer(minLength: 12)
 
             Button {
                 Speaker.shared.speak(word.example)

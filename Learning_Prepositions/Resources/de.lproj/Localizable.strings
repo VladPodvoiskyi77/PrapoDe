@@ -167,7 +167,7 @@
 "training.action.listen" = "Hören";
 
 //================================================ My Progress screen ===================================================================
-"myProgress.screen.title" = "Mein Fortschritt";
+"myProgress.screen.title" = "Mein\nFortschritt";
 "myProgress.search.title" = "Wort suchen...";
 "myProgress.header.level" = "Ausgewählte Stufe: ";
 "myProgress.stats.learned" = "Gelernt: %lld";
@@ -185,6 +185,7 @@
 "myProgress.update.alert.noChanges.description" = "Sie verfügen bereits über die aktuellste Version des Wörterbuchs.";
 
 "myProgress.update.alert.error.title" = "Update fehlgeschlagen";
+"myProgress.update.alert.error.description" = "Ein Serverfehler ist aufgetreten. Bitte versuche es später erneut oder kontaktiere den Entwickler.";
 
 //================================================ Rules Screen =================================================================
 "rules.title" = "Wie funktioniert das Lernen?";

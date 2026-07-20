@@ -17,7 +17,7 @@ struct QuestionBlock: View {
         VStack(spacing: blockSpacing) {
             // MARK: - Вопрос
             ZStack {
-                QuestionCard(item: item, isAnswered: viewModel.isAnswered)
+                QuestionCard(item: item, isAnswered: viewModel.isAnswered, isCompactHeight: isCompactHeight)
                     .id("q_\(item.id)")
 
                 if viewModel.isAnswered {

@@ -218,6 +218,8 @@ internal enum L10n {
           internal static let title = L10n.tr("Localizable", "myProgress.update.alert.confirm.title", fallback: "Update Content?")
         }
         internal enum Error {
+          /// A server error occurred. Please try again later or contact the developer.
+          internal static let description = L10n.tr("Localizable", "myProgress.update.alert.error.description", fallback: "A server error occurred. Please try again later or contact the developer.")
           /// Update Failed
           internal static let title = L10n.tr("Localizable", "myProgress.update.alert.error.title", fallback: "Update Failed")
         }

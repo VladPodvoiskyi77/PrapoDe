@@ -41,5 +41,14 @@
 		<string>googlegmail</string>
 		<string>ms-outlook</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prapode</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

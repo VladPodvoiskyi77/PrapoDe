@@ -5,6 +5,8 @@ struct CleanCapsuleItem: View {
     let isSelected: Bool
     let action: () -> Void
     
+    private let activePurple = Color(red: 0.71, green: 0.32, blue: 0.87)
+    
     var iconString: String {
         let allTitle = L10n.MyProgress.Capsule.All.title
         
@@ -21,7 +23,7 @@ struct CleanCapsuleItem: View {
                 
                 Text(iconString)
                     .font(.system(size: iconString == "∞" ? 28 : 24, weight: .heavy, design: .rounded))
-                    .foregroundStyle(isSelected ? AnyShapeStyle(AppTheme.mainGradient) : AnyShapeStyle(.white))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(.white) : AnyShapeStyle(activePurple))
                     .frame(width: 50, height: 50)
                     .background(
                         Circle()
@@ -32,7 +34,7 @@ struct CleanCapsuleItem: View {
                 if isSelected {
                     Text(preposition)
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.black.opacity(0.8))
+                        .foregroundColor(.white)
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                         .padding(.horizontal, 4)
@@ -42,11 +44,26 @@ struct CleanCapsuleItem: View {
             .frame(width: isSelected ? 85 : 60, height: isSelected ? 130 : 60)
             
             .background(
-                AppTheme.linearGradient
+                Group {
+                    if isSelected {
+                        LinearGradient(
+                            colors: [Color(red: 0.71, green: 0.42, blue: 0.96), activePurple],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    } else {
+                        Color.white
+                    }
+                }
             )
             .clipShape(Capsule())
             .overlay(
-                Capsule().strokeBorder(.white.opacity(isSelected ? 0.8 : 0.3), lineWidth: 1)
+                Capsule().strokeBorder(.white.opacity(isSelected ? 0.65 : 0.95), lineWidth: 1)
+            )
+            .shadow(
+                color: isSelected ? activePurple.opacity(0.55) : .clear,
+                radius: isSelected ? 16 : 0,
+                y: isSelected ? 6 : 0
             )
         }
         .animation(.spring(response: 0.35, dampingFraction: 0.7), value: isSelected)
