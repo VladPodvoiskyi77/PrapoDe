@@ -69,11 +69,11 @@ struct ModeView: View {
             if let filteredWords = await viewModel.prepareWords(for: mode) {
                 switch nav.selectedMode {
                 case .training:
-                    nav.goTo(.training(filteredWords, category))
+                    nav.goTo(.training(viewModel.allWords, filteredWords, category))
                 case .quiz:
                     nav.goTo(.quiz(viewModel.allWords, filteredWords, category.rawValue))
                 default:
-                    nav.goTo(.training(filteredWords, category))
+                    nav.goTo(.training(viewModel.allWords, filteredWords, category))
                 }
             }
         }

@@ -4,8 +4,10 @@ import SwiftData
 
 @Model
 final class VerbEntity {
-    // Делаем связку с оригинальным ID из JSON, чтобы не дублировать
-    @Attribute(.unique) var base: String
+    /// base|preposition|level — not @unique: Firebase JSON has rare duplicate rows,
+    /// and a leftover unique-on-base index from older schema collapsed A1 → ~11–16.
+    var catalogId: String
+    var base: String
     var preposition: String
     var translationRu: String
     var translationUa: String
@@ -14,18 +16,27 @@ final class VerbEntity {
     var caseTypeRaw: String
     var levelRaw: String
     var isShow: Bool
-    var lastShownDate: Date? // Полезно для логики виджета (чтобы не повторяться)
+    var lastShownDate: Date?
 
     init(from item: VerbItem) {
-        self.base = item.base
-        self.preposition = item.preposition
+        let level = item.level.rawValue
+        self.catalogId = Self.makeCatalogId(base: item.base, preposition: item.preposition, levelRaw: level)
+        self.base = item.base.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.preposition = item.preposition.trimmingCharacters(in: .whitespacesAndNewlines)
         self.translationRu = item.translationRu
         self.translationUa = item.translationUa
         self.translationEn = item.translationEn
         self.exampleSentence = item.exampleSentence
         self.caseTypeRaw = item.caseType.rawValue
-        self.levelRaw = item.level.rawValue
+        self.levelRaw = level
         self.isShow = true
+    }
+
+    static func makeCatalogId(base: String, preposition: String, levelRaw: String) -> String {
+        let b = base.trimmingCharacters(in: .whitespacesAndNewlines)
+        let p = preposition.trimmingCharacters(in: .whitespacesAndNewlines)
+        let l = levelRaw.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        return "\(b)|\(p)|\(l)"
     }
     
     var basePreposition: String {

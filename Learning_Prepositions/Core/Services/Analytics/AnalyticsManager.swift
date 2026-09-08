@@ -60,6 +60,47 @@ final class AnalyticsManager {
             "status": isShown ? "enabled" : "disabled"
         ])
     }
+
+    func logWidgetWordsConfigured(enabledCount: Int, totalCount: Int) {
+        Analytics.logEvent("widget_words_configured", parameters: [
+            "enabled_count": enabledCount,
+            "total_count": totalCount
+        ])
+        Analytics.setUserProperty(String(enabledCount), forName: "widget_enabled_words")
+    }
+
+    func logWidgetInstalled(widgetCount: Int, family: String) {
+        Analytics.logEvent("widget_installed", parameters: [
+            "widget_count": widgetCount,
+            "family": family
+        ])
+        setWidgetInstalled(true)
+    }
+
+    func logWidgetRemoved(previousCount: Int) {
+        Analytics.logEvent("widget_removed", parameters: [
+            "previous_count": previousCount
+        ])
+        setWidgetInstalled(false)
+    }
+
+    func logWidgetTimelineRefreshed(refreshCount: Int, entryCount: Int) {
+        Analytics.logEvent("widget_timeline_refreshed", parameters: [
+            "refresh_count": refreshCount,
+            "entry_count": entryCount
+        ])
+    }
+
+    func logWidgetTap(verb: String, level: String) {
+        Analytics.logEvent("widget_tap", parameters: [
+            "verb": verb,
+            "level": level
+        ])
+    }
+
+    func setWidgetInstalled(_ installed: Bool) {
+        Analytics.setUserProperty(installed ? "true" : "false", forName: "has_widget_installed")
+    }
     
     func logWrongAnswer(
         mode: Activity,
@@ -120,13 +161,15 @@ final class AnalyticsManager {
         prepositionId: String,
         lemma: String,
         caseGroup: String,
-        contentLanguage: String
+        contentLanguage: String,
+        source: PrepositionArticleSource
     ) {
         Analytics.logEvent("preposition_article_viewed", parameters: [
             "preposition_id": prepositionId,
             "lemma": lemma,
             "case_group": caseGroup,
-            "content_language": contentLanguage
+            "content_language": contentLanguage,
+            "source": source.rawValue
         ])
     }
 }

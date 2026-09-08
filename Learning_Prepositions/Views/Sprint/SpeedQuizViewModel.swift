@@ -218,6 +218,7 @@ final class SpeedQuizViewModel: ObservableObject {
             score: correctAnswers,
             total: difficulty.questionCount
         )
+        UserProfileManager.shared.recordCompletedActivity(.sprint)
         
         if UserProfileManager.shared.isProfileSetupComplete {
             let firebaseService = FirebaseLeaderboardService()
@@ -258,9 +259,10 @@ final class SpeedQuizViewModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
             self?.feedbackColor = .clear
         }
-        if color == .red {
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
+        if color == .green {
+            HapticFeedback.success()
+        } else if color == .red {
+            HapticFeedback.error()
         }
     }
     

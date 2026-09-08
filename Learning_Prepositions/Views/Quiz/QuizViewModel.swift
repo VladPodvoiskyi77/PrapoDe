@@ -37,6 +37,8 @@ final class QuizViewModel: ObservableObject {
     @Published private(set) var isNewRecord = false
     private var sessionCompleted = false
     
+    var isSessionCompleted: Bool { sessionCompleted }
+    
     // MARK: - Computed Helpers
     var currentLanguage: Language { Language(rawValue: languageRaw) ?? .en }
     var selectedLevel: Level { Level(rawValue: levelRaw) ?? .a1 }
@@ -144,6 +146,8 @@ final class QuizViewModel: ObservableObject {
             level: selectedLevel.rawValue
         )
         
+        wordItems = candidateWords.getWordsForQuiz(count: safeCount)
+        totalQuestions = wordItems.count
         currentIndex = 0
         correctAnswers = 0
         isAnswered = false
@@ -183,6 +187,7 @@ final class QuizViewModel: ObservableObject {
         wordItems = candidateWords.getWordsForQuiz(count: safeCount)
         totalQuestions = wordItems.count        
         isNewRecord = leaderboardManager.processNewResult(result)
+        UserProfileManager.shared.recordCompletedActivity(.quiz)
     }
 
     func logAbandonedIfNeeded() {

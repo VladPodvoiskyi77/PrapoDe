@@ -5,12 +5,14 @@ final class ModeViewModel: BaseDataViewModel {
     
     // MARK: - Dependencies
     private let category: Category
+    private let activity: Activity
     var allWords: [WordItem] = []
     
     @Published var availableModes: [ModeType] = []
     
     init(category: Category, appMode: Activity) {
         self.category = category
+        self.activity = appMode
         super.init()
         
         self.availableModes = ModeType.availableModes(for: appMode)
@@ -25,7 +27,10 @@ final class ModeViewModel: BaseDataViewModel {
             self.allWords = loaded
         }
         
-        return filterWords(allWords, mode: mode)
+        let wordPool = activity == .training
+            ? allWords.filter { !$0.isLearned }
+            : allWords
+        return filterWords(wordPool, mode: mode)
     }
     
     // MARK: - Private Helper

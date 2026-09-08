@@ -10,7 +10,8 @@ protocol LeaderboardReading {
         gameType: GameType,
         quizDifficulty: QuizDifficulty,
         level: String,
-        countryCode: String?
+        countryCode: String?,
+        period: RankingPeriod
     ) async throws -> [GlobalRankingEntry]
 }
 
@@ -89,32 +90,28 @@ final class FirebaseLeaderboardService: LeaderboardWriting, LeaderboardReading {
         gameType: GameType,
         quizDifficulty: QuizDifficulty,
         level: String,
-        countryCode: String? = nil
+        countryCode: String? = nil,
+        period: RankingPeriod = .allTime
     ) async throws -> [GlobalRankingEntry] {
         
         let scopeLabel = countryCode.map { "country \($0.uppercased())" } ?? "worldwide"
-        print("🔍 Запрос рейтинга: \(gameType.rawValue), \(quizDifficulty.questionCount), \(level), \(scopeLabel)")
+        print("🔍 Запрос рейтинга: \(gameType.rawValue), \(quizDifficulty.questionCount), \(level), \(scopeLabel), \(period.rawValue)")
         
         let baseQuery = db.collection(mainCollection)
             .whereField("gameType", isEqualTo: gameType.rawValue)
             .whereField("total", isEqualTo: quizDifficulty.questionCount)
             .whereField("level", isEqualTo: level)
-        
-        if let countryCode, !countryCode.isEmpty {
-            // Фильтр по стране на клиенте: не требует отдельного composite index в Firestore
-            let snapshot = try await baseQuery.getDocuments()
-            let normalizedCode = countryCode.uppercased()
-            
-            let entries = snapshot.documents.compactMap(decodeEntry)
 
-            let countryEntries = LeaderboardRankingLogic.filterByCountry(
+        let needsClientFilter = period != .allTime || !(countryCode ?? "").isEmpty
+        if needsClientFilter {
+            let snapshot = try await baseQuery.getDocuments()
+            let entries = snapshot.documents.compactMap(decodeEntry)
+            return LeaderboardRankingLogic.rank(
                 entries,
-                countryCode: normalizedCode,
+                countryCode: countryCode,
+                since: period.since(),
                 limit: AppConfig.Constants.topScores
             )
-
-            print("🌍 Рейтинг по стране \(normalizedCode): \(countryEntries.count) из \(entries.count)")
-            return countryEntries
         }
         
         let snapshot = try await baseQuery

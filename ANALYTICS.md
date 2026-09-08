@@ -122,6 +122,18 @@
 | Событие | Триггер | Параметры |
 |---------|---------|-----------|
 | `widget_word_toggle` | Вкл/выкл слова в настройках виджета | `verb`, `status` (`enabled` / `disabled`) |
+| `widget_words_configured` | Экран выбора слов / изменение списка | `enabled_count`, `total_count` |
+| `widget_installed` | Виджет добавлен на домашний экран | `widget_count`, `family` |
+| `widget_removed` | Виджет удалён с домашнего экрана | `previous_count` |
+| `widget_timeline_refreshed` | Обновление timeline (батч при открытии приложения) | `refresh_count`, `entry_count` |
+| `widget_tap` | Тап по виджету → открытие приложения | `verb`, `level` |
+
+User properties:
+
+| Свойство | Значение |
+|----------|----------|
+| `has_widget_installed` | `true` / `false` |
+| `widget_enabled_words` | Количество включённых слов |
 
 ---
 
@@ -179,6 +191,9 @@
 | **Популярность категорий** | Verben vs Adjektive vs Nomen | `{mode}_started` → `category` | Breakdown by `category` |
 | **Сложные слова** | Где чаще ошибаются | `{mode}_error` → `wordWithPrap` | Events → Top events by parameter (quiz / sprint / writing) |
 | **Использование виджета** | Кастомизация | `widget_word_toggle` | Count; filter `status` |
+| **Adoption виджета** | Установлен на экран | `widget_installed`, user prop `has_widget_installed` | Events → unique users |
+| **Engagement виджета** | Реальное использование | `widget_timeline_refreshed`, `widget_tap` | Events → count / users |
+| **Конфигурация слов** | Сколько слов включено | `widget_words_configured` → `enabled_count` | Avg enabled_count |
 | **Популярные предлоги** | Какие статьи читают | `preposition_article_viewed` → `lemma` | Events → breakdown by `lemma` |
 | **Интерес к справочнику** | Открытия раздела | `prepositions_guide_viewed` | Event count |
 | **Интерес к рейтингу** | Открытия рейтинга | `screen_view` where name = `GlobalRanking` | Events → `screen_view` → filter |
@@ -190,7 +205,7 @@
 2. **Sprint funnel:** `sprint_started` → `sprint_finished`
 3. **Writing funnel:** `writing_started` → `writing_finished`
 4. **Training funnel:** `training_started` → `training_finished`
-5. **Widget adoption:** `screen_view` (Widget_Word_Selection) → `widget_word_toggle`
+5. **Widget adoption:** `screen_view` (Widget_Word_Selection) → `widget_words_configured` → `widget_installed` → `widget_timeline_refreshed` / `widget_tap`
 6. **Prepositions:** `prepositions_guide_viewed` → `preposition_article_viewed` → top `lemma`
 
 ### BigQuery (опционально)

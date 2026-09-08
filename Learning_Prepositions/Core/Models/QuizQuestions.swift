@@ -14,7 +14,52 @@ struct AnswerResult: Identifiable, Hashable {
     let exampleTranslation: String
     let caseType: String
     let usersAnswer: String
+    let correctVariants: [String]
+
+    init(
+        base: String,
+        preposition: String,
+        prepositionTranslation: String,
+        example: String,
+        exampleTranslation: String,
+        caseType: String,
+        usersAnswer: String,
+        correctVariants: [String] = []
+    ) {
+        self.base = base
+        self.preposition = preposition
+        self.prepositionTranslation = prepositionTranslation
+        self.example = example
+        self.exampleTranslation = exampleTranslation
+        self.caseType = caseType
+        self.usersAnswer = usersAnswer
+        self.correctVariants = correctVariants
+    }
+
     var isCorrect: Bool {
+        guard usersAnswer != "—" else { return false }
         return usersAnswer.isEquivalentIgnoringUmlauts(to: preposition)
+            || usersAnswer.isEquivalentIgnoringUmlauts(to: base)
+            || correctVariants.contains { usersAnswer.isEquivalentIgnoringUmlauts(to: $0) }
+    }
+
+    /// Quiz answers are just the preposition; writing answers are the full "verb prep".
+    var reviewCorrectAnswer: String {
+        reviewCorrectAnswers.first ?? preposition
+    }
+
+    var reviewCorrectAnswers: [String] {
+        let uniqueVariants = Self.orderedUnique(correctVariants)
+        if uniqueVariants.count > 1 { return uniqueVariants }
+        if usersAnswer == "—" || usersAnswer.contains(where: { $0.isWhitespace }) {
+            if uniqueVariants.count == 1 { return uniqueVariants }
+            return [base]
+        }
+        return [preposition]
+    }
+
+    private static func orderedUnique(_ values: [String]) -> [String] {
+        var seen = Set<String>()
+        return values.filter { seen.insert($0.lowercased()).inserted }
     }
 }

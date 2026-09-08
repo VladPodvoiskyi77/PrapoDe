@@ -3,6 +3,7 @@ import SwiftData
 
 struct WidgetWordSelectionView: View {
     @StateObject private var viewModel: WidgetWordSelectionViewModel
+    @State private var showConfirmUpdate = false
     
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: WidgetWordSelectionViewModel(modelContext: modelContext))
@@ -68,13 +69,27 @@ struct WidgetWordSelectionView: View {
                 .zIndex(100)
             }
         }
+        .opacity(viewModel.isLoading ? 0.5 : 1)
+        .disabled(viewModel.isLoading)
         .onAppear {
             AnalyticsManager.shared.logScreenView("Widget_Word_Selection")
+            AnalyticsManager.shared.logWidgetWordsConfigured(
+                enabledCount: viewModel.selectedCount,
+                totalCount: viewModel.totalCount
+            )
         }
         .navigationTitle(L10n.WidgetWord.title)
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $viewModel.searchText, prompt: Text(L10n.WidgetWord.searchText))
         .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showConfirmUpdate = true
+                } label: {
+                    Image(systemName: "arrow.clockwise.icloud")
+                        .fontWeight(.medium)
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     withAnimation(.spring()) {
@@ -87,5 +102,21 @@ struct WidgetWordSelectionView: View {
                 }
             }
         }
+        .errorAlert(isPresented: $viewModel.showError, error: viewModel.appError) {
+            viewModel.retryAfterError()
+        }
+        .showAlert(
+            title: L10n.MyProgress.Update.Alert.Confirm.title,
+            description: L10n.MyProgress.Update.Alert.Confirm.description,
+            isPresented: $showConfirmUpdate,
+            onExit: {
+                viewModel.refreshData()
+            }
+        )
+        .statusAlert(
+            title: viewModel.statusAlertTitle,
+            description: viewModel.statusAlertDescription,
+            isPresented: $viewModel.showStatusAlert
+        )
     }
 }

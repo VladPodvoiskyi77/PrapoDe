@@ -34,7 +34,9 @@ struct SpeedQuizHeader: View {
             Spacer()
             
             HStack(spacing: 4) {
-                Image(systemName: "star.fill").foregroundColor(.yellow)
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+                    .symbolEffect(.bounce, value: score)
                 Text("\(score)")
             }
             .font(.headline)
@@ -42,6 +44,7 @@ struct SpeedQuizHeader: View {
             .background(Color(UIColor.secondarySystemGroupedBackground))
             .cornerRadius(10)
             .shadow(radius: 1)
+            .scorePulse(on: score)
         }
     }
     

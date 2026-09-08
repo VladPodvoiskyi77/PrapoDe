@@ -23,7 +23,7 @@ struct MyProgressView: View {
                     totalCount: viewModel.totalWords,
                     progress: viewModel.progressValue,
                     level: viewModel.currentLevelRaw,
-                    category: category.rawValue
+                    category: category.displayTitle
                 )
                 .padding()
                 
@@ -85,7 +85,6 @@ struct MyProgressView: View {
         .opacity(viewModel.isLoading ? 0.5 : 1)
         .disabled(viewModel.isLoading)
         
-        .navigationTitle(L10n.MyProgress.Screen.title)
         .navigationBarTitleDisplayMode(.inline)
         
         .searchable(
@@ -95,6 +94,15 @@ struct MyProgressView: View {
         )
         
         .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(L10n.MyProgress.Screen.title)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .frame(maxWidth: 132)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     showInfoSheet = true
@@ -143,7 +151,7 @@ struct MyProgressView: View {
         }
         .errorAlert(isPresented: $viewModel.showError, error: viewModel.appError) {
             Task {
-                await viewModel.loadData()
+                await viewModel.retryAfterError()
             }
         }
         .showAlert(title: L10n.MyProgress.Update.Alert.Confirm.title,

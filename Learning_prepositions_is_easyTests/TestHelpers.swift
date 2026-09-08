@@ -28,7 +28,8 @@ enum TestFixtures {
         score: Int,
         total: Int = 10,
         timeElapsed: Double = 30,
-        userName: String = "Player"
+        userName: String = "Player",
+        timestamp: Date = Date()
     ) -> GlobalRankingEntry {
         GlobalRankingEntry(
             id: userId,
@@ -41,7 +42,7 @@ enum TestFixtures {
             level: "B1",
             category: Category.verben.rawValue,
             timeElapsed: timeElapsed,
-            timestamp: Date()
+            timestamp: timestamp
         )
     }
 

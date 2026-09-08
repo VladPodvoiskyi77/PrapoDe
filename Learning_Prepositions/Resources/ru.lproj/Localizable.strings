@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Учись эффективно";
 "universalMenu.category.hint.description" = "Выбери подходящий уровень, чтобы прогрессировать быстрее";
 
+"category.verben.title" = "Глаголы";
+"category.verben.subtitle" = "с предлогами";
+"category.adjektive.title" = "Прилагательные";
+"category.adjektive.subtitle" = "с предлогами";
+"category.nomen.title" = "Существительные";
+"category.nomen.subtitle" = "с предлогами";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Выберите режим";
 "universalMenu.activity.training.title" = "Тренировка";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Предлоги";
 "prepositions.list.subtitle" = "Немецкие предлоги по падежам — нажми для подробного объяснения";
+"prepositions.learnMore" = "О предлоге «%@»";
 "prepositions.detail.meaning" = "Значение";
 "prepositions.detail.grammar" = "Грамматика";
 "prepositions.detail.whenToUse" = "Когда использовать";
@@ -134,6 +142,9 @@
 "worldRanking.loadError" = "Не удалось загрузить рейтинг";
 "worldRanking.filter.byCountry" = "Показать рейтинг моей страны";
 "worldRanking.filter.worldwide" = "Показать мировой рейтинг";
+"worldRanking.period.allTime" = "Всё время";
+"worldRanking.period.month" = "Месяц";
+"worldRanking.period.week" = "Неделя";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Великолепно! 🏆";
@@ -150,11 +161,19 @@
 "training.screen.title" = "Тренировка";
 "training.finish.title" = "Отличная работа!";
 "training.finish.description" = "Вы повторили все слова из этой колоды";
+"training.finish.reviewed" = "Отмечено как «Знаю»: %lld";
+"training.finish.progress" = "+%lld к прогрессу · освоено: %lld";
 "training.finish.button.home" = "Главное меню";
 "training.action.repeat" = "Повторить";
 "training.action.know" = "Знаю";
 "training.action.tapToFlip" ="Нажмите, чтобы перевернуть";
 "training.action.listen" = "Слушать";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "ещё %lld";
+"training.batch.checkpoint.title" = "Учить дальше?";
+"training.batch.checkpoint.message" = "Разобрано карточек: %lld. Ещё %lld.";
+"training.batch.checkpoint.continue" = "Учить дальше";
+"training.batch.checkpoint.finish" = "Закончить";
 
 //================================================ My Progress screen ===================================================================
 "myProgress.screen.title" = "Мой прогресс";
@@ -175,6 +194,7 @@
 "myProgress.update.alert.noChanges.description" = "У вас уже самая актуальная версия словаря.";
 
 "myProgress.update.alert.error.title" = "Ошибка обновления";
+"myProgress.update.alert.error.description" = "Произошла ошибка сервера. Попробуйте позже или напишите разработчику.";
 
 //================================================ Rules Screen =================================================================
 "rules.title" = "Как работает обучение?";
@@ -204,9 +224,11 @@
 "writing.placeholder" = "Введи перевод...";
 "writing.button.check" = "Проверить";
 "writing.button.next" = "Дальше";
+"writing.button.skip" = "Пропустить";
 "writing.hint.almost" = "Верно! Но не забывай про умляуты ✍️";
 "writing.hint.error" = "Ошибка";
 "writing.hint.perfect" = "Великолепно!";
+"writing.hint.skipped" = "Пропущено";
 "writing.hint.extra_umlaut" = "Правильно! Но здесь лишний умляут ✍️";
 "writing.hint.also" = "Также можно сказать:";
 "writing.hint.correct_variants" = "Правильные ответы:";

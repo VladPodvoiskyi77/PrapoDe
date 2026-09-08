@@ -9,7 +9,7 @@ enum AppConfig {
     enum Constants {
         static let appGroupID = "group.com.vladpodvoiskyi.prapode"
         static let widgetJsonPath = "data/widget/verben.json"
-        static let topScores = 50
+        static let topScores = 100
     }
 
     enum Keys {
@@ -19,6 +19,18 @@ enum AppConfig {
         static let lastReviewRequestDate = "lastReviewRequestDate"
         static let selectedLanguage = "selectedLanguage"
         static let selectedLevel = "selectedLevel"
+        static let sessionStats = "userSessionStats"
+    }
+
+    enum QuizSettings {
+        static let minQuestionCount = 5
+        static let maxQuestionCount = 30
+        static let questionCountStep = 5
+
+        static func normalizeQuestionCount(_ value: Int) -> Int {
+            let clamped = min(max(value, minQuestionCount), maxQuestionCount)
+            return ((clamped + questionCountStep / 2) / questionCountStep) * questionCountStep
+        }
     }
 
     static let appGroupStore: UserDefaults = {

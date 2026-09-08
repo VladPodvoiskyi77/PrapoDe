@@ -16,6 +16,7 @@ class MyProgressViewModel: BaseDataViewModel {
     @Published var selectedPreposition: String? = nil
     @Published var activePreposition: String? = nil
     private let category: Category
+    private var pendingUpdateRetry = false
     
     // MARK: - Init
     init(category: Category) {
@@ -72,30 +73,48 @@ class MyProgressViewModel: BaseDataViewModel {
     }
     
     func refreshData() {
-            Task {
-                let (newItems, result) = await performUpdate(category: category)
-                
-                // Логика выбора текста и состояния происходит ЗДЕСЬ ✅
-                switch result {
-                case .updated:
-                    if let items = newItems {
-                        self.words = items
-                        self.statusAlertTitle = L10n.MyProgress.Update.Alert.Success.title
-                        self.statusAlertDescription = L10n.MyProgress.Update.Alert.Success.description
-                        self.showStatusAlert = true
-                    }
-                    
-                case .noChanges:
-                    self.statusAlertTitle = L10n.MyProgress.Update.Alert.NoChanges.title
-                    self.statusAlertDescription = L10n.MyProgress.Update.Alert.NoChanges.description
+        pendingUpdateRetry = true
+        Task {
+            let (newItems, result) = await performUpdate(category: category)
+            
+            switch result {
+            case .updated:
+                pendingUpdateRetry = false
+                if let items = newItems {
+                    self.words = items
+                    self.statusAlertTitle = L10n.MyProgress.Update.Alert.Success.title
+                    self.statusAlertDescription = L10n.MyProgress.Update.Alert.Success.description
                     self.showStatusAlert = true
-                    
-                case .error(let message):
-                    // поэтому здесь можно просто вывести в консоль для дебага
-                    print("❌ Update error: \(message)")
+                }
+                
+            case .noChanges:
+                pendingUpdateRetry = false
+                self.statusAlertTitle = L10n.MyProgress.Update.Alert.NoChanges.title
+                self.statusAlertDescription = L10n.MyProgress.Update.Alert.NoChanges.description
+                self.showStatusAlert = true
+                
+            case .error:
+                switch appError {
+                case .serverError, .unknown:
+                    showError = false
+                    appError = nil
+                    self.statusAlertTitle = L10n.MyProgress.Update.Alert.Error.title
+                    self.statusAlertDescription = L10n.MyProgress.Update.Alert.Error.description
+                    self.showStatusAlert = true
+                default:
+                    break
                 }
             }
         }
+    }
+    
+    func retryAfterError() async {
+        if pendingUpdateRetry {
+            refreshData()
+        } else {
+            await loadData()
+        }
+    }
     
     // MARK: - Статистика
     

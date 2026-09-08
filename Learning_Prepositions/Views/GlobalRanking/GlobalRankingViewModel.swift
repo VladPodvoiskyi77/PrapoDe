@@ -13,6 +13,7 @@ final class GlobalRankingViewModel: ObservableObject {
     
     @Published var selectedLevel: Level
     @Published var selectedDifficulty: QuizDifficulty
+    @Published var selectedPeriod: RankingPeriod = .allTime
     
     private let rankingProvider: LeaderboardReading
     private let profileManager: UserProfileManager
@@ -57,7 +58,8 @@ final class GlobalRankingViewModel: ObservableObject {
                 gameType: gameType,
                 quizDifficulty: selectedDifficulty,
                 level: selectedLevel.rawValue,
-                countryCode: countryFilter
+                countryCode: countryFilter,
+                period: selectedPeriod
             )
         } catch {
             self.entries = []

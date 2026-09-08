@@ -107,20 +107,33 @@ final class WordRepository {
         
         let descriptor = FetchDescriptor<VerbEntity>()
         let existingCount = (try? context.fetchCount(descriptor)) ?? 0
+        let storedVersion = AppConfig.appGroupStore.integer(forKey: WidgetCatalog.versionKey)
+        let needsCatalogRebuild = storedVersion < WidgetCatalog.currentVersion
         
-        if !force && existingCount > 0 {
+        if !force && !needsCatalogRebuild && existingCount > 0 {
             print("✅ SwiftData уже заполнена (\(existingCount) эл.)")
             return
         }
         
-        // 2. ИСТОЧНИК: Берем JSON (Кэш или Firebase)
         let path = AppConfig.Constants.widgetJsonPath
+        // On catalog rebuild always prefer a fresh Firebase download (stale App Group cache
+        // was a source of wrong verb counts after schema changes).
         var rawData: Data?
-        if let cachedData = local.load(key: path) {
+        let shouldPreferRemote = force || needsCatalogRebuild
+        if shouldPreferRemote, network.isConnected {
+            do {
+                print("☁️ Качаем свежий список для виджета из Firebase...")
+                let remoteData = try await remote.download(path: path)
+                local.save(data: remoteData, key: path)
+                rawData = remoteData
+            } catch {
+                print("⚠️ Remote widget download failed, trying cache: \(error)")
+                rawData = local.load(key: path)
+            }
+        } else if let cachedData = local.load(key: path) {
             rawData = cachedData
-            print("📦 Берем данные из локального кэша.")
-        } else {
-            guard network.isConnected else { return }
+            print("📦 Берем данные виджета из локального кэша.")
+        } else if network.isConnected {
             print("☁️ Качаем свежий список для виджета из Firebase...")
             let remoteData = try await remote.download(path: path)
             local.save(data: remoteData, key: path)
@@ -132,17 +145,36 @@ final class WordRepository {
         do {
             let verbs = try JSONDecoder().decode([VerbItem].self, from: data)
             
-            // Это гарантирует отсутствие дубликатов без лишних проверок
+            // Firebase has rare exact duplicate rows; keep first occurrence only.
+            var seenIds = Set<String>()
+            let deduped = verbs.filter { item in
+                let id = VerbEntity.makeCatalogId(
+                    base: item.base,
+                    preposition: item.preposition,
+                    levelRaw: item.level.rawValue
+                )
+                return seenIds.insert(id).inserted
+            }
+            
+            let previous = (try? context.fetch(descriptor)) ?? []
+            var previousVisibility: [String: Bool] = [:]
+            for entity in previous {
+                previousVisibility[entity.catalogId] = entity.isShow
+            }
+            
             try context.delete(model: VerbEntity.self)
             
-            for item in verbs {
-                context.insert(VerbEntity(from: item))
+            for item in deduped {
+                let entity = VerbEntity(from: item)
+                entity.isShow = previousVisibility[entity.catalogId] ?? true
+                context.insert(entity)
             }
             
             try context.save()
-            print("💾 База виджета полностью перезаписана: \(verbs.count) элементов.")
+            AppConfig.appGroupStore.set(WidgetCatalog.currentVersion, forKey: WidgetCatalog.versionKey)
+            let a1Count = deduped.filter { $0.level == .a1 }.count
+            print("💾 База виджета перезаписана: \(deduped.count) эл. (из \(verbs.count)), A1=\(a1Count)")
             
-            // Удаляем временный файл кэша, так как теперь всё в базе
             local.remove(key: path)
             
             WidgetCenter.shared.reloadAllTimelines()
@@ -154,6 +186,92 @@ final class WordRepository {
                 "path": path
             ])
         }
+    }
+
+    /// Manual update from the widget word-selection screen (same UX as My Progress).
+    @MainActor
+    func forceUpdateWidgetData(context: ModelContext) async throws -> UpdateResult {
+        guard network.isConnected else { throw AppError.noInternet }
+
+        let path = AppConfig.Constants.widgetJsonPath
+        let remoteData = try await remote.download(path: path)
+        let remoteItems: [VerbItem] = try decode(data: remoteData)
+        let deduped = Self.dedupeWidgetItems(remoteItems)
+
+        let descriptor = FetchDescriptor<VerbEntity>()
+        let existing = (try? context.fetch(descriptor)) ?? []
+
+        if Self.sameWidgetCatalogContent(existing: existing, remote: deduped) {
+            print("✨ Виджет-каталог без изменений.")
+            return .noChanges
+        }
+
+        try applyWidgetCatalog(deduped, context: context, existing: existing)
+        AppConfig.appGroupStore.set(WidgetCatalog.currentVersion, forKey: WidgetCatalog.versionKey)
+        local.remove(key: path)
+        WidgetCenter.shared.reloadAllTimelines()
+        print("✅ Виджет-каталог обновлён: \(deduped.count) эл.")
+        return .updated
+    }
+
+    private static func dedupeWidgetItems(_ verbs: [VerbItem]) -> [VerbItem] {
+        var seenIds = Set<String>()
+        return verbs.filter { item in
+            let id = VerbEntity.makeCatalogId(
+                base: item.base,
+                preposition: item.preposition,
+                levelRaw: item.level.rawValue
+            )
+            return seenIds.insert(id).inserted
+        }
+    }
+
+    private static func sameWidgetCatalogContent(existing: [VerbEntity], remote: [VerbItem]) -> Bool {
+        func remoteKey(_ item: VerbItem) -> String {
+            let id = VerbEntity.makeCatalogId(
+                base: item.base,
+                preposition: item.preposition,
+                levelRaw: item.level.rawValue
+            )
+            return [
+                id,
+                item.translationRu,
+                item.translationUa,
+                item.translationEn,
+                item.exampleSentence,
+                item.caseType.rawValue,
+            ].joined(separator: "||")
+        }
+        func localKey(_ entity: VerbEntity) -> String {
+            [
+                entity.catalogId,
+                entity.translationRu,
+                entity.translationUa,
+                entity.translationEn,
+                entity.exampleSentence,
+                entity.caseTypeRaw,
+            ].joined(separator: "||")
+        }
+        return Set(existing.map(localKey)) == Set(remote.map(remoteKey))
+    }
+
+    @MainActor
+    private func applyWidgetCatalog(
+        _ items: [VerbItem],
+        context: ModelContext,
+        existing: [VerbEntity]
+    ) throws {
+        var previousVisibility: [String: Bool] = [:]
+        for entity in existing {
+            previousVisibility[entity.catalogId] = entity.isShow
+        }
+        try context.delete(model: VerbEntity.self)
+        for item in items {
+            let entity = VerbEntity(from: item)
+            entity.isShow = previousVisibility[entity.catalogId] ?? true
+            context.insert(entity)
+        }
+        try context.save()
     }
     
     func saveItems<T: Encodable>(_ items: T, level: String, category: String) {

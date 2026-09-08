@@ -55,6 +55,10 @@ struct SettingsView: View {
             }
         }
         .onAppear {
+            let normalized = AppConfig.QuizSettings.normalizeQuestionCount(questionCount)
+            if normalized != questionCount {
+                questionCount = normalized
+            }
             AnalyticsManager.shared.logScreenView("Settings")
             AnalyticsManager.shared.setUserLevel(selectedLevelRawValue)
         }

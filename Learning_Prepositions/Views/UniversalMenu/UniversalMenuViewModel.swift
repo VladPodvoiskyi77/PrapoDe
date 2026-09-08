@@ -34,8 +34,9 @@ final class UniversalMenuViewModel: BaseDataViewModel {
         case .main:
             self.menuItems = Category.allCases.map { category in
                 MenuUIItem(
-                    title: category.rawValue,
+                    title: category.displayTitle,
                     iconName: category.iconName,
+                    iconLetter: category.iconLetter,
                     iconColor: category.iconColor,
                     payload: .category(category)
                 )

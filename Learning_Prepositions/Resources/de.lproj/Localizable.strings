@@ -42,6 +42,13 @@
 "universalMenu.category.hint.title" = "Effektiv lernen";
 "universalMenu.category.hint.description" = "Wähle das passende Niveau, um schneller Fortschritte zu machen";
 
+"category.verben.title" = "Verben";
+"category.verben.subtitle" = "mit Präpositionen";
+"category.adjektive.title" = "Adjektive";
+"category.adjektive.subtitle" = "mit Präpositionen";
+"category.nomen.title" = "Nomen";
+"category.nomen.subtitle" = "mit Präpositionen";
+
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Modus wählen";
 "universalMenu.activity.training.title" = "Training";
@@ -54,6 +61,7 @@
 //================================================ Prepositions guide =================================================
 "prepositions.list.title" = "Präpositionen";
 "prepositions.list.subtitle" = "Deutsche Präpositionen nach Kasus — tippen für Details";
+"prepositions.learnMore" = "Über „%@“";
 "prepositions.detail.meaning" = "Bedeutung";
 "prepositions.detail.grammar" = "Grammatik";
 "prepositions.detail.whenToUse" = "Wann benutzen";
@@ -134,6 +142,9 @@
 "worldRanking.loadError" = "Die Rangliste konnte nicht geladen werden";
 "worldRanking.filter.byCountry" = "Rangliste meines Landes anzeigen";
 "worldRanking.filter.worldwide" = "Weltrangliste anzeigen";
+"worldRanking.period.allTime" = "Gesamt";
+"worldRanking.period.month" = "Monat";
+"worldRanking.period.week" = "Woche";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Perfekt! 🏆";
@@ -150,14 +161,22 @@
 "training.screen.title" = "Training";
 "training.finish.title" = "Gut gemacht!";
 "training.finish.description" = "Du hast alle Karten in diesem Stapel wiederholt";
+"training.finish.reviewed" = "%lld Wörter als bekannt markiert";
+"training.finish.progress" = "+%lld Fortschrittspunkte · %lld gemeistert";
 "training.finish.button.home" = "Hauptmenü";
 "training.action.repeat" = "Wiederholen";
 "training.action.know" = "Gewusst";
 "training.action.tapToFlip" = "Zum Umdrehen tippen";
 "training.action.listen" = "Hören";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "noch %lld";
+"training.batch.checkpoint.title" = "Weiterlernen?";
+"training.batch.checkpoint.message" = "Du hast %lld Karten wiederholt. Noch %lld übrig.";
+"training.batch.checkpoint.continue" = "Weiter lernen";
+"training.batch.checkpoint.finish" = "Beenden";
 
 //================================================ My Progress screen ===================================================================
-"myProgress.screen.title" = "Mein Fortschritt";
+"myProgress.screen.title" = "Mein\nFortschritt";
 "myProgress.search.title" = "Wort suchen...";
 "myProgress.header.level" = "Ausgewählte Stufe: ";
 "myProgress.stats.learned" = "Gelernt: %lld";
@@ -175,6 +194,7 @@
 "myProgress.update.alert.noChanges.description" = "Sie verfügen bereits über die aktuellste Version des Wörterbuchs.";
 
 "myProgress.update.alert.error.title" = "Update fehlgeschlagen";
+"myProgress.update.alert.error.description" = "Ein Serverfehler ist aufgetreten. Bitte versuche es später erneut oder kontaktiere den Entwickler.";
 
 //================================================ Rules Screen =================================================================
 "rules.title" = "Wie funktioniert das Lernen?";
@@ -204,9 +224,11 @@
 "writing.placeholder" = "Übersetzung eingeben...";
 "writing.button.check" = "Prüfen";
 "writing.button.next" = "Weiter";
+"writing.button.skip" = "Überspringen";
 "writing.hint.almost" = "Richtig! Aber vergiss die Umlaute nicht ✍️";
 "writing.hint.error" = "Fehler";
 "writing.hint.perfect" = "Ausgezeichnet!";
+"writing.hint.skipped" = "Übersprungen";
 "writing.hint.extra_umlaut" = "Richtig! Aber hier ist ein Umlaut zu viel ✍️";
 "writing.hint.also" = "Man kann auch sagen:";
 "writing.hint.correct_variants" = "Richtige Antworten:";
