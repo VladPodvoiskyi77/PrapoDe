@@ -8,17 +8,25 @@ struct TrainingSessionStats: Equatable {
 
 @MainActor
 final class TrainingViewModel: ObservableObject {
+    static let batchSize = 20
+
     @Published var words: [WordItem] = []
     @Published private(set) var sessionStats = TrainingSessionStats()
+    @Published private(set) var currentBatchSize = 0
+    @Published private(set) var remainingCount = 0
+    @Published private(set) var showBatchCheckpoint = false
+    @Published private(set) var isComplete = false
 
+    private var remainingPool: [WordItem]
+    private var offeredCount = 0
     private var fullWordItems: [WordItem]
     private let category: Category
     private let categoryName: String
-    private let initialWordCount: Int
     private let repository: WordRepository
 
-    var initialDeckWordCount: Int { initialWordCount }
+    var knownInBatch: Int { max(0, currentBatchSize - words.count) }
 
+    private var sessionStarted = false
     private var sessionFinished = false
     private var saveTask: Task<Void, Never>?
 
@@ -34,15 +42,20 @@ final class TrainingViewModel: ObservableObject {
         repository: WordRepository = WordRepository()
     ) {
         self.fullWordItems = allWords
-        self.words = deckWords
+        self.remainingPool = deckWords
         self.category = category
         self.categoryName = category.analyticsName
-        self.initialWordCount = deckWords.count
         self.repository = repository
+        if remainingPool.isEmpty {
+            isComplete = true
+        } else {
+            loadNextBatch()
+        }
     }
 
     func logSessionStarted() {
-        guard initialWordCount > 0 else { return }
+        guard !sessionStarted, offeredCount > 0 else { return }
+        sessionStarted = true
 
         AnalyticsManager.shared.logActivityStarted(
             mode: .training,
@@ -52,6 +65,7 @@ final class TrainingViewModel: ObservableObject {
     }
 
     func logSessionFinished() {
+        guard !sessionFinished else { return }
         sessionFinished = true
         flushSave()
 
@@ -60,7 +74,7 @@ final class TrainingViewModel: ObservableObject {
             category: categoryName,
             level: selectedLevel.rawValue,
             score: sessionStats.markedKnown,
-            total: initialWordCount
+            total: max(offeredCount, sessionStats.markedKnown)
         )
         UserProfileManager.shared.recordCompletedActivity(.training)
     }
@@ -74,8 +88,18 @@ final class TrainingViewModel: ObservableObject {
             category: categoryName,
             level: selectedLevel.rawValue,
             answered: sessionStats.markedKnown,
-            total: initialWordCount
+            total: max(offeredCount, sessionStats.markedKnown)
         )
+    }
+
+    func continueLearning() {
+        showBatchCheckpoint = false
+        loadNextBatch()
+    }
+
+    func finishFromCheckpoint() {
+        showBatchCheckpoint = false
+        isComplete = true
     }
 
     func markKnown() {
@@ -94,7 +118,29 @@ final class TrainingViewModel: ObservableObject {
         }
 
         HapticFeedback.success()
+        if words.isEmpty {
+            remainingCount = remainingPool.count
+            if remainingPool.isEmpty {
+                isComplete = true
+            } else {
+                showBatchCheckpoint = true
+            }
+        }
         scheduleSave()
+    }
+
+    private func loadNextBatch() {
+        let take = min(Self.batchSize, remainingPool.count)
+        guard take > 0 else {
+            isComplete = true
+            return
+        }
+        let batch = Array(remainingPool.suffix(take))
+        remainingPool.removeLast(take)
+        offeredCount += batch.count
+        words = batch
+        currentBatchSize = batch.count
+        remainingCount = remainingPool.count
     }
 
     func markRepeat() {

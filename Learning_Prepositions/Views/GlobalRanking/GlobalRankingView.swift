@@ -44,6 +44,17 @@ struct GlobalRankingView: View {
                 .onChange(of: viewModel.selectedLevel) { _, _ in
                     refreshData()
                 }
+
+                Picker("Period", selection: $viewModel.selectedPeriod) {
+                    Text(L10n.WorldRanking.Period.allTime).tag(RankingPeriod.allTime)
+                    Text(L10n.WorldRanking.Period.month).tag(RankingPeriod.month)
+                    Text(L10n.WorldRanking.Period.week).tag(RankingPeriod.week)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .onChange(of: viewModel.selectedPeriod) { _, _ in
+                    refreshData()
+                }
                 
                 ZStack {
                     if viewModel.isLoading {

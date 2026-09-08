@@ -62,22 +62,49 @@ class WritingViewModel: ObservableObject {
         let itemToDisplay = matchedItem ?? currentWord
         
         let resultEntry = AnswerResult(
-            base: itemToDisplay.translationWordWithPrep(for: currentLanguage),
-            preposition: itemToDisplay.basePreposition,
-            prepositionTranslation: itemToDisplay.basePreposition,
+            base: itemToDisplay.basePreposition,
+            preposition: itemToDisplay.preposition,
+            prepositionTranslation: itemToDisplay.translationWordWithPrep(for: currentLanguage),
             example: itemToDisplay.example,
             exampleTranslation: itemToDisplay.translation(for: currentLanguage),
             caseType: itemToDisplay.caseType,
-            usersAnswer: userInput
+            usersAnswer: userInput,
+            correctVariants: allPossibleTargets
         )
 
         resultsHistory.append(resultEntry)
         updateUI(with: evaluation, for: itemToDisplay.id)
     }
+
+    func skipAnswer() {
+        guard currentResult == nil else { return }
+
+        currentResult = .skipped
+        isCorrect = false
+        hintTitle = L10n.Writing.Hint.skipped
+        hintMessage = ""
+        otherVariants = allPossibleTargets
+
+        let itemToDisplay = currentWord
+        resultsHistory.append(
+            AnswerResult(
+                base: itemToDisplay.basePreposition,
+                preposition: itemToDisplay.preposition,
+                prepositionTranslation: itemToDisplay.translationWordWithPrep(for: currentLanguage),
+                example: itemToDisplay.example,
+                exampleTranslation: itemToDisplay.translation(for: currentLanguage),
+                caseType: itemToDisplay.caseType,
+                usersAnswer: "—",
+                correctVariants: allPossibleTargets
+            )
+        )
+
+        withAnimation(.spring()) { showHint = true }
+    }
     
     private func updateUI(with evaluation: Evaluation, for id: UUID) {
         let result = evaluation.result
-        self.isCorrect = (result != .wrong)
+        self.isCorrect = (result != .wrong && result != .skipped)
         self.hintMessage = (result == .wrong) ? "" : evaluation.matchedTarget
         
         switch result {
@@ -88,6 +115,8 @@ class WritingViewModel: ObservableObject {
             otherVariants = allPossibleTargets.filter { $0 != evaluation.matchedTarget }
             processCorrectAnswer(for: id)
             
+        case .skipped:
+            break
         case .wrong:
             hintTitle = L10n.Writing.Hint.error
             otherVariants = allPossibleTargets
@@ -120,7 +149,8 @@ class WritingViewModel: ObservableObject {
     }
     
     var allPossibleTargets: [String] {
-        allPossibleItems.map(\.basePreposition)
+        var seen = Set<String>()
+        return allPossibleItems.map(\.basePreposition).filter { seen.insert($0.lowercased()).inserted }
     }
     
     func getFormattedHint() -> AttributedString {

@@ -27,14 +27,31 @@ struct TrainingView: View {
                 showExitAlert: $showExitAlert
             )
             .zIndex(100)
+            if !viewModel.isComplete && !viewModel.showBatchCheckpoint && viewModel.currentBatchSize > 0 {
+                Text(batchProgressText)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, 8)
+            }
+
             ZStack {
-                if viewModel.words.isEmpty {
+                if viewModel.isComplete {
                     TrainingCompletionView(
                         stats: viewModel.sessionStats,
                         reviewedCount: viewModel.sessionStats.markedKnown,
                         onFinish: {
                             nav.backToRoot()
                         }
+                    )
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.animation(.easeInOut))
+
+                } else if viewModel.showBatchCheckpoint {
+                    TrainingBatchCheckpointView(
+                        reviewedInBatch: viewModel.currentBatchSize,
+                        remainingCount: viewModel.remainingCount,
+                        onContinue: { viewModel.continueLearning() },
+                        onFinish: { viewModel.finishFromCheckpoint() }
                     )
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .transition(.opacity.animation(.easeInOut))
@@ -70,7 +87,7 @@ struct TrainingView: View {
                 }
             }
 
-            if !viewModel.words.isEmpty {
+            if !viewModel.words.isEmpty && !viewModel.showBatchCheckpoint && !viewModel.isComplete {
                 controlsHintView
                     .padding(.bottom, 20)
             }
@@ -94,11 +111,19 @@ struct TrainingView: View {
         .onDisappear {
             viewModel.flushSave()
         }
-        .onChange(of: viewModel.words.count) { oldCount, newCount in
-            if oldCount > 0 && newCount == 0 {
+        .onChange(of: viewModel.isComplete) { _, complete in
+            if complete {
                 viewModel.logSessionFinished()
             }
         }
+    }
+
+    private var batchProgressText: String {
+        var text = L10n.Training.Batch.progress(viewModel.knownInBatch, viewModel.currentBatchSize)
+        if viewModel.remainingCount > 0 {
+            text += "  ·  " + L10n.Training.Batch.remaining(viewModel.remainingCount)
+        }
+        return text
     }
 
     // MARK: - Optimization & Visuals

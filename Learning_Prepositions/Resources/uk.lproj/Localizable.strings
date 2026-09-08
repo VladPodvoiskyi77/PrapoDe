@@ -142,6 +142,9 @@
 "worldRanking.loadError" = "Не вдалося завантажити рейтинг";
 "worldRanking.filter.byCountry" = "Показати рейтинг моєї країни";
 "worldRanking.filter.worldwide" = "Показати світовий рейтинг";
+"worldRanking.period.allTime" = "Весь час";
+"worldRanking.period.month" = "Місяць";
+"worldRanking.period.week" = "Тиждень";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Чудово! 🏆";
@@ -165,6 +168,12 @@
 "training.action.know" = "Знаю";
 "training.action.tapToFlip" = "Торкніться, щоб перевернути";
 "training.action.listen" = "Слухати";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "ще %lld";
+"training.batch.checkpoint.title" = "Вчити далі?";
+"training.batch.checkpoint.message" = "Опрацьовано карток: %lld. Ще %lld.";
+"training.batch.checkpoint.continue" = "Вчити далі";
+"training.batch.checkpoint.finish" = "Завершити";
 
 //================================================ My Progress screen =================================================================
 "myProgress.screen.title" = "Мій прогрес";
@@ -215,9 +224,11 @@
 "writing.placeholder" = "Введи переклад...";
 "writing.button.check" = "Перевірити";
 "writing.button.next" = "Далі";
+"writing.button.skip" = "Пропустити";
 "writing.hint.almost" = "Вірно! Але не забувай про умляути ✍️";
 "writing.hint.error" = "Помилка";
 "writing.hint.perfect" = "Чудово!";
+"writing.hint.skipped" = "Пропущено";
 "writing.hint.extra_umlaut" = "Правильно! Але тут зайвий умляут ✍️";
 "writing.hint.also" = "Також можна сказати:";
 "writing.hint.correct_variants" = "Правильні відповіді:";

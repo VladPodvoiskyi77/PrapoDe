@@ -36,6 +36,19 @@ enum Category: String, CaseIterable, Hashable {
         }
     }
 
+    /// First letter of the localized category title (Глаголы → Г, Дієслова → Д).
+    var iconLetter: String {
+        String(localizedTitle.prefix(1)).uppercased()
+    }
+
+    var localizedTitle: String {
+        switch self {
+        case .verben: return L10n.Category.Verben.title
+        case .adjektive: return L10n.Category.Adjektive.title
+        case .nomen: return L10n.Category.Nomen.title
+        }
+    }
+
     var iconColor: Color {
         switch self {
         case .adjektive: return .purple

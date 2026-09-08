@@ -9,7 +9,7 @@ enum AppConfig {
     enum Constants {
         static let appGroupID = "group.com.vladpodvoiskyi.prapode"
         static let widgetJsonPath = "data/widget/verben.json"
-        static let topScores = 50
+        static let topScores = 100
     }
 
     enum Keys {

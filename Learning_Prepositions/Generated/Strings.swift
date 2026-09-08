@@ -529,6 +529,28 @@ internal enum L10n {
       /// Tap to flip
       internal static let tapToFlip = L10n.tr("Localizable", "training.action.tapToFlip", fallback: "Tap to flip")
     }
+    internal enum Batch {
+      /// %lld / %lld
+      internal static func progress(_ p1: Int, _ p2: Int) -> String {
+        return L10n.tr("Localizable", "training.batch.progress", p1, p2, fallback: "%lld / %lld")
+      }
+      /// %lld more
+      internal static func remaining(_ p1: Int) -> String {
+        return L10n.tr("Localizable", "training.batch.remaining", p1, fallback: "%lld more")
+      }
+      internal enum Checkpoint {
+        /// Keep learning
+        internal static let `continue` = L10n.tr("Localizable", "training.batch.checkpoint.continue", fallback: "Keep learning")
+        /// Finish
+        internal static let finish = L10n.tr("Localizable", "training.batch.checkpoint.finish", fallback: "Finish")
+        /// You reviewed %lld cards. %lld still left.
+        internal static func message(_ p1: Int, _ p2: Int) -> String {
+          return L10n.tr("Localizable", "training.batch.checkpoint.message", p1, p2, fallback: "You reviewed %lld cards. %lld still left.")
+        }
+        /// Keep going?
+        internal static let title = L10n.tr("Localizable", "training.batch.checkpoint.title", fallback: "Keep going?")
+      }
+    }
     internal enum Finish {
       /// You have reviewed all words in this deck
       internal static let description = L10n.tr("Localizable", "training.finish.description", fallback: "You have reviewed all words in this deck")
@@ -613,6 +635,14 @@ internal enum L10n {
       /// Show worldwide ranking
       internal static let worldwide = L10n.tr("Localizable", "worldRanking.filter.worldwide", fallback: "Show worldwide ranking")
     }
+    internal enum Period {
+      /// All time
+      internal static let allTime = L10n.tr("Localizable", "worldRanking.period.allTime", fallback: "All time")
+      /// Month
+      internal static let month = L10n.tr("Localizable", "worldRanking.period.month", fallback: "Month")
+      /// Week
+      internal static let week = L10n.tr("Localizable", "worldRanking.period.week", fallback: "Week")
+    }
     internal enum Sprint {
       /// World Sprint Ranking
       internal static let title = L10n.tr("Localizable", "worldRanking.sprint.Title", fallback: "World Sprint Ranking")
@@ -628,6 +658,8 @@ internal enum L10n {
       internal static let check = L10n.tr("Localizable", "writing.button.check", fallback: "Check")
       /// Next
       internal static let next = L10n.tr("Localizable", "writing.button.next", fallback: "Next")
+      /// Skip
+      internal static let skip = L10n.tr("Localizable", "writing.button.skip", fallback: "Skip")
     }
     internal enum Hint {
       /// Correct! But don't forget the umlauts ✍️
@@ -642,6 +674,8 @@ internal enum L10n {
       internal static let extraUmlaut = L10n.tr("Localizable", "writing.hint.extra_umlaut", fallback: "Correct! But there's an extra umlaut ✍️")
       /// Great!
       internal static let perfect = L10n.tr("Localizable", "writing.hint.perfect", fallback: "Great!")
+      /// Skipped
+      internal static let skipped = L10n.tr("Localizable", "writing.hint.skipped", fallback: "Skipped")
     }
     internal enum Rules {
       /// Writing rules

@@ -81,12 +81,16 @@ struct QuizReviewCard: View {
                         
                         Spacer()
                         
-                        HStack(spacing: 4) {
-                            Text(item.preposition)
-                                .fontWeight(.bold)
-                            Image(systemName: "checkmark.circle.fill")
+                        VStack(alignment: .trailing, spacing: 4) {
+                            ForEach(Array(item.reviewCorrectAnswers.enumerated()), id: \.offset) { _, answer in
+                                HStack(spacing: 4) {
+                                    Text(answer)
+                                        .fontWeight(.bold)
+                                    Image(systemName: "checkmark.circle.fill")
+                                }
+                                .foregroundColor(.green)
+                            }
                         }
-                        .foregroundColor(.green)
                     }
                 }
             }

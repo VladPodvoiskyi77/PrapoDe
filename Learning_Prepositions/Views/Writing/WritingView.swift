@@ -89,38 +89,51 @@ struct WritingView: View {
             
             Spacer()
             
-            ZStack {
-                if viewModel.currentIndex + 1 == viewModel.numberOfQuestions && viewModel.currentResult != nil {
-                    AppButton(
-                        title: L10n.Quiz.Button.finish, minHeight: 56, background: .blue
-                    ) {
-                        viewModel.saveResult()
-                        let context = QuizResultContext(
-                            correctAnswers: viewModel.correctAnswers,
-                            resultsHistory: viewModel.resultsHistory,
-                            gameType: .writing,
-                            numberOfQuestions: viewModel.numberOfQuestions
-                        )
-                        nav.goTo(.result(context))
-                    }
-                    .transition(.scale.combined(with: .opacity))
-                } else {
-                    AppButton(title: viewModel.currentResult != nil ? L10n.Writing.Button.next : L10n.Writing.Button.check, minHeight: 56, background: .yellow) {
+            VStack(spacing: 8) {
+                if viewModel.currentResult == nil {
+                    Button(L10n.Writing.Button.skip) {
+                        isFieldFocused = false
                         withAnimation {
-                            if viewModel.currentResult != nil {
-                                viewModel.nextWord()
-                            } else {
-                                viewModel.checkAnswer()
-                            }
- 
+                            viewModel.skipAnswer()
                         }
                     }
-                    .transition(.scale.combined(with: .opacity))
+                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                    .foregroundStyle(.secondary)
+                    .padding(.vertical, 4)
                 }
+
+                ZStack {
+                    if viewModel.currentIndex + 1 == viewModel.numberOfQuestions && viewModel.currentResult != nil {
+                        AppButton(
+                            title: L10n.Quiz.Button.finish, minHeight: 56, background: .blue
+                        ) {
+                            viewModel.saveResult()
+                            let context = QuizResultContext(
+                                correctAnswers: viewModel.correctAnswers,
+                                resultsHistory: viewModel.resultsHistory,
+                                gameType: .writing,
+                                numberOfQuestions: viewModel.numberOfQuestions
+                            )
+                            nav.goTo(.result(context))
+                        }
+                        .transition(.scale.combined(with: .opacity))
+                    } else {
+                        AppButton(title: viewModel.currentResult != nil ? L10n.Writing.Button.next : L10n.Writing.Button.check, minHeight: 56, background: .yellow) {
+                            withAnimation {
+                                if viewModel.currentResult != nil {
+                                    viewModel.nextWord()
+                                } else {
+                                    viewModel.checkAnswer()
+                                }
+                            }
+                        }
+                        .transition(.scale.combined(with: .opacity))
+                    }
+                }
+                .disabled(viewModel.userInput.isEmpty && viewModel.currentResult == nil)
             }
             .padding(.horizontal, 16)
             .padding(.bottom, 20)
-            .disabled(viewModel.userInput.isEmpty && viewModel.currentResult == nil)
         }
         .background(AppTheme.mainGradient.ignoresSafeArea())
         .navigationBarBackButtonHidden(true)
@@ -149,6 +162,7 @@ struct WritingView: View {
         case .perfect: return .green
         case .missingUmlaut, .extraUmlaut: return .orange
         case .wrong: return .red
+        case .skipped: return .secondary
         }
     }
 }

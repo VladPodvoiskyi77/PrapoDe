@@ -142,6 +142,9 @@
 "worldRanking.loadError" = "Could not load the ranking";
 "worldRanking.filter.byCountry" = "Show ranking for my country";
 "worldRanking.filter.worldwide" = "Show worldwide ranking";
+"worldRanking.period.allTime" = "All time";
+"worldRanking.period.month" = "Month";
+"worldRanking.period.week" = "Week";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Perfect! 🏆";
@@ -165,6 +168,12 @@
 "training.action.know" = "I know";
 "training.action.tapToFlip" = "Tap to flip";
 "training.action.listen" = "Listen";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "%lld more";
+"training.batch.checkpoint.title" = "Keep going?";
+"training.batch.checkpoint.message" = "You reviewed %lld cards. %lld still left.";
+"training.batch.checkpoint.continue" = "Keep learning";
+"training.batch.checkpoint.finish" = "Finish";
 
 //================================================ My Progress screen =================================================================
 "myProgress.screen.title" = "My Progress";
@@ -216,9 +225,11 @@
 "writing.placeholder" = "Enter translation...";
 "writing.button.check" = "Check";
 "writing.button.next" = "Next";
+"writing.button.skip" = "Skip";
 "writing.hint.almost" = "Correct! But don't forget the umlauts ✍️";
 "writing.hint.error" = "Mistake";
 "writing.hint.perfect" = "Great!";
+"writing.hint.skipped" = "Skipped";
 "writing.hint.extra_umlaut" = "Correct! But there's an extra umlaut ✍️";
 "writing.hint.also" = "You can also say:";
 "writing.hint.correct_variants" = "Correct answers:";

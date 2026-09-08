@@ -142,6 +142,9 @@
 "worldRanking.loadError" = "Die Rangliste konnte nicht geladen werden";
 "worldRanking.filter.byCountry" = "Rangliste meines Landes anzeigen";
 "worldRanking.filter.worldwide" = "Weltrangliste anzeigen";
+"worldRanking.period.allTime" = "Gesamt";
+"worldRanking.period.month" = "Monat";
+"worldRanking.period.week" = "Woche";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Perfekt! 🏆";
@@ -165,6 +168,12 @@
 "training.action.know" = "Gewusst";
 "training.action.tapToFlip" = "Zum Umdrehen tippen";
 "training.action.listen" = "Hören";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "noch %lld";
+"training.batch.checkpoint.title" = "Weiterlernen?";
+"training.batch.checkpoint.message" = "Du hast %lld Karten wiederholt. Noch %lld übrig.";
+"training.batch.checkpoint.continue" = "Weiter lernen";
+"training.batch.checkpoint.finish" = "Beenden";
 
 //================================================ My Progress screen ===================================================================
 "myProgress.screen.title" = "Mein\nFortschritt";
@@ -215,9 +224,11 @@
 "writing.placeholder" = "Übersetzung eingeben...";
 "writing.button.check" = "Prüfen";
 "writing.button.next" = "Weiter";
+"writing.button.skip" = "Überspringen";
 "writing.hint.almost" = "Richtig! Aber vergiss die Umlaute nicht ✍️";
 "writing.hint.error" = "Fehler";
 "writing.hint.perfect" = "Ausgezeichnet!";
+"writing.hint.skipped" = "Übersprungen";
 "writing.hint.extra_umlaut" = "Richtig! Aber hier ist ein Umlaut zu viel ✍️";
 "writing.hint.also" = "Man kann auch sagen:";
 "writing.hint.correct_variants" = "Richtige Antworten:";

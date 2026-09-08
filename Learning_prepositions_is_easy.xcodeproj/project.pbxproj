@@ -79,6 +79,7 @@
 		52A0E12E2F0D03FB00822AAF /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E12D2F0D03F600822AAF /* SplashViewModel.swift */; };
 		52A0E1302F0D1B6000822AAF /* LevelHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E12F2F0D1B5A00822AAF /* LevelHintView.swift */; };
 		52A0E1332F0DA87B00822AAF /* TrainingCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1322F0DA87400822AAF /* TrainingCompletionView.swift */; };
+		52A0E1392F0DB01100822AAF /* TrainingBatchCheckpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */; };
 		52A0E1352F0DA90200822AAF /* HintCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1342F0DA8FB00822AAF /* HintCapsule.swift */; };
 		52ADCE6D2F603F390034C6CF /* WritingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADCE6C2F603F270034C6CF /* WritingResult.swift */; };
 		52ADCE6F2F60810A0034C6CF /* GermanResponseEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADCE6E2F6081080034C6CF /* GermanResponseEvaluator.swift */; };
@@ -277,6 +278,7 @@
 		52A0E12D2F0D03F600822AAF /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		52A0E12F2F0D1B5A00822AAF /* LevelHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelHintView.swift; sourceTree = "<group>"; };
 		52A0E1322F0DA87400822AAF /* TrainingCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCompletionView.swift; sourceTree = "<group>"; };
+		52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBatchCheckpointView.swift; sourceTree = "<group>"; };
 		52A0E1342F0DA8FB00822AAF /* HintCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintCapsule.swift; sourceTree = "<group>"; };
 		52ADCE6C2F603F270034C6CF /* WritingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingResult.swift; sourceTree = "<group>"; };
 		52ADCE6E2F6081080034C6CF /* GermanResponseEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanResponseEvaluator.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 			children = (
 				52A0E1342F0DA8FB00822AAF /* HintCapsule.swift */,
 				52A0E1322F0DA87400822AAF /* TrainingCompletionView.swift */,
+				52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */,
 				5299CA2D2EF0311900BBEE3F /* FlashcardView.swift */,
 			);
 			path = Components;
@@ -1282,6 +1285,7 @@
 				5299CA4C2F0042FB00BBEE3F /* QuestionCard.swift in Sources */,
 				52B14B132F7B2D060021AE67 /* VerbEntity.swift in Sources */,
 				52A0E1332F0DA87B00822AAF /* TrainingCompletionView.swift in Sources */,
+				52A0E1392F0DB01100822AAF /* TrainingBatchCheckpointView.swift in Sources */,
 				5299CA2A2EF02F7600BBEE3F /* TrainingView.swift in Sources */,
 				527A7E792F16B20300C77843 /* MyProgressView.swift in Sources */,
 				527A7E742F1415D000C77843 /* WordValidator.swift in Sources */,
@@ -1594,7 +1598,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1613,7 +1617,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1639,7 +1643,7 @@
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				ENABLE_PREVIEWS = YES;
@@ -1657,7 +1661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1679,7 +1683,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1691,7 +1695,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1712,7 +1716,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1724,7 +1728,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

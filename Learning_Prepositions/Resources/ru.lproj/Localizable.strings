@@ -142,6 +142,9 @@
 "worldRanking.loadError" = "Не удалось загрузить рейтинг";
 "worldRanking.filter.byCountry" = "Показать рейтинг моей страны";
 "worldRanking.filter.worldwide" = "Показать мировой рейтинг";
+"worldRanking.period.allTime" = "Всё время";
+"worldRanking.period.month" = "Месяц";
+"worldRanking.period.week" = "Неделя";
 
 // Feedback Titles
 "quizReview.feedback.title.perfect" = "Великолепно! 🏆";
@@ -165,6 +168,12 @@
 "training.action.know" = "Знаю";
 "training.action.tapToFlip" ="Нажмите, чтобы перевернуть";
 "training.action.listen" = "Слушать";
+"training.batch.progress" = "%lld / %lld";
+"training.batch.remaining" = "ещё %lld";
+"training.batch.checkpoint.title" = "Учить дальше?";
+"training.batch.checkpoint.message" = "Разобрано карточек: %lld. Ещё %lld.";
+"training.batch.checkpoint.continue" = "Учить дальше";
+"training.batch.checkpoint.finish" = "Закончить";
 
 //================================================ My Progress screen ===================================================================
 "myProgress.screen.title" = "Мой прогресс";
@@ -215,9 +224,11 @@
 "writing.placeholder" = "Введи перевод...";
 "writing.button.check" = "Проверить";
 "writing.button.next" = "Дальше";
+"writing.button.skip" = "Пропустить";
 "writing.hint.almost" = "Верно! Но не забывай про умляуты ✍️";
 "writing.hint.error" = "Ошибка";
 "writing.hint.perfect" = "Великолепно!";
+"writing.hint.skipped" = "Пропущено";
 "writing.hint.extra_umlaut" = "Правильно! Но здесь лишний умляут ✍️";
 "writing.hint.also" = "Также можно сказать:";
 "writing.hint.correct_variants" = "Правильные ответы:";

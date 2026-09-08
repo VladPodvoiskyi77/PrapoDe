@@ -54,6 +54,78 @@ struct LeaderboardRankingLogicTests {
     }
 
     @Test
+    func rank_filtersByPeriodAndKeepsScoreOrder() {
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        let entries = [
+            TestFixtures.rankingEntry(userId: "week", countryCode: "DE", score: 8, timestamp: now.addingTimeInterval(-3 * 24 * 60 * 60)),
+            TestFixtures.rankingEntry(userId: "month", countryCode: "DE", score: 10, timestamp: now.addingTimeInterval(-15 * 24 * 60 * 60)),
+            TestFixtures.rankingEntry(userId: "old", countryCode: "DE", score: 12, timestamp: now.addingTimeInterval(-60 * 24 * 60 * 60))
+        ]
+
+        let week = LeaderboardRankingLogic.rank(
+            entries,
+            countryCode: nil,
+            since: RankingPeriod.week.since(now: now),
+            limit: 100
+        )
+        #expect(week.map(\.userId) == ["week"])
+
+        let month = LeaderboardRankingLogic.rank(
+            entries,
+            countryCode: nil,
+            since: RankingPeriod.month.since(now: now),
+            limit: 100
+        )
+        #expect(month.map(\.userId) == ["month", "week"])
+
+        let allTime = LeaderboardRankingLogic.rank(
+            entries,
+            countryCode: nil,
+            since: RankingPeriod.allTime.since(now: now),
+            limit: 100
+        )
+        #expect(allTime.map(\.userId) == ["old", "month", "week"])
+    }
+
+    @Test
+    func rank_combinesCountryAndPeriod() {
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        let recent = now.addingTimeInterval(-2 * 24 * 60 * 60)
+        let entries = [
+            TestFixtures.rankingEntry(userId: "ua-recent", countryCode: "UA", score: 7, timestamp: recent),
+            TestFixtures.rankingEntry(userId: "de-recent", countryCode: "DE", score: 9, timestamp: recent),
+            TestFixtures.rankingEntry(userId: "ua-old", countryCode: "UA", score: 11, timestamp: now.addingTimeInterval(-40 * 24 * 60 * 60))
+        ]
+
+        let ranked = LeaderboardRankingLogic.rank(
+            entries,
+            countryCode: "UA",
+            since: RankingPeriod.month.since(now: now),
+            limit: 100
+        )
+
+        #expect(ranked.map(\.userId) == ["ua-recent"])
+    }
+
+    @Test
+    func rank_respectsLimitOf100() {
+        let entries = (1...120).map {
+            TestFixtures.rankingEntry(userId: "\($0)", countryCode: "DE", score: $0)
+        }
+
+        let ranked = LeaderboardRankingLogic.rank(
+            entries,
+            countryCode: nil,
+            since: nil,
+            limit: 100
+        )
+
+        #expect(ranked.count == 100)
+        #expect(ranked.first?.score == 120)
+        #expect(ranked.last?.score == 21)
+    }
+
+    @Test
     func sortSprintResults_prefersHigherScoreAndFasterTime() {
         let older = Date(timeIntervalSince1970: 1_000)
         let newer = Date(timeIntervalSince1970: 2_000)

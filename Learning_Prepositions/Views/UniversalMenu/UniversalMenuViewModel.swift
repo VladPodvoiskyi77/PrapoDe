@@ -36,6 +36,7 @@ final class UniversalMenuViewModel: BaseDataViewModel {
                 MenuUIItem(
                     title: category.displayTitle,
                     iconName: category.iconName,
+                    iconLetter: category.iconLetter,
                     iconColor: category.iconColor,
                     payload: .category(category)
                 )

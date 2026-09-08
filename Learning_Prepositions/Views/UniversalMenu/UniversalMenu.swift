@@ -40,6 +40,7 @@ struct UniversalMenuView: View {
                                 title: item.title,
                                 iconName: item.iconName,
                                 iconColor: item.iconColor,
+                                iconLetter: item.iconLetter,
                                 staggerIndex: index,
                                 isMenuVisible: isMenuVisible,
                                 action: { handleSelection(item) }

@@ -28,11 +28,11 @@ struct WritingHintCard: View {
                 
                 if !otherVariants.isEmpty {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(result == .wrong ? correctVariantsText : alsoText)
+                        Text((result == .wrong || result == .skipped) ? correctVariantsText : alsoText)
                             .font(.system(size: 12, weight: .medium))
                             .foregroundColor(.secondary)
                         
-                        ForEach(otherVariants, id: \.self) { variant in
+                        ForEach(Array(otherVariants.enumerated()), id: \.offset) { _, variant in
                             Text("• \(variant)")
                                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                                 .foregroundColor(.primary)
@@ -56,6 +56,7 @@ struct WritingHintCard: View {
         case .perfect: return "checkmark.circle.fill"
         case .missingUmlaut, .extraUmlaut: return "exclamationmark.bubble.fill"
         case .wrong: return "xmark.circle.fill"
+        case .skipped: return "arrow.forward.circle.fill"
         }
     }
 
@@ -64,6 +65,7 @@ struct WritingHintCard: View {
         case .perfect: return .green
         case .missingUmlaut, .extraUmlaut: return .orange
         case .wrong: return .red
+        case .skipped: return .secondary
         }
     }
 }

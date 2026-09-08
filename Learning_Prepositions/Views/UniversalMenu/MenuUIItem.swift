@@ -4,6 +4,7 @@ struct MenuUIItem: Identifiable {
     let id = UUID()
     let title: String
     let iconName: String
+    var iconLetter: String? = nil
     let iconColor: Color
     let payload: MenuPayload
 }
