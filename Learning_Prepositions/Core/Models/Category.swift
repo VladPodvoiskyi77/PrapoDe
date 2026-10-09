@@ -4,6 +4,7 @@ enum Category: String, CaseIterable, Hashable {
     case verben = "Verben mit Präpositionen"
     case adjektive = "Adjektive mit Präpositionen"
     case nomen = "Nomen mit Präpositionen"
+    case nomenverb = "Nomen-Verb-Verbindungen"
 
     /// Stable German label for analytics, Firestore, and global ranking.
     var analyticsName: String { rawValue }
@@ -17,6 +18,8 @@ enum Category: String, CaseIterable, Hashable {
             return "\(L10n.Category.Adjektive.title)\n\(L10n.Category.Adjektive.subtitle)"
         case .nomen:
             return "\(L10n.Category.Nomen.title)\n\(L10n.Category.Nomen.subtitle)"
+        case .nomenverb:
+            return "\(L10n.Category.Nomenverb.title)\n\(L10n.Category.Nomenverb.subtitle)"
         }
     }
 
@@ -25,6 +28,7 @@ enum Category: String, CaseIterable, Hashable {
         case .adjektive: return "adjektive"
         case .nomen: return "nomen"
         case .verben: return "verben"
+        case .nomenverb: return "nomenverb"
         }
     }
 
@@ -33,6 +37,7 @@ enum Category: String, CaseIterable, Hashable {
         case .adjektive: return "a.square.fill"
         case .nomen: return "n.square.fill"
         case .verben: return "v.square.fill"
+        case .nomenverb: return "link.circle.fill"
         }
     }
 
@@ -46,6 +51,7 @@ enum Category: String, CaseIterable, Hashable {
         case .verben: return L10n.Category.Verben.title
         case .adjektive: return L10n.Category.Adjektive.title
         case .nomen: return L10n.Category.Nomen.title
+        case .nomenverb: return L10n.Category.Nomenverb.title
         }
     }
 
@@ -54,6 +60,7 @@ enum Category: String, CaseIterable, Hashable {
         case .adjektive: return .purple
         case .nomen: return .orange
         case .verben: return .blue
+        case .nomenverb: return Color(red: 52 / 255, green: 199 / 255, blue: 89 / 255)
         }
     }
 }

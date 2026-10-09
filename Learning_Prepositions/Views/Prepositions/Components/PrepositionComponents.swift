@@ -224,14 +224,14 @@ struct PrepositionLearnMoreButton: View {
 extension PrepositionCaseGroup {
     var color: Color {
         switch self {
-        case .dativ: return .blue
-        case .akkusativ: return .orange
-        case .wechsel: return .purple
-        case .genitiv: return .teal
+        case .dativ: return CaseType.dativ.color
+        case .akkusativ: return CaseType.akkusativ.color
+        case .wechsel: return CaseType.nominativ.color
+        case .genitiv: return CaseType.genitiv.color
         }
     }
     
     static func accentColor(for caseGroupId: String) -> Color {
-        PrepositionCaseGroup(rawValue: caseGroupId)?.color ?? .blue
+        PrepositionCaseGroup(rawValue: caseGroupId)?.color ?? CaseType.dativ.color
     }
 }

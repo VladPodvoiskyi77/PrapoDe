@@ -50,9 +50,8 @@ struct AnswerResult: Identifiable, Hashable {
 
     var reviewCorrectAnswers: [String] {
         let uniqueVariants = Self.orderedUnique(correctVariants)
-        if uniqueVariants.count > 1 { return uniqueVariants }
+        if !uniqueVariants.isEmpty { return uniqueVariants }
         if usersAnswer == "—" || usersAnswer.contains(where: { $0.isWhitespace }) {
-            if uniqueVariants.count == 1 { return uniqueVariants }
             return [base]
         }
         return [preposition]

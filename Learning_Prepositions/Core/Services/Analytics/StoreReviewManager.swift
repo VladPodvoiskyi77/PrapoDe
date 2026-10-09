@@ -7,7 +7,7 @@ enum StoreReviewManager {
 
     static func requestReviewIfEligible(score: Int, total: Int, gameType: GameType) {
         guard total > 0 else { return }
-        guard gameType == .quiz || gameType == .sprint else { return }
+        guard gameType == .quiz || gameType == .sprint || gameType == .guessCase else { return }
 
         let accuracy = Double(score) / Double(total)
         guard accuracy >= minimumAccuracy else { return }

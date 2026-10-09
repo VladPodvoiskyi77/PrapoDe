@@ -48,6 +48,11 @@
 "category.adjektive.subtitle" = "with prepositions";
 "category.nomen.title" = "Nouns";
 "category.nomen.subtitle" = "with prepositions";
+"category.nomenverb.title" = "Collocations";
+"category.nomenverb.subtitle" = "noun + verb";
+"category.badge.new" = "NEW";
+"category.prepositions.title" = "All prepositions";
+"category.prepositions.subtitle" = "grammar guide";
 
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Choose Mode";
@@ -56,11 +61,17 @@
 "universalMenu.activity.sprint.title" = "Sprint";
 "universalMenu.activity.progress.title" = "My Progress";
 "universalMenu.activity.writing.title" = "Writing";
-"universalMenu.prepositions.title" = "Prepositions";
+"universalMenu.prepositions.title" = "All prepositions";
 
 //================================================ Prepositions guide =================================================
-"prepositions.list.title" = "Prepositions";
+"prepositions.list.title" = "All prepositions";
 "prepositions.list.subtitle" = "German prepositions by case — tap for a detailed guide";
+"prepositions.all.title" = "All prepositions";
+"prepositions.all.subtitle" = "complete list";
+"prepositions.guessCase.title" = "Guess the case";
+"prepositions.guessCase.subtitle" = "Akk, Dat or Gen?";
+"prepositions.guessCase.prompt" = "Which case?";
+"comingSoon.message" = "Coming in the next update";
 "prepositions.learnMore" = "About \"%@\"";
 "prepositions.detail.meaning" = "Meaning";
 "prepositions.detail.grammar" = "Grammar";
@@ -102,6 +113,7 @@
 "leaderboard.picker.quiz.title" = "Quiz";
 "leaderboard.picker.sprint.title" = "Sprint";
 "leaderboard.picker.writing.title" = "Writing";
+"leaderboard.picker.guessCase.title" = "Case";
 "leaderboard.no_results.description" = "No results for this level 🙃";
 
 //================================================ Settings screen ===================================================================

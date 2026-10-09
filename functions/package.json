@@ -1,0 +1,14 @@
+{
+  "name": "prapode-functions",
+  "description": "PrapoDe Cloud Functions",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@google-analytics/data": "^4.12.0",
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.3.0"
+  }
+}

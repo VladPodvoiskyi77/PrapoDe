@@ -20,7 +20,7 @@ final class LeaderboardManager: LeaderboardManaging {
         // Нам нужно разбить результаты на "корзины", чтобы сравнивать только сравнимое.
         let grouped = Dictionary(grouping: allResults) { result -> String in
             switch result.gameType {
-            case .quiz, .writing:
+            case .quiz, .writing, .guessCase:
                 // Для обычного: Тип + Уровень (например: "standard_A1")
                 return "\(result.gameType.rawValue)_\(result.levelRaw)"
             case .sprint:

@@ -48,11 +48,13 @@ class MyProgressViewModel: BaseDataViewModel {
             }
         }
         
+        let filtered: [WordItem]
         if let prep = activePreposition {
-            return searchResult.filter { $0.preposition == prep }
+            filtered = searchResult.filter { $0.preposition == prep }
         } else {
-            return searchResult
+            filtered = searchResult
         }
+        return filtered.sortedAlphabetically(language: currentLanguage)
     }
     
     func closeAndResetFilter() {

@@ -48,6 +48,11 @@
 "category.adjektive.subtitle" = "с предлогами";
 "category.nomen.title" = "Существительные";
 "category.nomen.subtitle" = "с предлогами";
+"category.nomenverb.title" = "Связки";
+"category.nomenverb.subtitle" = "имя + глагол";
+"category.badge.new" = "NEW";
+"category.prepositions.title" = "Все предлоги";
+"category.prepositions.subtitle" = "справочник";
 
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Выберите режим";
@@ -56,11 +61,17 @@
 "universalMenu.activity.sprint.title" = "Спринт";
 "universalMenu.activity.progress.title" = "Мой прогресс";
 "universalMenu.activity.writing.title" = "Правописание";
-"universalMenu.prepositions.title" = "Предлоги";
+"universalMenu.prepositions.title" = "Все предлоги";
 
 //================================================ Prepositions guide =================================================
-"prepositions.list.title" = "Предлоги";
+"prepositions.list.title" = "Все предлоги";
 "prepositions.list.subtitle" = "Немецкие предлоги по падежам — нажми для подробного объяснения";
+"prepositions.all.title" = "Все предлоги";
+"prepositions.all.subtitle" = "полный список";
+"prepositions.guessCase.title" = "Угадай падеж";
+"prepositions.guessCase.subtitle" = "Akk, Dat или Gen?";
+"prepositions.guessCase.prompt" = "Какой падеж?";
+"comingSoon.message" = "Появится в следующем обновлении";
 "prepositions.learnMore" = "О предлоге «%@»";
 "prepositions.detail.meaning" = "Значение";
 "prepositions.detail.grammar" = "Грамматика";
@@ -102,6 +113,7 @@
 "leaderboard.picker.quiz.title" = "Квиз";
 "leaderboard.picker.sprint.title" = "Спринт";
 "leaderboard.picker.writing.title" = "Правописание";
+"leaderboard.picker.guessCase.title" = "Падеж";
 "leaderboard.no_results.description" = "Нет результатов для этого уровня 🙃";
 
 //================================================ Settings screen ===================================================================

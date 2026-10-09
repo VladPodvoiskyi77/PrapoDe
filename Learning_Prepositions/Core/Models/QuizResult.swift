@@ -4,6 +4,7 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
     case quiz
     case sprint
     case writing
+    case guessCase
     
     var id: Self { self }
     
@@ -15,6 +16,8 @@ enum GameType: String, Codable, CaseIterable, Identifiable {
             return L10n.Leaderboard.Picker.Sprint.title
         case .writing:
             return L10n.Leaderboard.Picker.Writing.title
+        case .guessCase:
+            return L10n.Leaderboard.Picker.GuessCase.title
         }
     }
 }

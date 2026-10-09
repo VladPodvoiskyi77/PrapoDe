@@ -41,6 +41,12 @@ extension Language {
         }
     }
 
+    var locale: Locale { Locale(identifier: localizationCode) }
+
+    func compare(_ lhs: String, _ rhs: String) -> ComparisonResult {
+        lhs.compare(rhs, options: [.caseInsensitive], locale: locale)
+    }
+
     /// Resolves a Localizable key using the in-app language, not the system locale.
     func localized(_ key: String, fallback: String, table: String = "Localizable") -> String {
         guard let path = Bundle.main.path(forResource: localizationCode, ofType: "lproj"),

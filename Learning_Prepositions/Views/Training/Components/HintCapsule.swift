@@ -21,5 +21,6 @@ struct HintCapsule: View {
                 .fill(.white)
                     .shadow(color: color.opacity(0.2), radius: 8, x: 0, y: 4)
         )
+        .contentShape(Capsule())
     }
 }

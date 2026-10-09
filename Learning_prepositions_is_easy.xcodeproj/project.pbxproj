@@ -12,6 +12,10 @@
 		5249A0C52FABA68100B01CDB /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249A0C42FABA67300B01CDB /* AnalyticsManager.swift */; };
 		5249A0D02FABA70000B01CDB /* StoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249A0CF2FABA70000B01CDB /* StoreReviewManager.swift */; };
 		5249A0E22FABB01000B01CDB /* CrashReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249A0E12FABB01000B01CDB /* CrashReporter.swift */; };
+		A2CSVW002F90000100000002 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CSVW001F90000100000001 /* ComingSoonView.swift */; };
+		A2NFBP002F90000100000002 /* NewFeatureBadgePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2NFBP001F90000100000001 /* NewFeatureBadgePolicy.swift */; };
+		A2GSCV002F90000100000002 /* GuessCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2GSCV001F90000100000001 /* GuessCaseView.swift */; };
+		A2GSVM002F90000100000002 /* GuessCaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2GSVM001F90000100000001 /* GuessCaseViewModel.swift */; };
 		5278D0982EDD03D900C9A9D8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5278D0972EDD03D500C9A9D8 /* View.swift */; };
 		5278D09B2EDD0D2400C9A9D8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 5278D0992EDD0D2400C9A9D8 /* Localizable.stringsdict */; };
 		527A7E6C2F13F2A000C77843 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A7E6B2F13F29800C77843 /* Array.swift */; };
@@ -79,8 +83,12 @@
 		52A0E12E2F0D03FB00822AAF /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E12D2F0D03F600822AAF /* SplashViewModel.swift */; };
 		52A0E1302F0D1B6000822AAF /* LevelHintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E12F2F0D1B5A00822AAF /* LevelHintView.swift */; };
 		52A0E1332F0DA87B00822AAF /* TrainingCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1322F0DA87400822AAF /* TrainingCompletionView.swift */; };
-		52A0E1392F0DB01100822AAF /* TrainingBatchCheckpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */; };
 		52A0E1352F0DA90200822AAF /* HintCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1342F0DA8FB00822AAF /* HintCapsule.swift */; };
+		52A0E1392F0DB01100822AAF /* TrainingBatchCheckpointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */; };
+		52AD00022F90000100000002 /* AdminAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD00012F90000100000001 /* AdminAccess.swift */; };
+		52AD00042F90000100000004 /* AdminGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD00032F90000100000003 /* AdminGateView.swift */; };
+		52AD00062F90000100000006 /* AdminStatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD00072F90000100000007 /* AdminStatsService.swift */; };
+		52AD00082F90000100000008 /* AdminDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD00092F90000100000009 /* AdminDashboardView.swift */; };
 		52ADCE6D2F603F390034C6CF /* WritingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADCE6C2F603F270034C6CF /* WritingResult.swift */; };
 		52ADCE6F2F60810A0034C6CF /* GermanResponseEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADCE6E2F6081080034C6CF /* GermanResponseEvaluator.swift */; };
 		52B14AF52F769F2F0021AE67 /* UpdateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14AF42F769F2C0021AE67 /* UpdateResult.swift */; };
@@ -227,6 +235,10 @@
 		527A7EF32F20B59D00C77843 /* LearningRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningRulesView.swift; sourceTree = "<group>"; };
 		527A7EF52F20B5F300C77843 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		527A7F002F26A76000C77843 /* AboutAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppView.swift; sourceTree = "<group>"; };
+		A2CSVW001F90000100000001 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		A2NFBP001F90000100000001 /* NewFeatureBadgePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureBadgePolicy.swift; sourceTree = "<group>"; };
+		A2GSCV001F90000100000001 /* GuessCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCaseView.swift; sourceTree = "<group>"; };
+		A2GSVM001F90000100000001 /* GuessCaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCaseViewModel.swift; sourceTree = "<group>"; };
 		5299C9A32EDF7AF600BBEE3F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5299C9AC2EE43DE600BBEE3F /* UserDefaultsQuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsQuizResultStorage.swift; sourceTree = "<group>"; };
 		5299C9AE2EE43E3A00BBEE3F /* QuizResultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultStorage.swift; sourceTree = "<group>"; };
@@ -278,8 +290,12 @@
 		52A0E12D2F0D03F600822AAF /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		52A0E12F2F0D1B5A00822AAF /* LevelHintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelHintView.swift; sourceTree = "<group>"; };
 		52A0E1322F0DA87400822AAF /* TrainingCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCompletionView.swift; sourceTree = "<group>"; };
-		52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBatchCheckpointView.swift; sourceTree = "<group>"; };
 		52A0E1342F0DA8FB00822AAF /* HintCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintCapsule.swift; sourceTree = "<group>"; };
+		52A0E1382F0DB01000822AAF /* TrainingBatchCheckpointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBatchCheckpointView.swift; sourceTree = "<group>"; };
+		52AD00012F90000100000001 /* AdminAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAccess.swift; sourceTree = "<group>"; };
+		52AD00032F90000100000003 /* AdminGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminGateView.swift; sourceTree = "<group>"; };
+		52AD00072F90000100000007 /* AdminStatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStatsService.swift; sourceTree = "<group>"; };
+		52AD00092F90000100000009 /* AdminDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardView.swift; sourceTree = "<group>"; };
 		52ADCE6C2F603F270034C6CF /* WritingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingResult.swift; sourceTree = "<group>"; };
 		52ADCE6E2F6081080034C6CF /* GermanResponseEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GermanResponseEvaluator.swift; sourceTree = "<group>"; };
 		52B14AF42F769F2C0021AE67 /* UpdateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateResult.swift; sourceTree = "<group>"; };
@@ -496,6 +512,7 @@
 		5299C9A72EE43D2500BBEE3F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A2NFBP001F90000100000001 /* NewFeatureBadgePolicy.swift */,
 				5299C9C62EE9F62B00BBEE3F /* AppConfig.swift */,
 				5299C9B92EE89AD900BBEE3F /* Repositories */,
 				5299C9A92EE43D4700BBEE3F /* Storage */,
@@ -672,6 +689,17 @@
 				5299CA2D2EF0311900BBEE3F /* FlashcardView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		52AD00052F90000100000005 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				52AD00012F90000100000001 /* AdminAccess.swift */,
+				52AD00032F90000100000003 /* AdminGateView.swift */,
+				52AD00072F90000100000007 /* AdminStatsService.swift */,
+				52AD00092F90000100000009 /* AdminDashboardView.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		52B14AF62F76A5260021AE67 /* Sections */ = {
@@ -908,10 +936,29 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		A2GSGRP01F90000100000001 /* GuessCase */ = {
+			isa = PBXGroup;
+			children = (
+				A2GSCV001F90000100000001 /* GuessCaseView.swift */,
+				A2GSVM001F90000100000001 /* GuessCaseViewModel.swift */,
+			);
+			path = GuessCase;
+			sourceTree = "<group>";
+		};
+		A2CMNG001F90000100000001 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A2CSVW001F90000100000001 /* ComingSoonView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		52DA8B122ECF20FE00129F4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52AD00052F90000100000005 /* Admin */,
 				527A7EFF2F26A75A00C77843 /* AboutApp */,
+				A2CMNG001F90000100000001 /* Common */,
 				5299CA412EFF0AFB00BBEE3F /* Base */,
 				52A0E0F02F035B4100822AAF /* ChooseSprintLevel */,
 				52FD17DE2F6DA890005F04D2 /* GlobalRanking */,
@@ -921,6 +968,7 @@
 				527A7E752F16B1DC00C77843 /* MyProgress */,
 				52DA8B042ECF20FE00129F4E /* Navigation */,
 				52FD17742F6BFB14005F04D2 /* OnboardingProfile */,
+				A2GSGRP01F90000100000001 /* GuessCase */,
 				52DA8B082ECF20FE00129F4E /* Quiz */,
 				52DA8B0B2ECF20FE00129F4E /* Result */,
 				52A0E1002F06DBF800822AAF /* Review */,
@@ -1278,6 +1326,10 @@
 				5299CA3B2EFEFD1100BBEE3F /* SpeedQuizView.swift in Sources */,
 				52DA8B222ECF20FE00129F4E /* Learning_prepositions_is_easyApp.swift in Sources */,
 				5299C9C72EE9F63100BBEE3F /* AppConfig.swift in Sources */,
+				A2NFBP002F90000100000002 /* NewFeatureBadgePolicy.swift in Sources */,
+				A2CSVW002F90000100000002 /* ComingSoonView.swift in Sources */,
+				A2GSCV002F90000100000002 /* GuessCaseView.swift in Sources */,
+				A2GSVM002F90000100000002 /* GuessCaseViewModel.swift in Sources */,
 				5299CA382EFEFCBF00BBEE3F /* QuizDifficulty.swift in Sources */,
 				52FD17712F6BF6EA005F04D2 /* UserProfile.swift in Sources */,
 				52B14B202F7B2D100021AE67 /* UserSessionStats.swift in Sources */,
@@ -1286,6 +1338,10 @@
 				52B14B132F7B2D060021AE67 /* VerbEntity.swift in Sources */,
 				52A0E1332F0DA87B00822AAF /* TrainingCompletionView.swift in Sources */,
 				52A0E1392F0DB01100822AAF /* TrainingBatchCheckpointView.swift in Sources */,
+				52AD00022F90000100000002 /* AdminAccess.swift in Sources */,
+				52AD00042F90000100000004 /* AdminGateView.swift in Sources */,
+				52AD00062F90000100000006 /* AdminStatsService.swift in Sources */,
+				52AD00082F90000100000008 /* AdminDashboardView.swift in Sources */,
 				5299CA2A2EF02F7600BBEE3F /* TrainingView.swift in Sources */,
 				527A7E792F16B20300C77843 /* MyProgressView.swift in Sources */,
 				527A7E742F1415D000C77843 /* WordValidator.swift in Sources */,
@@ -1470,6 +1526,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1537,6 +1594,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1594,11 +1652,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1617,7 +1676,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1627,6 +1686,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_INCLUDE_PATHS = "$(inherited) ${PODS_ROOT}/GoogleUtilitiesShims";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1639,11 +1699,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Learning_prepositions_is_easy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				ENABLE_PREVIEWS = YES;
@@ -1661,7 +1722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1671,6 +1732,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_INCLUDE_PATHS = "$(inherited) ${PODS_ROOT}/GoogleUtilitiesShims";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1681,9 +1743,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1695,7 +1758,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1714,9 +1777,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = PrepoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PrepoWidget/Info.plist;
@@ -1728,7 +1792,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vladpodvoiskyi.prapode.PrepoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1747,6 +1811,7 @@
 			baseConfigurationReference = B94A53697E4210D561EC84FB /* Pods-Learning_prepositions_is_easy.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;
@@ -1773,6 +1838,7 @@
 			baseConfigurationReference = 79C5E14B035666166C3528D0 /* Pods-Learning_prepositions_is_easy.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_EXPLICIT_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 28QWPQX3PF;

@@ -16,6 +16,7 @@ enum AppConfig {
         static let questionCount = "questionCount"
         static let quizResults = "quizResults"
         static let hasShownLevelHint = "hasShownLevelHint"
+        static let firstLaunchDate = "firstLaunchDate"
         static let lastReviewRequestDate = "lastReviewRequestDate"
         static let selectedLanguage = "selectedLanguage"
         static let selectedLevel = "selectedLevel"

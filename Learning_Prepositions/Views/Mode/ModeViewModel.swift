@@ -41,9 +41,9 @@ final class ModeViewModel: BaseDataViewModel {
         case .akkusativ, .dativ:
             return words.filter { $0.caseType == mode.title }.shuffled()
         case .az:
-            return words.sorted(by: { $0.base > $1.base })
+            return words.sortedAlphabetically(language: currentLanguage)
         case .za:
-            return words.sorted(by: { $0.base < $1.base })
+            return words.sortedAlphabetically(language: currentLanguage, descending: true)
         }
     }
 }

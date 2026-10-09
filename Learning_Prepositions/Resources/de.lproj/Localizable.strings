@@ -48,6 +48,11 @@
 "category.adjektive.subtitle" = "mit Präpositionen";
 "category.nomen.title" = "Nomen";
 "category.nomen.subtitle" = "mit Präpositionen";
+"category.nomenverb.title" = "Verbindungen";
+"category.nomenverb.subtitle" = "Nomen + Verb";
+"category.badge.new" = "NEU";
+"category.prepositions.title" = "Alle Präpositionen";
+"category.prepositions.subtitle" = "Grammatik-Leitfaden";
 
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Modus wählen";
@@ -56,11 +61,17 @@
 "universalMenu.activity.sprint.title" = "Sprint";
 "universalMenu.activity.progress.title" = "Mein Fortschritt";
 "universalMenu.activity.writing.title" = "Schreiben";
-"universalMenu.prepositions.title" = "Präpositionen";
+"universalMenu.prepositions.title" = "Alle Präpositionen";
 
 //================================================ Prepositions guide =================================================
-"prepositions.list.title" = "Präpositionen";
+"prepositions.list.title" = "Alle Präpositionen";
 "prepositions.list.subtitle" = "Deutsche Präpositionen nach Kasus — tippen für Details";
+"prepositions.all.title" = "Alle Präpositionen";
+"prepositions.all.subtitle" = "vollständige Liste";
+"prepositions.guessCase.title" = "Kasus erraten";
+"prepositions.guessCase.subtitle" = "Akk, Dat oder Gen?";
+"prepositions.guessCase.prompt" = "Welcher Kasus?";
+"comingSoon.message" = "Kommt im nächsten Update";
 "prepositions.learnMore" = "Über „%@“";
 "prepositions.detail.meaning" = "Bedeutung";
 "prepositions.detail.grammar" = "Grammatik";
@@ -102,6 +113,7 @@
 "leaderboard.picker.quiz.title" = "Quiz";
 "leaderboard.picker.sprint.title" = "Sprint";
 "leaderboard.picker.writing.title" = "Schreiben";
+"leaderboard.picker.guessCase.title" = "Kasus";
 "leaderboard.no_results.description" = "Keine Ergebnisse für dieses Niveau 🙃";
 
 //================================================ Settings screen ===================================================================

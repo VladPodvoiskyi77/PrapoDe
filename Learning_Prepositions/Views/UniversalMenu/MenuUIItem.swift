@@ -7,10 +7,14 @@ struct MenuUIItem: Identifiable {
     var iconLetter: String? = nil
     let iconColor: Color
     let payload: MenuPayload
+    var badgeText: String? = nil
 }
 
 enum MenuPayload {
     case category(Category)
     case mode(Activity)
+    case prepositionsHub
+    case allPrepositions
+    case guessCase
 }
 

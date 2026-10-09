@@ -48,6 +48,11 @@
 "category.adjektive.subtitle" = "з прийменниками";
 "category.nomen.title" = "Іменники";
 "category.nomen.subtitle" = "з прийменниками";
+"category.nomenverb.title" = "Сполуки";
+"category.nomenverb.subtitle" = "іменник + дієслово";
+"category.badge.new" = "NEW";
+"category.prepositions.title" = "Усі прийменники";
+"category.prepositions.subtitle" = "довідник";
 
 //================================================ UniversalMenu - Activity screen =================================================
 "universalMenu.activity.title" = "Обери режим";
@@ -56,11 +61,17 @@
 "universalMenu.activity.sprint.title" = "Спринт";
 "universalMenu.activity.progress.title" = "Мій прогрес";
 "universalMenu.activity.writing.title" = "Правопис";
-"universalMenu.prepositions.title" = "Прийменники";
+"universalMenu.prepositions.title" = "Усі прийменники";
 
 //================================================ Prepositions guide =================================================
-"prepositions.list.title" = "Прийменники";
+"prepositions.list.title" = "Усі прийменники";
 "prepositions.list.subtitle" = "Німецькі прийменники за відмінками — натисни для детального пояснення";
+"prepositions.all.title" = "Усі прийменники";
+"prepositions.all.subtitle" = "повний список";
+"prepositions.guessCase.title" = "Вгадай відмінок";
+"prepositions.guessCase.subtitle" = "Akk, Dat чи Gen?";
+"prepositions.guessCase.prompt" = "Який відмінок?";
+"comingSoon.message" = "З'явиться в наступному оновленні";
 "prepositions.learnMore" = "Про прийменник «%@»";
 "prepositions.detail.meaning" = "Значення";
 "prepositions.detail.grammar" = "Граматика";
@@ -102,6 +113,7 @@
 "leaderboard.picker.quiz.title" = "Квіз";
 "leaderboard.picker.sprint.title" = "Спринт";
 "leaderboard.picker.writing.title" = "Правопис";
+"leaderboard.picker.guessCase.title" = "Відмінок";
 "leaderboard.no_results.description" = "Немає результатів для цього рівня 🙃";
 
 //================================================ Settings screen ===================================================================

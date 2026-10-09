@@ -80,10 +80,6 @@ struct WordRowView: View {
     }
     
     private var caseColor: Color {
-        let type = caseType.lowercased()
-        if type.contains("akk") { return .pink }
-        else if type.contains("dat") { return .indigo }
-        else if type.contains("gen") { return .teal }
-        return .gray
+        caseType.caseColor
     }
 }

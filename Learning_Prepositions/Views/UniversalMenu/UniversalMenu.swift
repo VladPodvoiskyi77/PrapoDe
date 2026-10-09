@@ -13,6 +13,9 @@ struct UniversalMenuView: View {
     @State private var showSettings = false
     @State private var isRotating = false
     @State private var isMenuVisible = false
+    @State private var secretTaps = 0
+    @State private var showAdminGate = false
+    @State private var secretTapResetWork: DispatchWorkItem?
     
     init(type: MenuScreenType, category: Category) {
         self.type = type
@@ -41,6 +44,7 @@ struct UniversalMenuView: View {
                                 iconName: item.iconName,
                                 iconColor: item.iconColor,
                                 iconLetter: item.iconLetter,
+                                badgeText: item.badgeText,
                                 staggerIndex: index,
                                 isMenuVisible: isMenuVisible,
                                 action: { handleSelection(item) }
@@ -75,18 +79,34 @@ struct UniversalMenuView: View {
                 }
                 .zIndex(100)
             }
-            
+
+            if type == .main {
+                Color.clear
+                    .frame(width: 88, height: 88)
+                    .contentShape(Rectangle())
+                    .onTapGesture { registerSecretTap() }
+                    .accessibilityHidden(true)
+                    .padding(.trailing, 12)
+                    .padding(.bottom, 28)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    .zIndex(50)
+            }
+
+        }
+        .fullScreenCover(isPresented: $showAdminGate) {
+            AdminGateView(isPresented: $showAdminGate)
         }
         
         .toolbar {
             if type == .main {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        nav.goTo(.prepositionsList)
+                        nav.goTo(.aboutApp)
                     } label: {
                         Image(systemName: "questionmark.circle")
                             .fontWeight(.medium)
                     }
+                    .accessibilityLabel(L10n.About.title)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -121,9 +141,14 @@ struct UniversalMenuView: View {
         }
         .onDisappear {
             isMenuVisible = false
+            secretTapResetWork?.cancel()
+            secretTaps = 0
         }
         .errorAlert(isPresented: $viewModel.showError, error: viewModel.appError) {
             fetchDataAndShowView(selectedMode: nav.selectedMode)
+        }
+        .onChange(of: viewModel.selectedLanguageRaw) { _, _ in
+            viewModel.refreshMenu()
         }
     }
     
@@ -148,6 +173,20 @@ struct UniversalMenuView: View {
     
     // MARK: - Logic & Actions
     
+    private func registerSecretTap() {
+        secretTaps += 1
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        secretTapResetWork?.cancel()
+        if secretTaps >= AdminAccess.requiredTaps {
+            secretTaps = 0
+            showAdminGate = true
+            return
+        }
+        let work = DispatchWorkItem { secretTaps = 0 }
+        secretTapResetWork = work
+        DispatchQueue.main.asyncAfter(deadline: .now() + AdminAccess.tapResetInterval, execute: work)
+    }
+
     private func openSettings() {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
             isRotating.toggle()
@@ -162,6 +201,15 @@ struct UniversalMenuView: View {
         switch item.payload {
         case .category(let selectedCategory):
             nav.goTo(.activity(selectedCategory))
+
+        case .prepositionsHub:
+            nav.goTo(.prepositionsHub)
+
+        case .allPrepositions:
+            nav.goTo(.prepositionsList)
+
+        case .guessCase:
+            nav.goTo(.guessCase)
             
         case .mode(let selectedMode):
             nav.selectedMode = selectedMode

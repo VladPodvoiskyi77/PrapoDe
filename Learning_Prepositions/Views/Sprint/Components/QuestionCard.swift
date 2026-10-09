@@ -4,6 +4,7 @@ struct QuestionCard: View {
     let item: WordItem
     let isAnswered: Bool
     var isCompactHeight = false
+    var alwaysHighlightPreposition = false
 
     private var baseFontSize: CGFloat {
         let length = item.example.count
@@ -22,7 +23,7 @@ struct QuestionCard: View {
     }
 
     var body: some View {
-        let questionText = isAnswered
+        let questionText = (isAnswered || alwaysHighlightPreposition)
             ? item.exampleWithHighlighted(word: item.preposition, size: baseFontSize + 2)
             : AttributedString(item.exampleWithHiddenPreposition())
 

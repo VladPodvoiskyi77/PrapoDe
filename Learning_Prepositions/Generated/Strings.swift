@@ -133,11 +133,27 @@ internal enum L10n {
       /// Adjectives
       internal static let title = L10n.tr("Localizable", "category.adjektive.title", fallback: "Adjectives")
     }
+    internal enum Badge {
+      /// NEW
+      internal static let new = L10n.tr("Localizable", "category.badge.new", fallback: "NEW")
+    }
     internal enum Nomen {
       /// with prepositions
       internal static let subtitle = L10n.tr("Localizable", "category.nomen.subtitle", fallback: "with prepositions")
       /// Nouns
       internal static let title = L10n.tr("Localizable", "category.nomen.title", fallback: "Nouns")
+    }
+    internal enum Nomenverb {
+      /// noun + verb
+      internal static let subtitle = L10n.tr("Localizable", "category.nomenverb.subtitle", fallback: "noun + verb")
+      /// Collocations
+      internal static let title = L10n.tr("Localizable", "category.nomenverb.title", fallback: "Collocations")
+    }
+    internal enum Prepositions {
+      /// grammar guide
+      internal static let subtitle = L10n.tr("Localizable", "category.prepositions.subtitle", fallback: "grammar guide")
+      /// All prepositions
+      internal static let title = L10n.tr("Localizable", "category.prepositions.title", fallback: "All prepositions")
     }
     internal enum Verben {
       /// with prepositions
@@ -145,6 +161,10 @@ internal enum L10n {
       /// Verbs
       internal static let title = L10n.tr("Localizable", "category.verben.title", fallback: "Verbs")
     }
+  }
+  internal enum ComingSoon {
+    /// Coming in the next update
+    internal static let message = L10n.tr("Localizable", "comingSoon.message", fallback: "Coming in the next update")
   }
   internal enum Leaderboard {
     /// Your Best Results
@@ -154,6 +174,10 @@ internal enum L10n {
       internal static let description = L10n.tr("Localizable", "leaderboard.no_results.description", fallback: "No results for this level 🙃")
     }
     internal enum Picker {
+      internal enum GuessCase {
+        /// Case
+        internal static let title = L10n.tr("Localizable", "leaderboard.picker.guessCase.title", fallback: "Case")
+      }
       internal enum Quiz {
         /// Quiz
         internal static let title = L10n.tr("Localizable", "leaderboard.picker.quiz.title", fallback: "Quiz")
@@ -269,6 +293,12 @@ internal enum L10n {
     internal static func learnMore(_ p1: Any) -> String {
       return L10n.tr("Localizable", "prepositions.learnMore", String(describing: p1), fallback: "About \"%@\"")
     }
+    internal enum All {
+      /// complete list
+      internal static let subtitle = L10n.tr("Localizable", "prepositions.all.subtitle", fallback: "complete list")
+      /// All prepositions
+      internal static let title = L10n.tr("Localizable", "prepositions.all.title", fallback: "All prepositions")
+    }
     internal enum Detail {
       /// Don't confuse with
       internal static let contrast = L10n.tr("Localizable", "prepositions.detail.contrast", fallback: "Don't confuse with")
@@ -307,11 +337,19 @@ internal enum L10n {
         }
       }
     }
+    internal enum GuessCase {
+      /// Which case?
+      internal static let prompt = L10n.tr("Localizable", "prepositions.guessCase.prompt", fallback: "Which case?")
+      /// Akk, Dat or Gen?
+      internal static let subtitle = L10n.tr("Localizable", "prepositions.guessCase.subtitle", fallback: "Akk, Dat or Gen?")
+      /// Guess the case
+      internal static let title = L10n.tr("Localizable", "prepositions.guessCase.title", fallback: "Guess the case")
+    }
     internal enum List {
       /// German prepositions by case — tap for a detailed guide
       internal static let subtitle = L10n.tr("Localizable", "prepositions.list.subtitle", fallback: "German prepositions by case — tap for a detailed guide")
-      /// Prepositions
-      internal static let title = L10n.tr("Localizable", "prepositions.list.title", fallback: "Prepositions")
+      /// All prepositions
+      internal static let title = L10n.tr("Localizable", "prepositions.list.title", fallback: "All prepositions")
     }
   }
   internal enum Quiz {
@@ -610,8 +648,8 @@ internal enum L10n {
       }
     }
     internal enum Prepositions {
-      /// Prepositions
-      internal static let title = L10n.tr("Localizable", "universalMenu.prepositions.title", fallback: "Prepositions")
+      /// All prepositions
+      internal static let title = L10n.tr("Localizable", "universalMenu.prepositions.title", fallback: "All prepositions")
     }
   }
   internal enum WidgetWord {

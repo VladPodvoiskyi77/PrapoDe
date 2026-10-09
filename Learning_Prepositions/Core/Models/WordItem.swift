@@ -50,7 +50,7 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
     }
     
     var basePreposition: String {
-        base + " " + preposition
+        [base, preposition].filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }.joined(separator: " ")
     }
     
     func getAnswerOptions() -> [String] {
@@ -78,17 +78,14 @@ struct WordItem: Identifiable, Codable, Equatable, Hashable {
     }
     
     func exampleWithHighlighted(word: String, color: Color = .orange, size: CGFloat = 26) -> AttributedString {
-            var attributedString = AttributedString(example)
-            
-            if let range = attributedString.range(of: word, options: .caseInsensitive) {
-                attributedString[range].foregroundColor = color
-                
-                attributedString[range].font = .system(size: size, weight: .black, design: .rounded)
-                
-            }
-            
-            return attributedString
+        var attributedString = AttributedString(example)
+        for range in example.rangesOfStandaloneWord(word).reversed() {
+            guard let attributedRange = Range(range, in: attributedString) else { continue }
+            attributedString[attributedRange].foregroundColor = color
+            attributedString[attributedRange].font = .system(size: size, weight: .black, design: .rounded)
         }
+        return attributedString
+    }
     
     mutating func registerCorrectAnswer() {
         learningScore += 1
@@ -115,7 +112,23 @@ extension WordItem {
         return "\(basePreposition) - \(translationWordWithPrep(for: language))"
     }
     var caseColor: Color {
-        return caseType.localizedCaseInsensitiveContains("dativ") ? .red : .blue
+        caseType.caseColor
+    }
+
+    var quizCase: CaseType? {
+        CaseType.quizCase(from: caseType)
+    }
+}
+
+extension Array where Element == WordItem {
+    func sortedAlphabetically(language: Language, descending: Bool = false) -> [WordItem] {
+        sorted { lhs, rhs in
+            let result = language.compare(lhs.base, rhs.base)
+            if descending {
+                return result == .orderedDescending
+            }
+            return result == .orderedAscending
+        }
     }
 }
 

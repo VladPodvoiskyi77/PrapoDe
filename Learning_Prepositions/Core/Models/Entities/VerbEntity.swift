@@ -45,10 +45,11 @@ final class VerbEntity {
     
     var caseColor: Color {
         let type = caseTypeRaw.lowercased()
-        if type.contains("nom") { return .green }
-        if type.contains("akk") { return .blue }
-        if type.contains("dat") { return .teal }
-        if type.contains("gen") { return .red }
+        if type.contains("akk") { return CaseType.akkusativ.color }
+        if type.contains("dat") { return CaseType.dativ.color }
+        if type.contains("nom") { return CaseType.nominativ.color }
+        if type.contains("gen") { return CaseType.genitiv.color }
+        if type.contains("fest") { return CaseType.nominativ.color }
         return .gray
     }
     
@@ -58,6 +59,7 @@ final class VerbEntity {
         if type.contains("akk") { return "AKK" }
         if type.contains("dat") { return "DAT" }
         if type.contains("gen") { return "GEN" }
+        if type.contains("fest") { return "FVG" }
         return "???"
     }
     

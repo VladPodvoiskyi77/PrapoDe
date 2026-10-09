@@ -114,10 +114,10 @@ enum PrepositionCaseGroup: String {
     
     var accentColorName: String {
         switch self {
-        case .dativ: return "blue"
+        case .dativ: return "purple"
         case .akkusativ: return "orange"
-        case .wechsel: return "purple"
-        case .genitiv: return "teal"
+        case .wechsel: return "teal"
+        case .genitiv: return "blue"
         }
     }
 }

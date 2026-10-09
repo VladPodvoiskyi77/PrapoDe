@@ -2,10 +2,13 @@ import SwiftUI
 
 extension String {
     var caseColor: Color {
-        if self.contains("Akk") { return .blue.opacity(0.8) }
-        if self.contains("Dat") { return .green.opacity(0.8) }
-        if self.contains("Nom") { return .purple.opacity(0.8) }
-        return .orange
+        let type = lowercased()
+        if type.contains("akk") { return CaseType.akkusativ.color }
+        if type.contains("dat") { return CaseType.dativ.color }
+        if type.contains("nom") { return CaseType.nominativ.color }
+        if type.contains("gen") { return CaseType.genitiv.color }
+        if type.contains("fest") { return CaseType.nominativ.color }
+        return .gray
     }
     
     func isEquivalentIgnoringUmlauts(to target: String) -> Bool {

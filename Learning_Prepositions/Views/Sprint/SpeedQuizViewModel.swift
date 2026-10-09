@@ -191,6 +191,7 @@ final class SpeedQuizViewModel: ObservableObject {
     }
     
     func saveResult(with finalTime: TimeInterval? = nil) {
+        guard !sessionCompleted else { return }
         sessionCompleted = true
         let rawTime = finalTime ?? (finalCapturedTime > 0 ? finalCapturedTime : timeElapsed)
         
@@ -222,7 +223,9 @@ final class SpeedQuizViewModel: ObservableObject {
         
         if UserProfileManager.shared.isProfileSetupComplete {
             let firebaseService = FirebaseLeaderboardService()
-            firebaseService.uploadResult(result, quizDifficulty: difficulty, profile: UserProfileManager.shared)
+            Task {
+                await firebaseService.uploadResult(result, quizDifficulty: difficulty, profile: UserProfileManager.shared)
+            }
         }
         
         saveProgressSafely()

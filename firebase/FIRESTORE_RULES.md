@@ -7,7 +7,7 @@ Project: **prapode-bf274**
 | Коллекция | Read | Write / Delete |
 |-----------|------|----------------|
 | `global_leaderboard` | Любой авторизованный пользователь (в т.ч. anonymous) | Create/update/delete только своих документов `{uid}_{gameType}_{total}_{level}` |
-| `users` | Только свой профиль | Create/update/delete только своего профиля |
+| `users` | Свой профиль; list коллекции закрыт | Create/update/delete только своего профиля |
 | Всё остальное | Запрещено | Запрещено |
 
 ### Валидация рейтинга

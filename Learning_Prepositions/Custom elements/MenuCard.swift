@@ -5,6 +5,7 @@ struct MenuCard: View {
     let iconName: String
     let iconColor: Color
     var iconLetter: String? = nil
+    var badgeText: String? = nil
     var backgroundColor: AnyShapeStyle = AnyShapeStyle(AppTheme.cardBackground)
     var staggerIndex: Int = 0
     var isMenuVisible: Bool = true
@@ -50,6 +51,32 @@ struct MenuCard: View {
                     .fill(backgroundColor)
                     .shadow(color: AppTheme.cardShadow, radius: 8, x: 0, y: 4)
             )
+            .overlay(alignment: .topTrailing) {
+                if let badgeText, !badgeText.isEmpty {
+                    Text(badgeText)
+                        .font(.system(size: 11, weight: .heavy, design: .rounded))
+                        .tracking(0.6)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 9)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 1, green: 0.42, blue: 0.28),
+                                            Color(red: 1, green: 0.2, blue: 0.45)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .shadow(color: Color.pink.opacity(0.35), radius: 4, y: 2)
+                        )
+                        .padding(.top, 10)
+                        .padding(.trailing, 12)
+                }
+            }
         }
         .buttonStyle(ScaleButtonStyle())
         .staggeredMenuAppearance(index: staggerIndex, isVisible: isMenuVisible)

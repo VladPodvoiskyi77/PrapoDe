@@ -7,6 +7,7 @@ struct TrainingView: View {
     @State private var showExitAlert = false
     @State private var plusOnePulse = 0
     @State private var prepositionSheetItem: PrepositionDetailSheetItem?
+    @State private var pendingSwipe: FlashcardSwipeCommand?
 
     private let maxVisibleCards = 3
 
@@ -61,6 +62,9 @@ struct TrainingView: View {
                         ForEach(visibleWords(), id: \.id) { word in
                             FlashcardView(
                                 word: word,
+                                swipeCommand: word.id == viewModel.words.last?.id
+                                    ? $pendingSwipe
+                                    : .constant(nil),
                                 onRemove: { viewModel.markKnown() },
                                 onReturn: { viewModel.markRepeat() },
                                 onKnowSwipe: { plusOnePulse += 1 },
@@ -154,23 +158,42 @@ struct TrainingView: View {
 
     private var controlsHintView: some View {
         HStack {
-            HintCapsule(
-                text: L10n.Training.Action.repeat,
-                icon: "arrow.counterclockwise",
-                color: .red
-            )
+            Button {
+                pendingSwipe = .repeat
+            } label: {
+                HintCapsule(
+                    text: L10n.Training.Action.repeat,
+                    icon: "arrow.counterclockwise",
+                    color: .red
+                )
+            }
+            .buttonStyle(TrainingHintButtonStyle())
             .opacity(0.9)
+
             Spacer()
 
-            HintCapsule(
-                text: L10n.Training.Action.know,
-                icon: "checkmark",
-                color: .green
-            )
+            Button {
+                pendingSwipe = .know
+            } label: {
+                HintCapsule(
+                    text: L10n.Training.Action.know,
+                    icon: "checkmark",
+                    color: .green
+                )
+            }
+            .buttonStyle(TrainingHintButtonStyle())
             .opacity(0.9)
         }
         .padding(.horizontal, 30)
         .padding(.bottom, 10)
+    }
+}
+
+private struct TrainingHintButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.96 : 1)
+            .opacity(configuration.isPressed ? 0.85 : 1)
     }
 }
 

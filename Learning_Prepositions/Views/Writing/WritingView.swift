@@ -32,7 +32,8 @@ struct WritingView: View {
                     .font(.system(size: 12, weight: .heavy))
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(.ultraThinMaterial)
+                    .background(viewModel.currentWord.caseColor)
+                    .foregroundStyle(.white)
                     .clipShape(Capsule())
             }
             .padding(.top, 40)

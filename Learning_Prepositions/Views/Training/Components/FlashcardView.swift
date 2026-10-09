@@ -1,11 +1,18 @@
 import SwiftUI
 
+enum FlashcardSwipeCommand {
+    case know
+    case `repeat`
+}
+
 struct FlashcardView: View {
     let word: WordItem
 
     @State private var isFlipped = false
     @State private var dragOffset: CGSize = .zero
-    
+    @State private var isCompletingSwipe = false
+
+    var swipeCommand: Binding<FlashcardSwipeCommand?> = .constant(nil)
     var onRemove: (() -> Void)?
     var onReturn: (() -> Void)?
     var onKnowSwipe: (() -> Void)?
@@ -68,8 +75,12 @@ struct FlashcardView: View {
         }
         .gesture(
             DragGesture()
-                .onChanged { gesture in dragOffset = gesture.translation }
+                .onChanged { gesture in
+                    guard !isCompletingSwipe else { return }
+                    dragOffset = gesture.translation
+                }
                 .onEnded { gesture in
+                    guard !isCompletingSwipe else { return }
                     let threshold: CGFloat = 100
                     if gesture.translation.width > threshold {
                         completeSwipe(direction: 1000, action: onRemove)
@@ -80,6 +91,16 @@ struct FlashcardView: View {
                     }
                 }
         )
+        .onChange(of: swipeCommand.wrappedValue) { _, command in
+            guard let command else { return }
+            swipeCommand.wrappedValue = nil
+            switch command {
+            case .know:
+                completeSwipe(direction: 1000, action: onRemove)
+            case .repeat:
+                completeSwipe(direction: -1000, action: onReturn)
+            }
+        }
     }
     
     // MARK: - FRONT SIDE (ВОПРОС)
@@ -164,16 +185,12 @@ struct FlashcardView: View {
                 .offset(y: -15)
                 .zIndex(1)
 
-            masteryProgressView
-                .padding(.top, -4)
-                .padding(.bottom, 8)
-            
             VStack(spacing: 8) {
                 VStack(alignment: .leading, spacing: 12) {
                     Image(systemName: "quote.opening")
                         .font(.title2)
                         .foregroundColor(accentColor.opacity(0.5))
-                    
+
                     Text(word.example)
                         .font(.system(size: 18, weight: .medium, design: .serif))
                         .foregroundColor(.primary)
@@ -199,6 +216,7 @@ struct FlashcardView: View {
                 .frame(maxWidth: .infinity)
             }
             .padding(.horizontal, 20)
+            .padding(.top, 8)
             
             Spacer(minLength: 12)
 
@@ -221,22 +239,6 @@ struct FlashcardView: View {
     
     // MARK: - OVERLAY & HELPERS
 
-    private var masteryProgressView: some View {
-        HStack(spacing: 4) {
-            if word.isLearned {
-                Image(systemName: "checkmark.seal.fill")
-                    .foregroundStyle(.green)
-                    .font(.title3)
-            } else {
-                ForEach(0..<WordItem.masteryThreshold, id: \.self) { index in
-                    Circle()
-                        .fill(index < word.learningScore ? accentColor : Color.gray.opacity(0.25))
-                        .frame(width: 8, height: 8)
-                }
-            }
-        }
-    }
-
     private var swipeStatusOverlay: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 32)
@@ -252,6 +254,9 @@ struct FlashcardView: View {
     }
     
     private func completeSwipe(direction: CGFloat, action: (() -> Void)?) {
+        guard !isCompletingSwipe else { return }
+        isCompletingSwipe = true
+
         if direction > 0 {
             onKnowSwipe?()
         }

@@ -9,16 +9,17 @@ extension Array where Element == WordItem {
     
     // MARK: - 2. Метод генерации квиза    
     func getWordsForQuiz(count: Int) -> [WordItem] {
-        guard !self.isEmpty else {
+        let quizItems = self.filter { !$0.preposition.trimmingCharacters(in: .whitespaces).isEmpty }
+        guard !quizItems.isEmpty else {
             print("⚠️ Warning: Attempted to get quiz words from an empty collection.")
             return []
         }
         
-        if self.count <= count {
-            return self.shuffled()
+        if quizItems.count <= count {
+            return quizItems.shuffled()
         }
         
-        let unlearnedSorted = self.filter { !$0.isLearned }
+        let unlearnedSorted = quizItems.filter { !$0.isLearned }
             .sorted { $0.learningScore < $1.learningScore }
         
         if unlearnedSorted.count >= count {
@@ -29,7 +30,7 @@ extension Array where Element == WordItem {
         
         let unlearned = unlearnedSorted
         
-        let learned = self.filter { $0.isLearned }
+        let learned = quizItems.filter { $0.isLearned }
             .sorted {
                 if $0.learningScore != $1.learningScore {
                     return $0.learningScore < $1.learningScore
